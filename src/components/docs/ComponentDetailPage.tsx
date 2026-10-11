@@ -23,6 +23,11 @@ import {
   Pause,
   Lock,
   Unlock,
+  Home,
+  Inbox,
+  Folder,
+  Users,
+  Settings,
 } from 'lucide-react';
 import { EASY_COMPONENTS } from '../registry/components-data';
 import { cn, copyToClipboard } from '../../lib/utils';
@@ -33,6 +38,7 @@ import { NewBadge } from '../common/NewBadge';
 import { useTheme } from '../../lib/theme/useTheme';
 import type { ThinkingOrbState } from '../ui/ThinkingOrb';
 import type { DragConfirmActionType, DragConfirmSize } from '../ui/DragToConfirm';
+import type { SidebarSection } from '../ui/sidebar';
 import { lazyWithPreload, type PreloadableComponent } from '../../lib/lazy-preload';
 
 // Live demonstrations are split into route-level chunks. The detail shell can
@@ -148,6 +154,21 @@ const SpeedWarp = lazyNamed(() => import('../ui/SpeedWarp'), 'SpeedWarp');
 const SplitButton = lazyNamed(() => import('../ui/SplitButton'), 'SplitButton');
 const NotFound = lazyNamed(() => import('../ui/NotFound'), 'NotFound');
 const PullToRefresh = lazyNamed(() => import('../ui/PullToRefresh'), 'PullToRefresh');
+const Sidebar = lazyNamed(() => import('../ui/sidebar'), 'Sidebar');
+const SidebarTrigger = lazyNamed(() => import('../ui/sidebar'), 'SidebarTrigger');
+const Calendar = lazyNamed(() => import('../ui/calendar'), 'Calendar');
+const DatePicker = lazyNamed(() => import('../ui/date-picker'), 'DatePicker');
+const DateRangePicker = lazyNamed(() => import('../ui/date-picker'), 'DateRangePicker');
+const Combobox = lazyNamed(() => import('../ui/combobox'), 'Combobox');
+const Sheet = lazyNamed(() => import('../ui/sheet'), 'Sheet');
+const SheetTrigger = lazyNamed(() => import('../ui/sheet'), 'SheetTrigger');
+const SheetContent = lazyNamed(() => import('../ui/sheet'), 'SheetContent');
+const SheetHeader = lazyNamed(() => import('../ui/sheet'), 'SheetHeader');
+const SheetTitle = lazyNamed(() => import('../ui/sheet'), 'SheetTitle');
+const SheetDescription = lazyNamed(() => import('../ui/sheet'), 'SheetDescription');
+const SheetBody = lazyNamed(() => import('../ui/sheet'), 'SheetBody');
+const SheetFooter = lazyNamed(() => import('../ui/sheet'), 'SheetFooter');
+const SheetClose = lazyNamed(() => import('../ui/sheet'), 'SheetClose');
 const AIResponseLiveShowcase = lazyNamed(() => import('./sections/NewComponentsShowcase'), 'AIResponseLiveShowcase');
 const AdvancedDataTableLiveShowcase = lazyNamed(() => import('./sections/NewComponentsShowcase'), 'AdvancedDataTableLiveShowcase');
 const ChatLiveShowcase = lazyNamed(() => import('./sections/NewComponentsShowcase'), 'ChatLiveShowcase');
@@ -257,6 +278,11 @@ const DEMO_PRELOADERS: Record<string, () => Promise<any>> = {
   'split-button': () => SplitButton.preload(),
   'not-found': () => NotFound.preload(),
   'pull-to-refresh': () => PullToRefresh.preload(),
+  'sidebar': () => Promise.all([Sidebar.preload(), SidebarTrigger.preload()]),
+  'calendar': () => Calendar.preload(),
+  'date-picker': () => Promise.all([DatePicker.preload(), DateRangePicker.preload()]),
+  'combobox': () => Combobox.preload(),
+  'sheet': () => Promise.all([Sheet.preload(), SheetTrigger.preload(), SheetContent.preload(), SheetHeader.preload(), SheetTitle.preload(), SheetDescription.preload(), SheetBody.preload(), SheetFooter.preload(), SheetClose.preload()]),
   'ai-response': () => AIResponseLiveShowcase.preload(),
   'advanced-data-table': () => AdvancedDataTableLiveShowcase.preload(),
   'chat': () => ChatLiveShowcase.preload(),
@@ -1281,6 +1307,142 @@ const TorqueDialShowcase: React.FC = () => {
     </div>
   );
 };
+
+/* ── Batch demos: Sidebar, Calendar, Date Picker, Combobox, Sheet ── */
+
+const SIDEBAR_DEMO_SECTIONS: SidebarSection[] = [
+  {
+    items: [
+      { id: 'home', label: 'Home', icon: <Home /> },
+      { id: 'inbox', label: 'Inbox', icon: <Inbox />, badge: 4 },
+    ],
+  },
+  {
+    title: 'Workspace',
+    items: [
+      {
+        id: 'projects',
+        label: 'Projects',
+        icon: <Folder />,
+        children: [
+          { id: 'projects-active', label: 'Active', badge: 12 },
+          { id: 'projects-archived', label: 'Archived' },
+        ],
+      },
+      { id: 'team', label: 'Team', icon: <Users /> },
+      { id: 'settings', label: 'Settings', icon: <Settings /> },
+    ],
+  },
+];
+
+const SidebarDemo: React.FC = () => {
+  const [active, setActive] = useState('home');
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  return (
+    <div className="flex h-[340px] w-full max-w-xl mx-auto overflow-hidden rounded-2xl border border-black/[0.06] dark:border-white/[0.08] bg-white dark:bg-[#0E0E10]">
+      <Sidebar
+        sections={SIDEBAR_DEMO_SECTIONS}
+        activeId={active}
+        onActiveChange={setActive}
+        header={
+          <div className="flex items-center gap-2.5">
+            <div className="grid size-6 shrink-0 place-items-center rounded-md bg-neutral-900 text-xs font-semibold text-white dark:bg-white dark:text-neutral-900">
+              e
+            </div>
+            <span className="text-sm font-medium">easyui</span>
+          </div>
+        }
+        mobileOpen={mobileOpen}
+        onMobileOpenChange={setMobileOpen}
+      />
+      <main className="flex flex-1 flex-col items-start gap-3 p-4">
+        <SidebarTrigger onClick={() => setMobileOpen(true)} />
+        <p className="text-xs text-text-muted">
+          Press <kbd className="rounded border border-black/10 dark:border-white/15 px-1 text-[10px]">⌘B</kbd> to
+          collapse — or shrink the window for the mobile drawer.
+        </p>
+      </main>
+    </div>
+  );
+};
+
+const CalendarDemo: React.FC = () => (
+  <div className="w-fit rounded-2xl border border-black/[0.06] dark:border-white/[0.08] bg-white dark:bg-[#121214] shadow-xs overflow-hidden">
+    <Calendar />
+  </div>
+);
+
+const DatePickerDemo: React.FC = () => (
+  <div className="flex flex-col sm:flex-row min-h-[460px] sm:min-h-0 sm:h-[400px] w-full max-w-2xl items-center sm:items-start justify-start sm:justify-center self-start gap-4 sm:gap-6 pt-2 sm:pt-4">
+    <DatePicker placeholder="Pick a date" className="w-72 max-w-full" />
+    <DateRangePicker placeholder="Pick a range" className="w-72 max-w-full" />
+  </div>
+);
+
+const COMBOBOX_DEMO_OPTIONS = [
+  { value: 'next', label: 'Next.js', description: 'React framework' },
+  { value: 'remix', label: 'Remix', description: 'Web standards' },
+  { value: 'astro', label: 'Astro', description: 'Content sites', keywords: ['islands'] },
+  { value: 'vite', label: 'Vite', description: 'Dev server', disabled: true },
+  { value: 'svelte', label: 'SvelteKit', description: 'Compiler-based' },
+];
+
+const ComboboxDemo: React.FC = () => (
+  <div className="flex h-[380px] w-full max-w-sm items-start justify-center pt-2">
+    <Combobox options={COMBOBOX_DEMO_OPTIONS} defaultValue="next" placeholder="Framework" />
+  </div>
+);
+
+const SheetDemo: React.FC = () => (
+  <Sheet>
+    <SheetTrigger className="h-9 rounded-lg bg-[var(--text-primary)] px-4 text-xs font-medium text-[var(--bg)] cursor-pointer">
+      Open sheet
+    </SheetTrigger>
+    <SheetContent side="right">
+      <SheetHeader>
+        <SheetTitle>Edit profile</SheetTitle>
+        <SheetDescription>
+          Make changes, then save. Drag the sheet right — or swipe on touch — to dismiss.
+        </SheetDescription>
+      </SheetHeader>
+      <SheetBody>
+        <div className="space-y-4">
+          <div className="space-y-1.5">
+            <label className="text-xs font-medium text-neutral-600 dark:text-neutral-400">Name</label>
+            <input
+              defaultValue="Suraj Maurya"
+              className="h-9 w-full rounded-lg border border-neutral-200 bg-transparent px-3 text-sm outline-none focus-visible:ring-2 focus-visible:ring-neutral-400/40 dark:border-neutral-800 dark:focus-visible:ring-neutral-600/50"
+            />
+          </div>
+          <div className="space-y-1.5">
+            <label className="text-xs font-medium text-neutral-600 dark:text-neutral-400">Email</label>
+            <input
+              defaultValue="suraj@easyui.site"
+              className="h-9 w-full rounded-lg border border-neutral-200 bg-transparent px-3 text-sm outline-none focus-visible:ring-2 focus-visible:ring-neutral-400/40 dark:border-neutral-800 dark:focus-visible:ring-neutral-600/50"
+            />
+          </div>
+          <div className="space-y-1.5">
+            <label className="text-xs font-medium text-neutral-600 dark:text-neutral-400">Bio</label>
+            <textarea
+              rows={3}
+              defaultValue="Building tactile, micro-animated React components."
+              className="w-full rounded-lg border border-neutral-200 bg-transparent px-3 py-2 text-sm outline-none resize-none focus-visible:ring-2 focus-visible:ring-neutral-400/40 dark:border-neutral-800 dark:focus-visible:ring-neutral-600/50"
+            />
+          </div>
+        </div>
+      </SheetBody>
+      <SheetFooter>
+        <SheetClose className="h-9 rounded-lg px-3 text-sm text-neutral-500 hover:text-neutral-900 dark:hover:text-white">
+          Cancel
+        </SheetClose>
+        <SheetClose className="h-9 rounded-lg bg-neutral-900 px-4 text-sm text-white dark:bg-white dark:text-neutral-900">
+          Save
+        </SheetClose>
+      </SheetFooter>
+    </SheetContent>
+  </Sheet>
+);
 
 const ToastDemo: React.FC = () => {
   const [open, setOpen] = useState(false);
@@ -3228,6 +3390,16 @@ const completion = await client.completions.create({
             <PullToRefresh key={demoKey} />
           </div>
         );
+      case 'sidebar':
+        return <SidebarDemo key={demoKey} />;
+      case 'calendar':
+        return <CalendarDemo key={demoKey} />;
+      case 'date-picker':
+        return <DatePickerDemo key={demoKey} />;
+      case 'combobox':
+        return <ComboboxDemo key={demoKey} />;
+      case 'sheet':
+        return <SheetDemo key={demoKey} />;
       default:
         return (
           <div className="py-12 text-center text-xs text-[#808080]">

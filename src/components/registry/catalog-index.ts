@@ -196,6 +196,21 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
     "featured": true
   },
   {
+    "id": "calendar",
+    "name": "Calendar",
+    "tagline": "Gliding selection pill & directional month slides",
+    "description": "A dependency-free calendar with a selected-day pill that glides from date to date, range support with a live hover preview band, and months that slide in the direction you navigate.",
+    "category": "Forms",
+    "badges": [
+      "Layout Springs",
+      "Keyboard Friendly",
+      "Light & Dark",
+      "Zero Dependencies"
+    ],
+    "cliCommand": "npx shadcn@latest add Surajmaurya1/easyui/calendar",
+    "createdAt": "2026-10-11"
+  },
+  {
     "id": "car-smoke-page-transition",
     "name": "Car Smoke Page Transition",
     "tagline": "Cinematic automotive page transition",
@@ -254,6 +269,21 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
     "createdAt": "2026-08-19"
   },
   {
+    "id": "combobox",
+    "name": "Combobox",
+    "tagline": "Gliding highlight & type-to-match underline",
+    "description": "A searchable select where one highlight glides between options as you move (keyboard or mouse), the match underlines as you type, and the check pops in on selection.",
+    "category": "Forms",
+    "badges": [
+      "Layout Springs",
+      "Keyboard Friendly",
+      "Searchable",
+      "Light & Dark"
+    ],
+    "cliCommand": "npx shadcn@latest add Surajmaurya1/easyui/combobox",
+    "createdAt": "2026-10-11"
+  },
+  {
     "id": "command-menu",
     "name": "Command Menu",
     "tagline": "Global ⌘K fuzzy palette with category grouping",
@@ -281,6 +311,21 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
     ],
     "cliCommand": "npx shadcn@latest add Surajmaurya1/easyui/cursor-follower",
     "createdAt": "2026-09-09"
+  },
+  {
+    "id": "date-picker",
+    "name": "Date Picker",
+    "tagline": "Origin-aware popover with a spring landing",
+    "description": "A date picker (and date range picker) whose popover pops from the trigger edge with a spring, flips above when there is no room below, lands the selection pill, then closes and hands focus back to the trigger.",
+    "category": "Forms",
+    "badges": [
+      "Spring In",
+      "Flip Up",
+      "Keyboard Friendly",
+      "Light & Dark"
+    ],
+    "cliCommand": "npx shadcn@latest add Surajmaurya1/easyui/date-picker",
+    "createdAt": "2026-10-11"
   },
   {
     "id": "density-lens",
@@ -1232,6 +1277,21 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
     "createdAt": "2026-09-03"
   },
   {
+    "id": "sheet",
+    "name": "Sheet",
+    "tagline": "Drag-to-dismiss sheet with spring physics",
+    "description": "A draggable sheet / drawer that slides in from any side and can be dragged away to dismiss — swipe left/right sheets anywhere on touch, top/bottom sheets via the grab handle. Springs back if you let go early.",
+    "category": "Overlays",
+    "badges": [
+      "Drag to Dismiss",
+      "Spring Physics",
+      "Accessible",
+      "Light & Dark"
+    ],
+    "cliCommand": "npx shadcn@latest add Surajmaurya1/easyui/sheet",
+    "createdAt": "2026-10-11"
+  },
+  {
     "id": "shooting-stars",
     "name": "Shooting Stars",
     "tagline": "Deep space canvas cosmos with glowing shooting stars, radiant twinkling starfield, and interactive stardust",
@@ -1246,6 +1306,21 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
     ],
     "cliCommand": "npx shadcn@latest add Surajmaurya1/easyui/shooting-stars",
     "createdAt": "2026-09-20"
+  },
+  {
+    "id": "sidebar",
+    "name": "Sidebar",
+    "tagline": "Cursor-following hover pill & gliding active indicator",
+    "description": "A collapsible application sidebar with a hover pill that follows the cursor and a shared-layout active pill that glides between items. Includes nested sections, icon-only mode with tooltips, ⌘B toggle, and a draggable mobile drawer.",
+    "category": "Navigation",
+    "badges": [
+      "Layout Springs",
+      "Keyboard Friendly",
+      "Light & Dark",
+      "Mobile Drawer"
+    ],
+    "cliCommand": "npx shadcn@latest add Surajmaurya1/easyui/sidebar",
+    "createdAt": "2026-10-11"
   },
   {
     "id": "sign-up",

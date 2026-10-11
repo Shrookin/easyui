@@ -279,13 +279,22 @@ async function discoverComponents(): Promise<DiscoveredComponent[]> {
             target: `components/icons/${iconSlug}.tsx`,
           });
         } else if (normInternalRel.startsWith('src/components/ui/')) {
-          // If it's a companion CSS or helper in UI directory
+          // If it's a companion CSS or imported UI component
           if (normInternalRel.endsWith('.css')) {
             const ext = path.extname(normInternalRel);
             registryFiles.push({
               path: normInternalRel,
               type: 'registry:ui',
               target: `components/ui/${slug}${ext}`,
+            });
+          } else if (normInternalRel.endsWith('.tsx') || normInternalRel.endsWith('.ts')) {
+            const base = path.basename(normInternalRel, path.extname(normInternalRel));
+            const subSlug = toKebabCase(base);
+            const ext = path.extname(normInternalRel);
+            registryFiles.push({
+              path: normInternalRel,
+              type: 'registry:ui',
+              target: `components/ui/${subSlug}${ext}`,
             });
           }
         }

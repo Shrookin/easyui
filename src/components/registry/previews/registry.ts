@@ -670,6 +670,36 @@ export const PREVIEW_REGISTRY: Record<string, ComponentPreviewDefinition> = {
     load: () => import('./items/pull-to-refresh'),
     metadata: { type: 'interactive' },
   },
+  'sidebar': {
+    id: 'sidebar',
+    componentId: 'sidebar',
+    load: () => import('./items/sidebar'),
+    metadata: { type: 'interactive' },
+  },
+  'calendar': {
+    id: 'calendar',
+    componentId: 'calendar',
+    load: () => import('./items/calendar'),
+    metadata: { type: 'interactive' },
+  },
+  'date-picker': {
+    id: 'date-picker',
+    componentId: 'date-picker',
+    load: () => import('./items/date-picker'),
+    metadata: { type: 'interactive' },
+  },
+  'combobox': {
+    id: 'combobox',
+    componentId: 'combobox',
+    load: () => import('./items/combobox'),
+    metadata: { type: 'interactive' },
+  },
+  'sheet': {
+    id: 'sheet',
+    componentId: 'sheet',
+    load: () => import('./items/sheet'),
+    metadata: { type: 'interactive' },
+  },
 };
 
 // Fast lookup map supporting both primary slugs and aliases

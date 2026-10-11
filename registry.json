@@ -315,6 +315,28 @@
       ]
     },
     {
+      "name": "calendar",
+      "type": "registry:ui",
+      "title": "Calendar",
+      "description": "A dependency-free calendar with a selected-day pill that glides from date to date, range support with a live hover preview band, and months that slide in the direction you navigate.",
+      "dependencies": [
+        "framer-motion",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/calendar.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/calendar.tsx"
+        },
+        {
+          "path": "src/lib/utils.ts",
+          "type": "registry:lib",
+          "target": "lib/utils.ts"
+        }
+      ]
+    },
+    {
       "name": "car-smoke-page-transition",
       "type": "registry:ui",
       "title": "Car Smoke Page Transition",
@@ -411,6 +433,28 @@
       ]
     },
     {
+      "name": "combobox",
+      "type": "registry:ui",
+      "title": "Combobox",
+      "description": "A searchable select where one highlight glides between options as you move (keyboard or mouse), the match underlines as you type, and the check pops in on selection.",
+      "dependencies": [
+        "framer-motion",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/combobox.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/combobox.tsx"
+        },
+        {
+          "path": "src/lib/utils.ts",
+          "type": "registry:lib",
+          "target": "lib/utils.ts"
+        }
+      ]
+    },
+    {
       "name": "command-menu",
       "type": "registry:ui",
       "title": "Command Menu",
@@ -465,6 +509,33 @@
           "path": "src/lib/utils.ts",
           "type": "registry:lib",
           "target": "lib/utils.ts"
+        }
+      ]
+    },
+    {
+      "name": "date-picker",
+      "type": "registry:ui",
+      "title": "Date Picker",
+      "description": "A date picker (and date range picker) whose popover pops from the trigger edge with a spring, flips above when there is no room below, lands the selection pill, then closes and hands focus back to the trigger.",
+      "dependencies": [
+        "framer-motion",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/date-picker.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/date-picker.tsx"
+        },
+        {
+          "path": "src/lib/utils.ts",
+          "type": "registry:lib",
+          "target": "lib/utils.ts"
+        },
+        {
+          "path": "src/components/ui/calendar.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/calendar.tsx"
         }
       ]
     },
@@ -1200,6 +1271,16 @@
           "path": "src/lib/motion-tokens.ts",
           "type": "registry:lib",
           "target": "lib/motion-tokens.ts"
+        },
+        {
+          "path": "src/components/ui/Button.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/button.tsx"
+        },
+        {
+          "path": "src/components/ui/Form.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/form.tsx"
         }
       ]
     },
@@ -1489,6 +1570,11 @@
           "path": "src/lib/motion-tokens.ts",
           "type": "registry:lib",
           "target": "lib/motion-tokens.ts"
+        },
+        {
+          "path": "src/components/ui/Button.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/button.tsx"
         }
       ]
     },
@@ -2040,6 +2126,28 @@
       ]
     },
     {
+      "name": "sheet",
+      "type": "registry:ui",
+      "title": "Sheet",
+      "description": "A draggable sheet / drawer that slides in from any side and can be dragged away to dismiss — swipe left/right sheets anywhere on touch, top/bottom sheets via the grab handle. Springs back if you let go early.",
+      "dependencies": [
+        "framer-motion",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/sheet.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/sheet.tsx"
+        },
+        {
+          "path": "src/lib/utils.ts",
+          "type": "registry:lib",
+          "target": "lib/utils.ts"
+        }
+      ]
+    },
+    {
       "name": "shooting-stars",
       "type": "registry:ui",
       "title": "Shooting Stars",
@@ -2052,6 +2160,28 @@
           "path": "src/components/ui/ShootingStars.tsx",
           "type": "registry:ui",
           "target": "components/ui/shooting-stars.tsx"
+        },
+        {
+          "path": "src/lib/utils.ts",
+          "type": "registry:lib",
+          "target": "lib/utils.ts"
+        }
+      ]
+    },
+    {
+      "name": "sidebar",
+      "type": "registry:ui",
+      "title": "Sidebar",
+      "description": "A collapsible application sidebar with a hover pill that follows the cursor and a shared-layout active pill that glides between items. Includes nested sections, icon-only mode with tooltips, ⌘B toggle, and a draggable mobile drawer.",
+      "dependencies": [
+        "framer-motion",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/sidebar.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/sidebar.tsx"
         },
         {
           "path": "src/lib/utils.ts",
@@ -2084,6 +2214,16 @@
           "path": "src/lib/motion-tokens.ts",
           "type": "registry:lib",
           "target": "lib/motion-tokens.ts"
+        },
+        {
+          "path": "src/components/ui/Button.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/button.tsx"
+        },
+        {
+          "path": "src/components/ui/Form.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/form.tsx"
         }
       ]
     },

@@ -1156,6 +1156,119 @@ export const EASY_COMPONENTS: EasyComponentMeta[] = [
     "featured": true
   },
   {
+    "id": "calendar",
+    "name": "Calendar",
+    "tagline": "Gliding selection pill & directional month slides",
+    "description": "A dependency-free calendar with a selected-day pill that glides from date to date, range support with a live hover preview band, and months that slide in the direction you navigate.",
+    "category": "Forms",
+    "badges": [
+      "Layout Springs",
+      "Keyboard Friendly",
+      "Light & Dark",
+      "Zero Dependencies"
+    ],
+    "cliCommand": "npx shadcn@latest add Surajmaurya1/easyui/calendar",
+    "features": [
+      "Selected day is one pill that springs between dates; range mode glides start and end pills separately",
+      "Live hover preview band while picking a range",
+      "Months slide in the navigation direction; fixed height so nothing jumps between months",
+      "Single + range modes, min/max dates, and custom isDateDisabled",
+      "Full keyboard navigation: arrows, Home/End, PageUp/PageDown (Shift = year)",
+      "No date library — pure Intl + Date helpers"
+    ],
+    "props": [
+      {
+        "name": "mode",
+        "type": "'single' | 'range'",
+        "default": "'single'",
+        "description": "Selection mode"
+      },
+      {
+        "name": "value",
+        "type": "Date | null | DateRange",
+        "default": "undefined",
+        "description": "Controlled selected date or range"
+      },
+      {
+        "name": "defaultValue",
+        "type": "Date | null | DateRange",
+        "default": "null",
+        "description": "Initial selection (uncontrolled)"
+      },
+      {
+        "name": "onChange",
+        "type": "(date: Date | null) => void | (range: DateRange) => void",
+        "default": "undefined",
+        "description": "Selection change callback"
+      },
+      {
+        "name": "defaultMonth",
+        "type": "Date",
+        "default": "undefined",
+        "description": "Month shown initially"
+      },
+      {
+        "name": "minDate",
+        "type": "Date",
+        "default": "undefined",
+        "description": "Earliest selectable date"
+      },
+      {
+        "name": "maxDate",
+        "type": "Date",
+        "default": "undefined",
+        "description": "Latest selectable date"
+      },
+      {
+        "name": "isDateDisabled",
+        "type": "(date: Date) => boolean",
+        "default": "undefined",
+        "description": "Predicate to disable specific dates"
+      },
+      {
+        "name": "weekStartsOn",
+        "type": "0 | 1",
+        "default": "0",
+        "description": "First day of the week (0 = Sunday, 1 = Monday)"
+      },
+      {
+        "name": "locale",
+        "type": "string",
+        "default": "undefined",
+        "description": "BCP 47 locale for formatting"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "default": "undefined",
+        "description": "Additional class for the root"
+      }
+    ],
+    "accessibility": [
+      "role=\"grid\" with labeled rows and cells; aria-selected on picked days",
+      "Full keyboard navigation with roving tabIndex and aria-live month announcements",
+      "Disabled dates expose aria-disabled and skip selection"
+    ],
+    "createdAt": "2026-10-11",
+    "usageCode": "import { Calendar, type DateRange } from \"@/components/ui/calendar\";\n\n// single\nconst [date, setDate] = React.useState<Date | null>(null);\n<Calendar value={date} onChange={setDate} />\n\n// range\nconst [range, setRange] = React.useState<DateRange>({ from: null, to: null });\n<Calendar mode=\"range\" value={range} onChange={setRange} />\n\n// limits\n<Calendar minDate={new Date()} isDateDisabled={(d) => d.getDay() === 0} weekStartsOn={1} />",
+    "dependencies": [
+      "framer-motion",
+      "lucide-react"
+    ],
+    "files": [
+      {
+        "path": "src/components/ui/calendar.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/calendar.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      }
+    ]
+  },
+  {
     "id": "car-smoke-page-transition",
     "name": "Car Smoke Page Transition",
     "tagline": "Cinematic automotive page transition",
@@ -1555,6 +1668,118 @@ export const EASY_COMPONENTS: EasyComponentMeta[] = [
     ]
   },
   {
+    "id": "combobox",
+    "name": "Combobox",
+    "tagline": "Gliding highlight & type-to-match underline",
+    "description": "A searchable select where one highlight glides between options as you move (keyboard or mouse), the match underlines as you type, and the check pops in on selection.",
+    "category": "Forms",
+    "badges": [
+      "Layout Springs",
+      "Keyboard Friendly",
+      "Searchable",
+      "Light & Dark"
+    ],
+    "cliCommand": "npx shadcn@latest add Surajmaurya1/easyui/combobox",
+    "features": [
+      "Single measured highlight glides to the active row and survives scrolling",
+      "Fuzzy-free substring search across labels, descriptions, and keywords with match underline",
+      "Descriptions, icons, and disabled options supported",
+      "Arrow/Home/End/Enter/Esc keys wired; opens upward when there is no room below",
+      "ARIA combobox/listbox with aria-activedescendant wired end to end"
+    ],
+    "props": [
+      {
+        "name": "options",
+        "type": "ComboboxOption[]",
+        "default": "undefined",
+        "description": "Options with value, label, description, icon, keywords, disabled"
+      },
+      {
+        "name": "value",
+        "type": "string | null",
+        "default": "undefined",
+        "description": "Controlled selected value"
+      },
+      {
+        "name": "defaultValue",
+        "type": "string | null",
+        "default": "null",
+        "description": "Initial value (uncontrolled)"
+      },
+      {
+        "name": "onValueChange",
+        "type": "(value: string | null) => void",
+        "default": "undefined",
+        "description": "Selection change callback"
+      },
+      {
+        "name": "placeholder",
+        "type": "string",
+        "default": "'Select…'",
+        "description": "Trigger placeholder"
+      },
+      {
+        "name": "searchPlaceholder",
+        "type": "string",
+        "default": "'Search…'",
+        "description": "Search input placeholder"
+      },
+      {
+        "name": "emptyText",
+        "type": "string",
+        "default": "'No results.'",
+        "description": "Empty state message"
+      },
+      {
+        "name": "align",
+        "type": "'start' | 'end'",
+        "default": "'start'",
+        "description": "Popover alignment"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "default": "false",
+        "description": "Disables the trigger"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "default": "undefined",
+        "description": "Additional class for the wrapper (set width, e.g. w-72)"
+      },
+      {
+        "name": "aria-label",
+        "type": "string",
+        "default": "placeholder",
+        "description": "Accessible name for the combobox"
+      }
+    ],
+    "accessibility": [
+      "role=\"combobox\" trigger + role=\"listbox\" with role=\"option\" children",
+      "aria-activedescendant tracks the highlighted option; aria-disabled on disabled options",
+      "Full keyboard support: ArrowDown/Up, Home/End, Enter selects, Escape closes and restores focus"
+    ],
+    "createdAt": "2026-10-11",
+    "usageCode": "import { Combobox, type ComboboxOption } from \"@/components/ui/combobox\";\n\nconst frameworks: ComboboxOption[] = [\n  { value: \"next\", label: \"Next.js\", description: \"React framework\" },\n  { value: \"remix\", label: \"Remix\", description: \"Web standards\" },\n  { value: \"astro\", label: \"Astro\", description: \"Content sites\", keywords: [\"islands\"] },\n  { value: \"vite\", label: \"Vite\", disabled: true },\n];\n\nconst [fw, setFw] = React.useState<string | null>(\"next\");\n\n<Combobox options={frameworks} value={fw} onValueChange={setFw} placeholder=\"Framework\" />",
+    "dependencies": [
+      "framer-motion",
+      "lucide-react"
+    ],
+    "files": [
+      {
+        "path": "src/components/ui/combobox.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/combobox.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      }
+    ]
+  },
+  {
     "id": "command-menu",
     "name": "Command Menu",
     "tagline": "Global ⌘K fuzzy palette with category grouping",
@@ -1724,6 +1949,99 @@ export const EASY_COMPONENTS: EasyComponentMeta[] = [
         "path": "src/lib/utils.ts",
         "type": "registry:lib",
         "target": "lib/utils.ts"
+      }
+    ]
+  },
+  {
+    "id": "date-picker",
+    "name": "Date Picker",
+    "tagline": "Origin-aware popover with a spring landing",
+    "description": "A date picker (and date range picker) whose popover pops from the trigger edge with a spring, flips above when there is no room below, lands the selection pill, then closes and hands focus back to the trigger.",
+    "category": "Forms",
+    "badges": [
+      "Spring In",
+      "Flip Up",
+      "Keyboard Friendly",
+      "Light & Dark"
+    ],
+    "cliCommand": "npx shadcn@latest add Surajmaurya1/easyui/date-picker",
+    "features": [
+      "Popover scales from the trigger edge with a spring and flips above when space is tight",
+      "Single date + date range pickers share the same Calendar underneath",
+      "Selection pill lands before the popover closes, then focus returns to the trigger",
+      "Esc and outside-click close; controlled or uncontrolled value",
+      "Supports all Calendar options: minDate, maxDate, isDateDisabled, weekStartsOn, locale"
+    ],
+    "props": [
+      {
+        "name": "value",
+        "type": "Date | null | DateRange",
+        "default": "undefined",
+        "description": "Controlled selected value"
+      },
+      {
+        "name": "defaultValue",
+        "type": "Date | null | DateRange",
+        "default": "null",
+        "description": "Initial value (uncontrolled)"
+      },
+      {
+        "name": "onChange",
+        "type": "(date: Date | null) => void | (range: DateRange) => void",
+        "default": "undefined",
+        "description": "Selection change callback"
+      },
+      {
+        "name": "placeholder",
+        "type": "string",
+        "default": "'Pick a date' / 'Pick a range'",
+        "description": "Trigger placeholder text"
+      },
+      {
+        "name": "align",
+        "type": "'start' | 'end'",
+        "default": "'start'",
+        "description": "Popover alignment relative to the trigger"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "default": "false",
+        "description": "Disables the trigger"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "default": "undefined",
+        "description": "Additional class for the wrapper (set width, e.g. w-80)"
+      }
+    ],
+    "accessibility": [
+      "Trigger has aria-haspopup=\"dialog\" and aria-expanded",
+      "Popover closes on Escape and returns focus to the trigger",
+      "Calendar inside is fully keyboard navigable"
+    ],
+    "createdAt": "2026-10-11",
+    "usageCode": "import { DatePicker, DateRangePicker } from \"@/components/ui/date-picker\";\n\n<DatePicker value={date} onChange={setDate} placeholder=\"Due date\" minDate={new Date()} />\n\n<DateRangePicker value={range} onChange={setRange} />",
+    "dependencies": [
+      "framer-motion",
+      "lucide-react"
+    ],
+    "files": [
+      {
+        "path": "src/components/ui/date-picker.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/date-picker.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      },
+      {
+        "path": "src/components/ui/calendar.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/calendar.tsx"
       }
     ]
   },
@@ -4442,6 +4760,16 @@ export const EASY_COMPONENTS: EasyComponentMeta[] = [
         "path": "src/lib/motion-tokens.ts",
         "type": "registry:lib",
         "target": "lib/motion-tokens.ts"
+      },
+      {
+        "path": "src/components/ui/Button.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/button.tsx"
+      },
+      {
+        "path": "src/components/ui/Form.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/form.tsx"
       }
     ],
     "featured": true
@@ -5466,6 +5794,11 @@ export const EASY_COMPONENTS: EasyComponentMeta[] = [
         "path": "src/lib/motion-tokens.ts",
         "type": "registry:lib",
         "target": "lib/motion-tokens.ts"
+      },
+      {
+        "path": "src/components/ui/Button.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/button.tsx"
       }
     ],
     "featured": true
@@ -7548,6 +7881,88 @@ export const EASY_COMPONENTS: EasyComponentMeta[] = [
     ]
   },
   {
+    "id": "sheet",
+    "name": "Sheet",
+    "tagline": "Drag-to-dismiss sheet with spring physics",
+    "description": "A draggable sheet / drawer that slides in from any side and can be dragged away to dismiss — swipe left/right sheets anywhere on touch, top/bottom sheets via the grab handle. Springs back if you let go early.",
+    "category": "Overlays",
+    "badges": [
+      "Drag to Dismiss",
+      "Spring Physics",
+      "Accessible",
+      "Light & Dark"
+    ],
+    "cliCommand": "npx shadcn@latest add Surajmaurya1/easyui/sheet",
+    "features": [
+      "Four sides: right, left, top, bottom with directional drag-to-dismiss",
+      "Touch: swipe left/right sheets anywhere; top/bottom sheets use the grab handle",
+      "Springs back when released early; rubber-band elastic resistance",
+      "Portal rendering, focus trap + focus return, Esc, scroll lock without layout shift",
+      "ARIA dialog wired to SheetTitle/SheetDescription; backdrop click closes"
+    ],
+    "props": [
+      {
+        "name": "open",
+        "type": "boolean",
+        "default": "undefined",
+        "description": "Controlled open state (on Sheet)"
+      },
+      {
+        "name": "defaultOpen",
+        "type": "boolean",
+        "default": "false",
+        "description": "Initial open state (uncontrolled)"
+      },
+      {
+        "name": "onOpenChange",
+        "type": "(open: boolean) => void",
+        "default": "undefined",
+        "description": "Open state change callback"
+      },
+      {
+        "name": "side",
+        "type": "'right' | 'left' | 'top' | 'bottom'",
+        "default": "'right'",
+        "description": "Side the sheet slides in from (on SheetContent)"
+      },
+      {
+        "name": "showClose",
+        "type": "boolean",
+        "default": "true",
+        "description": "Show the built-in close button"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "default": "undefined",
+        "description": "Additional class for the panel"
+      }
+    ],
+    "accessibility": [
+      "role=\"dialog\" with aria-modal, labelled by SheetTitle, described by SheetDescription",
+      "Focus is trapped inside and returned to the trigger on close; Escape dismisses",
+      "Body scroll locks while open with scrollbar-width compensation (no layout shift)"
+    ],
+    "createdAt": "2026-10-11",
+    "usageCode": "import {\n  Sheet, SheetBody, SheetClose, SheetContent, SheetDescription,\n  SheetFooter, SheetHeader, SheetTitle, SheetTrigger,\n} from \"@/components/ui/sheet\";\n\n<Sheet>\n  <SheetTrigger className=\"h-9 rounded-lg bg-neutral-900 px-4 text-sm text-white dark:bg-white dark:text-neutral-900\">\n    Open\n  </SheetTrigger>\n\n  <SheetContent side=\"right\">\n    <SheetHeader>\n      <SheetTitle>Edit profile</SheetTitle>\n      <SheetDescription>Make changes, then save.</SheetDescription>\n    </SheetHeader>\n    <SheetBody>{/* scrolls on its own */}</SheetBody>\n    <SheetFooter>\n      <SheetClose>Cancel</SheetClose>\n    </SheetFooter>\n  </SheetContent>\n</Sheet>",
+    "dependencies": [
+      "framer-motion",
+      "lucide-react"
+    ],
+    "files": [
+      {
+        "path": "src/components/ui/sheet.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/sheet.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      }
+    ]
+  },
+  {
     "id": "shooting-stars",
     "name": "Shooting Stars",
     "tagline": "Deep space canvas cosmos with glowing shooting stars, radiant twinkling starfield, and interactive stardust",
@@ -7710,6 +8125,118 @@ export const EASY_COMPONENTS: EasyComponentMeta[] = [
     ]
   },
   {
+    "id": "sidebar",
+    "name": "Sidebar",
+    "tagline": "Cursor-following hover pill & gliding active indicator",
+    "description": "A collapsible application sidebar with a hover pill that follows the cursor and a shared-layout active pill that glides between items. Includes nested sections, icon-only mode with tooltips, ⌘B toggle, and a draggable mobile drawer.",
+    "category": "Navigation",
+    "badges": [
+      "Layout Springs",
+      "Keyboard Friendly",
+      "Light & Dark",
+      "Mobile Drawer"
+    ],
+    "cliCommand": "npx shadcn@latest add Surajmaurya1/easyui/sidebar",
+    "features": [
+      "Hover pill tracks the cursor; active pill glides between items with a shared layout spring",
+      "Nested items with animated expand/collapse and active dot indicator",
+      "Icon-only collapse mode with floating tooltips, toggled via ⌘B / Ctrl+B",
+      "Mobile drawer under md with drag-to-dismiss and backdrop blur",
+      "Header and footer slots adapt to the collapsed state via useSidebar()"
+    ],
+    "props": [
+      {
+        "name": "sections",
+        "type": "SidebarSection[]",
+        "default": "undefined",
+        "description": "Navigation sections with items, optional titles, badges, and nested children"
+      },
+      {
+        "name": "activeId",
+        "type": "string",
+        "default": "undefined",
+        "description": "ID of the active item"
+      },
+      {
+        "name": "onActiveChange",
+        "type": "(id: string) => void",
+        "default": "undefined",
+        "description": "Called when an item or child is selected"
+      },
+      {
+        "name": "header",
+        "type": "React.ReactNode",
+        "default": "undefined",
+        "description": "Brand/header slot (use useSidebar() to adapt when collapsed)"
+      },
+      {
+        "name": "footer",
+        "type": "React.ReactNode",
+        "default": "undefined",
+        "description": "Footer slot above the collapse toggle"
+      },
+      {
+        "name": "collapsed",
+        "type": "boolean",
+        "default": "undefined",
+        "description": "Controlled collapsed (icon-only) state"
+      },
+      {
+        "name": "defaultCollapsed",
+        "type": "boolean",
+        "default": "false",
+        "description": "Initial collapsed state (uncontrolled)"
+      },
+      {
+        "name": "onCollapsedChange",
+        "type": "(collapsed: boolean) => void",
+        "default": "undefined",
+        "description": "Collapse state change callback"
+      },
+      {
+        "name": "mobileOpen",
+        "type": "boolean",
+        "default": "undefined",
+        "description": "Controlled mobile drawer open state"
+      },
+      {
+        "name": "onMobileOpenChange",
+        "type": "(open: boolean) => void",
+        "default": "undefined",
+        "description": "Mobile drawer open state callback"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "default": "undefined",
+        "description": "Additional class for the aside"
+      }
+    ],
+    "accessibility": [
+      "aria-current=\"page\" on active items, aria-expanded on parents, aria-label in icon-only mode",
+      "Full keyboard support: Tab focusable items, ⌘B / Ctrl+B toggle, Esc closes the mobile drawer",
+      "Mobile drawer uses role=\"dialog\" with aria-modal and backdrop click to close"
+    ],
+    "createdAt": "2026-10-11",
+    "usageCode": "import * as React from \"react\";\nimport { Bell, Folder, Home, Inbox, Settings, Users } from \"lucide-react\";\nimport { Sidebar, SidebarTrigger, useSidebar, type SidebarSection } from \"@/components/ui/sidebar\";\n\nconst sections: SidebarSection[] = [\n  {\n    items: [\n      { id: \"home\", label: \"Home\", icon: <Home /> },\n      { id: \"inbox\", label: \"Inbox\", icon: <Inbox />, badge: 4 },\n    ],\n  },\n  {\n    title: \"Workspace\",\n    items: [\n      {\n        id: \"projects\",\n        label: \"Projects\",\n        icon: <Folder />,\n        children: [\n          { id: \"active\", label: \"Active\", badge: 12 },\n          { id: \"archived\", label: \"Archived\" },\n        ],\n      },\n      { id: \"team\", label: \"Team\", icon: <Users /> },\n      { id: \"alerts\", label: \"Alerts\", icon: <Bell /> },\n      { id: \"settings\", label: \"Settings\", icon: <Settings /> },\n    ],\n  },\n];\n\nexport default function Page() {\n  const [active, setActive] = React.useState(\"home\");\n\n  return (\n    <div className=\"flex h-screen\">\n      <Sidebar sections={sections} activeId={active} onActiveChange={setActive} />\n      <main className=\"flex-1 p-4\">\n        <SidebarTrigger />\n      </main>\n    </div>\n  );\n}",
+    "dependencies": [
+      "framer-motion",
+      "lucide-react"
+    ],
+    "files": [
+      {
+        "path": "src/components/ui/sidebar.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/sidebar.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      }
+    ]
+  },
+  {
     "id": "sign-up",
     "name": "Sign Up",
     "tagline": "Multi-step capable user registration with strength telemetry",
@@ -7820,6 +8347,16 @@ export const EASY_COMPONENTS: EasyComponentMeta[] = [
         "path": "src/lib/motion-tokens.ts",
         "type": "registry:lib",
         "target": "lib/motion-tokens.ts"
+      },
+      {
+        "path": "src/components/ui/Button.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/button.tsx"
+      },
+      {
+        "path": "src/components/ui/Form.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/form.tsx"
       }
     ],
     "featured": true
