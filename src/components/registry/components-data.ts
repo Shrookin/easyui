@@ -2245,6 +2245,12 @@ export const EASY_COMPONENTS: EasyComponentMeta[] = [
         "description": "Popover alignment relative to the trigger"
       },
       {
+        "name": "side",
+        "type": "'bottom' | 'top' | 'auto'",
+        "default": "'auto'",
+        "description": "Popover placement; 'auto' opens downward on mobile and flips on desktop when tight"
+      },
+      {
         "name": "disabled",
         "type": "boolean",
         "default": "false",

@@ -20,6 +20,7 @@ const meta: EasyUIComponentMeta = {
     { name: 'onChange', type: '(date: Date | null) => void | (range: DateRange) => void', default: 'undefined', description: 'Selection change callback' },
     { name: 'placeholder', type: 'string', default: "'Pick a date' / 'Pick a range'", description: 'Trigger placeholder text' },
     { name: 'align', type: "'start' | 'end'", default: "'start'", description: 'Popover alignment relative to the trigger' },
+    { name: 'side', type: "'bottom' | 'top' | 'auto'", default: "'auto'", description: "Popover placement; 'auto' opens downward on mobile and flips on desktop when tight" },
     { name: 'disabled', type: 'boolean', default: 'false', description: 'Disables the trigger' },
     { name: 'className', type: 'string', default: 'undefined', description: 'Additional class for the wrapper (set width, e.g. w-80)' },
   ],

@@ -39,20 +39,33 @@ function usePopover({
   onClose,
   rootRef,
   height = 340,
+  side: preferredSide = "auto",
 }: {
   open: boolean;
   onClose: (reason: CloseReason) => void;
   rootRef: React.RefObject<HTMLElement | null>;
   height?: number;
+  side?: Side | "auto";
 }) {
   const [side, setSide] = React.useState<Side>("bottom");
 
   React.useLayoutEffect(() => {
     if (!open || !rootRef.current) return;
+    if (preferredSide && preferredSide !== "auto") {
+      setSide(preferredSide);
+      return;
+    }
+    // Always open downward on mobile viewports (< 640px)
+    const isMobile = typeof window !== "undefined" && window.innerWidth < 640;
+    if (isMobile) {
+      setSide("bottom");
+      return;
+    }
     const rect = rootRef.current.getBoundingClientRect();
     const below = window.innerHeight - rect.bottom;
-    setSide(below < height && rect.top > below ? "top" : "bottom");
-  }, [open, height, rootRef]);
+    // On desktop, only flip upward if space below is tight AND there is sufficient space above
+    setSide(below < height && rect.top >= height ? "top" : "bottom");
+  }, [open, height, rootRef, preferredSide]);
 
   React.useEffect(() => {
     if (!open) return;
@@ -92,6 +105,7 @@ function PickerShell({
   text,
   placeholder,
   align = "start",
+  side: preferredSide = "auto",
   disabled,
   className,
   children,
@@ -99,6 +113,7 @@ function PickerShell({
   text: string | null;
   placeholder: string;
   align?: "start" | "end";
+  side?: Side | "auto";
   disabled?: boolean;
   className?: string;
   children: (api: { close: () => void }) => React.ReactNode;
@@ -112,6 +127,7 @@ function PickerShell({
     open,
     rootRef,
     height: 340,
+    side: preferredSide,
     onClose: (reason) => {
       setOpen(false);
       if (reason === "escape") triggerRef.current?.focus();
@@ -162,7 +178,7 @@ function PickerShell({
             aria-label="Choose date"
             {...popoverMotion(side, align)}
             className={cn(
-              "absolute z-50 w-max rounded-xl border border-neutral-200 bg-white shadow-lg shadow-neutral-900/5 dark:border-neutral-800 dark:bg-neutral-950 dark:shadow-black/40",
+              "absolute z-50 w-max max-w-[calc(100vw-2rem)] rounded-xl border border-neutral-200 bg-white shadow-lg shadow-neutral-900/5 dark:border-neutral-800 dark:bg-neutral-950 dark:shadow-black/40",
               side === "top" ? "bottom-full mb-2" : "top-full mt-2",
               align === "end" ? "right-0" : "left-0"
             )}
@@ -183,6 +199,7 @@ export interface DatePickerProps extends CalendarOptions {
   onChange?: (date: Date | null) => void;
   placeholder?: string;
   align?: "start" | "end";
+  side?: Side | "auto";
   disabled?: boolean;
   className?: string;
 }
@@ -193,6 +210,7 @@ export function DatePicker({
   onChange,
   placeholder = "Pick a date",
   align,
+  side,
   disabled,
   className,
   ...calendar
@@ -204,6 +222,7 @@ export function DatePicker({
       text={date ? fmt(date, calendar.locale) : null}
       placeholder={placeholder}
       align={align}
+      side={side}
       disabled={disabled}
       className={className}
     >
@@ -230,6 +249,7 @@ export interface DateRangePickerProps extends CalendarOptions {
   onChange?: (range: DateRange) => void;
   placeholder?: string;
   align?: "start" | "end";
+  side?: Side | "auto";
   disabled?: boolean;
   className?: string;
 }
@@ -240,6 +260,7 @@ export function DateRangePicker({
   onChange,
   placeholder = "Pick a range",
   align,
+  side,
   disabled,
   className,
   ...calendar
@@ -254,6 +275,7 @@ export function DateRangePicker({
       text={text}
       placeholder={placeholder}
       align={align}
+      side={side}
       disabled={disabled}
       className={cn("w-72", className)}
     >
