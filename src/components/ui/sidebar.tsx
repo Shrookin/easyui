@@ -3,7 +3,7 @@
 import * as React from "react";
 import { AnimatePresence, motion, type PanInfo } from "framer-motion";
 import { ChevronRight, PanelLeft } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn } from "../../lib/utils";
 
 function useControllableState<T>(
   value: T | undefined,

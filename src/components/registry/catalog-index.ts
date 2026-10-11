@@ -80,6 +80,21 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
     "createdAt": "2026-10-05"
   },
   {
+    "id": "alert",
+    "name": "Alert",
+    "tagline": "Smooth height collapse on dismissal with tone styling",
+    "description": "An alert component that collapses smoothly in height and opacity on dismissal, with tone-aware icons, action slot, and accessibility roles.",
+    "category": "Feedback",
+    "badges": [
+      "Height Collapse",
+      "Dismissible",
+      "Accessible Roles",
+      "Light & Dark"
+    ],
+    "cliCommand": "npx shadcn@latest add Surajmaurya1/easyui/alert",
+    "createdAt": "2026-10-11"
+  },
+  {
     "id": "animated-file-upload",
     "name": "Animated File Upload",
     "tagline": "Physical drag-and-drop file uploader with per-file progress morphing",
@@ -136,6 +151,21 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
     "createdAt": "2026-09-16"
   },
   {
+    "id": "badge",
+    "name": "Badge",
+    "tagline": "Rolling number animation & live status pulse",
+    "description": "An animated status badge where numbers and strings roll on value change, with live status pulse dot, removable chip actions, and rich tone variants.",
+    "category": "Feedback",
+    "badges": [
+      "Roll Animation",
+      "Status Dot",
+      "Removable Chip",
+      "Light & Dark"
+    ],
+    "cliCommand": "npx shadcn@latest add Surajmaurya1/easyui/badge",
+    "createdAt": "2026-10-11"
+  },
+  {
     "id": "batch-gesture-tray",
     "name": "Batch Gesture Tray",
     "tagline": "Spring floating tray with multi-select batch actions",
@@ -178,6 +208,21 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
     ],
     "cliCommand": "npx shadcn@latest add Surajmaurya1/easyui/branching-submenu",
     "createdAt": "2026-08-28"
+  },
+  {
+    "id": "breadcrumb",
+    "name": "Breadcrumb",
+    "tagline": "Gliding hover pill with animated trail expansion",
+    "description": "A navigation trail with a gliding hover pill, smooth expansion for collapsed trails with automatic focus transfer, and light/dark theme adaptation.",
+    "category": "Navigation",
+    "badges": [
+      "Spring Hover",
+      "Smart Collapse",
+      "Focus Transfer",
+      "Light & Dark"
+    ],
+    "cliCommand": "npx shadcn@latest add Surajmaurya1/easyui/breadcrumb",
+    "createdAt": "2026-10-11"
   },
   {
     "id": "button",
@@ -1339,6 +1384,21 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
     "featured": true
   },
   {
+    "id": "skeleton",
+    "name": "Skeleton",
+    "tagline": "Subtle shimmer sweep and smooth content reveal",
+    "description": "Placeholder blocks with a subtle light sweep, text/avatar presets, and a SkeletonReveal container that eases real content in with a gentle rise and un-blur.",
+    "category": "Feedback",
+    "badges": [
+      "Light Sweep",
+      "Content Reveal",
+      "Avatar & Text",
+      "Light & Dark"
+    ],
+    "cliCommand": "npx shadcn@latest add Surajmaurya1/easyui/skeleton",
+    "createdAt": "2026-10-11"
+  },
+  {
     "id": "slide-pagination",
     "name": "SlidePagination",
     "tagline": "Active indicator slides between pages",
@@ -1511,6 +1571,21 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
     ],
     "cliCommand": "npx shadcn@latest add Surajmaurya1/easyui/stacked-cards",
     "createdAt": "2026-09-12T11:29:47.829Z"
+  },
+  {
+    "id": "stepper",
+    "name": "Stepper",
+    "tagline": "Animated connector line, gliding focus ring, and step panels",
+    "description": "A multi-step progress indicator with line fills, gliding active rings, drawing checkmarks, and direction-aware sliding step panels.",
+    "category": "Navigation",
+    "badges": [
+      "Connector Line",
+      "Draw Checkmark",
+      "Directional Panels",
+      "Light & Dark"
+    ],
+    "cliCommand": "npx shadcn@latest add Surajmaurya1/easyui/stepper",
+    "createdAt": "2026-10-11"
   },
   {
     "id": "sticky-pages",

@@ -3,8 +3,8 @@
 import * as React from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { CalendarDays } from "lucide-react";
-import { cn } from "@/lib/utils";
-import { Calendar, type CalendarOptions, type DateRange } from "@/components/ui/calendar";
+import { cn } from "../../lib/utils";
+import { Calendar, type CalendarOptions, type DateRange } from "./calendar";
 
 function useControllableState<T>(
   value: T | undefined,

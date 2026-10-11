@@ -496,3 +496,19 @@ export {
   SheetFooter,
 } from './sheet';
 export type { SheetSide } from './sheet';
+
+export { Breadcrumb } from './breadcrumb';
+export type { BreadcrumbProps, BreadcrumbItem } from './breadcrumb';
+
+export { Badge } from './badge';
+export type { BadgeProps, BadgeVariant, BadgeTone } from './badge';
+
+export { Alert, AlertTitle, AlertDescription } from './alert';
+export type { AlertProps, AlertTone } from './alert';
+
+export { Skeleton, SkeletonText, SkeletonAvatar, SkeletonReveal } from './skeleton';
+export type { SkeletonProps, SkeletonTextProps, SkeletonAvatarProps, SkeletonRevealProps } from './skeleton';
+
+export { Stepper, StepPanels } from './stepper';
+export type { StepperProps, StepPanelsProps, Step } from './stepper';
+

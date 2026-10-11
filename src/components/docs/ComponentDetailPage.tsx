@@ -169,6 +169,17 @@ const SheetDescription = lazyNamed(() => import('../ui/sheet'), 'SheetDescriptio
 const SheetBody = lazyNamed(() => import('../ui/sheet'), 'SheetBody');
 const SheetFooter = lazyNamed(() => import('../ui/sheet'), 'SheetFooter');
 const SheetClose = lazyNamed(() => import('../ui/sheet'), 'SheetClose');
+const Breadcrumb = lazyNamed(() => import('../ui/breadcrumb'), 'Breadcrumb');
+const Badge = lazyNamed(() => import('../ui/badge'), 'Badge');
+const Alert = lazyNamed(() => import('../ui/alert'), 'Alert');
+const AlertTitle = lazyNamed(() => import('../ui/alert'), 'AlertTitle');
+const AlertDescription = lazyNamed(() => import('../ui/alert'), 'AlertDescription');
+const Skeleton = lazyNamed(() => import('../ui/skeleton'), 'Skeleton');
+const SkeletonText = lazyNamed(() => import('../ui/skeleton'), 'SkeletonText');
+const SkeletonAvatar = lazyNamed(() => import('../ui/skeleton'), 'SkeletonAvatar');
+const SkeletonReveal = lazyNamed(() => import('../ui/skeleton'), 'SkeletonReveal');
+const Stepper = lazyNamed(() => import('../ui/stepper'), 'Stepper');
+const StepPanels = lazyNamed(() => import('../ui/stepper'), 'StepPanels');
 const AIResponseLiveShowcase = lazyNamed(() => import('./sections/NewComponentsShowcase'), 'AIResponseLiveShowcase');
 const AdvancedDataTableLiveShowcase = lazyNamed(() => import('./sections/NewComponentsShowcase'), 'AdvancedDataTableLiveShowcase');
 const ChatLiveShowcase = lazyNamed(() => import('./sections/NewComponentsShowcase'), 'ChatLiveShowcase');
@@ -283,6 +294,11 @@ const DEMO_PRELOADERS: Record<string, () => Promise<any>> = {
   'date-picker': () => Promise.all([DatePicker.preload(), DateRangePicker.preload()]),
   'combobox': () => Combobox.preload(),
   'sheet': () => Promise.all([Sheet.preload(), SheetTrigger.preload(), SheetContent.preload(), SheetHeader.preload(), SheetTitle.preload(), SheetDescription.preload(), SheetBody.preload(), SheetFooter.preload(), SheetClose.preload()]),
+  'breadcrumb': () => Breadcrumb.preload(),
+  'badge': () => Badge.preload(),
+  'alert': () => Promise.all([Alert.preload(), AlertTitle.preload(), AlertDescription.preload()]),
+  'skeleton': () => Promise.all([Skeleton.preload(), SkeletonText.preload(), SkeletonAvatar.preload(), SkeletonReveal.preload()]),
+  'stepper': () => Promise.all([Stepper.preload(), StepPanels.preload()]),
   'ai-response': () => AIResponseLiveShowcase.preload(),
   'advanced-data-table': () => AdvancedDataTableLiveShowcase.preload(),
   'chat': () => ChatLiveShowcase.preload(),
@@ -1443,6 +1459,311 @@ const SheetDemo: React.FC = () => (
     </SheetContent>
   </Sheet>
 );
+
+const BreadcrumbDemo: React.FC = () => {
+  const [sep, setSep] = useState<'chevron' | 'slash'>('chevron');
+  const items = [
+    { label: 'Home', href: '#', icon: <Home className="size-4" /> },
+    { label: 'Components', href: '#' },
+    { label: 'Navigation', href: '#' },
+    { label: 'EasyUI', href: '#' },
+    { label: 'Breadcrumb' },
+  ];
+
+  return (
+    <div className="flex flex-col items-center justify-center gap-6 p-4 w-full max-w-xl">
+      <div className="flex items-center gap-2 text-xs text-[var(--text-muted)]">
+        <span>Separator style:</span>
+        <button
+          type="button"
+          onClick={() => setSep('chevron')}
+          className={cn(
+            'px-2.5 py-1 rounded-md text-xs font-medium cursor-pointer transition',
+            sep === 'chevron'
+              ? 'bg-neutral-900 text-white dark:bg-white dark:text-neutral-900'
+              : 'border border-[var(--border)] text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
+          )}
+        >
+          Chevron
+        </button>
+        <button
+          type="button"
+          onClick={() => setSep('slash')}
+          className={cn(
+            'px-2.5 py-1 rounded-md text-xs font-medium cursor-pointer transition',
+            sep === 'slash'
+              ? 'bg-neutral-900 text-white dark:bg-white dark:text-neutral-900'
+              : 'border border-[var(--border)] text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
+          )}
+        >
+          Slash
+        </button>
+      </div>
+
+      <div className="w-full flex justify-center p-4 rounded-xl border border-[var(--border)] bg-[var(--bg)] shadow-xs overflow-x-auto">
+        <Breadcrumb items={items} separator={sep} maxItems={4} />
+      </div>
+    </div>
+  );
+};
+
+const BadgeDemo: React.FC = () => {
+  const [count, setCount] = useState(3);
+  const [tags, setTags] = useState(['Next.js', 'Framer Motion', 'Tailwind', 'EasyUI']);
+
+  return (
+    <div className="flex flex-col items-center justify-center gap-6 p-4 w-full max-w-xl">
+      <div className="flex flex-wrap items-center justify-center gap-3">
+        <Badge tone="success" dot pulse>Live status</Badge>
+        <Badge variant="outline" tone="warning">Beta release</Badge>
+        <Badge variant="soft" tone="neutral">Standard</Badge>
+      </div>
+
+      <div className="flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--bg)] p-1 shadow-2xs">
+        <button
+          type="button"
+          aria-label="Decrease"
+          onClick={() => setCount((c) => Math.max(0, c - 1))}
+          className="grid size-7 place-items-center rounded-full text-sm font-semibold text-[var(--text-muted)] hover:bg-neutral-100 hover:text-[var(--text-primary)] dark:hover:bg-neutral-800 transition active:scale-90 cursor-pointer"
+        >
+          -
+        </button>
+        <Badge variant="solid" tone="danger">{count}</Badge>
+        <button
+          type="button"
+          aria-label="Increase"
+          onClick={() => setCount((c) => c + 1)}
+          className="grid size-7 place-items-center rounded-full text-sm font-semibold text-[var(--text-muted)] hover:bg-neutral-100 hover:text-[var(--text-primary)] dark:hover:bg-neutral-800 transition active:scale-90 cursor-pointer"
+        >
+          +
+        </button>
+      </div>
+
+      <div className="w-full rounded-xl border border-[var(--border)] bg-[var(--bg)] p-4 flex flex-col items-center gap-2">
+        <p className="text-xs text-[var(--text-muted)] font-medium">Removable Chips (with exit animations):</p>
+        <div className="flex flex-wrap gap-2 justify-center">
+          <AnimatePresence>
+            {tags.map((tag) => (
+              <Badge
+                key={tag}
+                layout
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                onRemove={() => setTags((prev) => prev.filter((t) => t !== tag))}
+              >
+                {tag}
+              </Badge>
+            ))}
+          </AnimatePresence>
+        </div>
+        {tags.length === 0 && (
+          <button
+            type="button"
+            onClick={() => setTags(['Next.js', 'Framer Motion', 'Tailwind', 'EasyUI'])}
+            className="text-xs text-sky-500 hover:underline mt-1 cursor-pointer"
+          >
+            Reset tags
+          </button>
+        )}
+      </div>
+    </div>
+  );
+};
+
+const AlertDemo: React.FC = () => {
+  const [alerts, setAlerts] = useState({
+    success: true,
+    warning: true,
+    danger: true,
+  });
+
+  const resetAll = () => setAlerts({ success: true, warning: true, danger: true });
+
+  return (
+    <div className="flex flex-col items-center justify-center gap-4 p-4 w-full max-w-xl">
+      <div className="w-full space-y-3">
+        {alerts.success && (
+          <Alert tone="success" dismissible onDismiss={() => setAlerts((a) => ({ ...a, success: false }))}>
+            <AlertTitle>Operation successful</AlertTitle>
+            <AlertDescription>Your components have been deployed cleanly to production.</AlertDescription>
+          </Alert>
+        )}
+
+        {alerts.warning && (
+          <Alert
+            tone="warning"
+            dismissible
+            action={
+              <button
+                type="button"
+                className="h-7 rounded-md border border-amber-300 dark:border-amber-600/40 px-2.5 text-xs font-medium text-amber-900 dark:text-amber-200 hover:bg-amber-100/50 dark:hover:bg-amber-500/10 cursor-pointer"
+              >
+                Review
+              </button>
+            }
+            onDismiss={() => setAlerts((a) => ({ ...a, warning: false }))}
+          >
+            <AlertTitle>Subscription renewing soon</AlertTitle>
+            <AlertDescription>Your team plan will automatically renew in 3 days.</AlertDescription>
+          </Alert>
+        )}
+
+        {alerts.danger && (
+          <Alert tone="danger" dismissible onDismiss={() => setAlerts((a) => ({ ...a, danger: false }))}>
+            <AlertTitle>Payment failed</AlertTitle>
+            <AlertDescription>Your card was declined. Content collapses smoothly when dismissed.</AlertDescription>
+          </Alert>
+        )}
+      </div>
+
+      {(!alerts.success || !alerts.warning || !alerts.danger) && (
+        <button
+          type="button"
+          onClick={resetAll}
+          className="h-8 px-4 rounded-lg bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 text-xs font-medium cursor-pointer transition hover:opacity-90"
+        >
+          Reset dismissed alerts
+        </button>
+      )}
+    </div>
+  );
+};
+
+const SkeletonDemo: React.FC = () => {
+  const [loading, setLoading] = useState(false);
+
+  return (
+    <div className="flex flex-col items-center justify-center gap-6 p-4 w-full max-w-md">
+      <button
+        type="button"
+        onClick={() => setLoading((l) => !l)}
+        className="h-8 px-4 rounded-lg bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 text-xs font-medium cursor-pointer transition hover:opacity-90"
+      >
+        {loading ? 'Show real content (un-blur & rise)' : 'Simulate loading skeleton'}
+      </button>
+
+      <div className="w-full rounded-2xl border border-[var(--border)] bg-[var(--bg)] p-5 shadow-xs">
+        <SkeletonReveal
+          loading={loading}
+          skeleton={
+            <div className="flex items-center gap-3">
+              <SkeletonAvatar size={48} />
+              <div className="flex-1 space-y-2">
+                <Skeleton className="h-4 w-2/3" />
+                <SkeletonText lines={2} />
+              </div>
+            </div>
+          }
+        >
+          <div className="flex items-center gap-3">
+            <div className="size-12 shrink-0 rounded-full bg-gradient-to-tr from-violet-500 to-indigo-500 flex items-center justify-center text-white font-semibold text-sm">
+              EU
+            </div>
+            <div className="min-w-0 flex-1">
+              <h4 className="text-sm font-semibold text-[var(--text-primary)]">EasyUI Studio</h4>
+              <p className="text-xs text-[var(--text-muted)]">Lead Design Engineer &bull; Batch 2</p>
+              <p className="text-xs text-[var(--text-secondary)] mt-1">Loaded state with gentle un-blur</p>
+            </div>
+          </div>
+        </SkeletonReveal>
+      </div>
+    </div>
+  );
+};
+
+const StepperDemo: React.FC = () => {
+  const [step, setStep] = useState(0);
+  const [orientation, setOrientation] = useState<'horizontal' | 'vertical'>('horizontal');
+
+  const steps = [
+    { title: 'Account', description: 'Personal info' },
+    { title: 'Workspace', description: 'Name project' },
+    { title: 'Invite', description: 'Add team' },
+    { title: 'Launch', description: 'Done' },
+  ];
+
+  return (
+    <div className="flex flex-col items-center justify-center gap-6 p-4 w-full max-w-xl">
+      <div className="flex items-center gap-2 text-xs text-[var(--text-muted)]">
+        <span>Orientation:</span>
+        <button
+          type="button"
+          onClick={() => setOrientation('horizontal')}
+          className={cn(
+            'px-2.5 py-1 rounded-md text-xs font-medium cursor-pointer transition',
+            orientation === 'horizontal'
+              ? 'bg-neutral-900 text-white dark:bg-white dark:text-neutral-900'
+              : 'border border-[var(--border)] text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
+          )}
+        >
+          Horizontal
+        </button>
+        <button
+          type="button"
+          onClick={() => setOrientation('vertical')}
+          className={cn(
+            'px-2.5 py-1 rounded-md text-xs font-medium cursor-pointer transition',
+            orientation === 'vertical'
+              ? 'bg-neutral-900 text-white dark:bg-white dark:text-neutral-900'
+              : 'border border-[var(--border)] text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
+          )}
+        >
+          Vertical
+        </button>
+      </div>
+
+      <div className="w-full rounded-2xl border border-[var(--border)] bg-[var(--bg)] p-6 shadow-xs space-y-6">
+        <Stepper
+          steps={steps}
+          current={step}
+          onStepChange={setStep}
+          orientation={orientation}
+        />
+
+        <div className="rounded-xl border border-[var(--border)] bg-neutral-50/50 dark:bg-neutral-900/50 p-6 min-h-[140px] flex items-center justify-center text-center">
+          <StepPanels current={step} className="w-full">
+            <div className="space-y-1">
+              <h4 className="text-sm font-semibold text-[var(--text-primary)]">Step 1: Your Account</h4>
+              <p className="text-xs text-[var(--text-muted)]">Configure your profile details and preferences.</p>
+            </div>
+            <div className="space-y-1">
+              <h4 className="text-sm font-semibold text-[var(--text-primary)]">Step 2: Workspace Setup</h4>
+              <p className="text-xs text-[var(--text-muted)]">Name your workspace and pick a region.</p>
+            </div>
+            <div className="space-y-1">
+              <h4 className="text-sm font-semibold text-[var(--text-primary)]">Step 3: Invite Team Members</h4>
+              <p className="text-xs text-[var(--text-muted)]">Send email invitations to colleagues (optional).</p>
+            </div>
+            <div className="space-y-1">
+              <h4 className="text-sm font-semibold text-emerald-600 dark:text-emerald-400">All Done!</h4>
+              <p className="text-xs text-[var(--text-muted)]">Your workspace is ready to go.</p>
+            </div>
+          </StepPanels>
+        </div>
+
+        <div className="flex items-center justify-between">
+          <button
+            type="button"
+            disabled={step === 0}
+            onClick={() => setStep((s) => s - 1)}
+            className="h-8 px-4 rounded-lg border border-[var(--border)] text-xs font-medium cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed hover:bg-neutral-100 dark:hover:bg-neutral-800 transition"
+          >
+            Back
+          </button>
+          <button
+            type="button"
+            disabled={step === steps.length - 1}
+            onClick={() => setStep((s) => s + 1)}
+            className="h-8 px-4 rounded-lg bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 text-xs font-medium cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed transition hover:opacity-90"
+          >
+            {step === steps.length - 2 ? 'Finish' : 'Next Step'}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const ToastDemo: React.FC = () => {
   const [open, setOpen] = useState(false);
@@ -3400,6 +3721,16 @@ const completion = await client.completions.create({
         return <ComboboxDemo key={demoKey} />;
       case 'sheet':
         return <SheetDemo key={demoKey} />;
+      case 'breadcrumb':
+        return <BreadcrumbDemo key={demoKey} />;
+      case 'badge':
+        return <BadgeDemo key={demoKey} />;
+      case 'alert':
+        return <AlertDemo key={demoKey} />;
+      case 'skeleton':
+        return <SkeletonDemo key={demoKey} />;
+      case 'stepper':
+        return <StepperDemo key={demoKey} />;
       default:
         return (
           <div className="py-12 text-center text-xs text-[#808080]">
