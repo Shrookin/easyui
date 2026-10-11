@@ -489,6 +489,88 @@ export const EASY_COMPONENTS: EasyComponentMeta[] = [
     ]
   },
   {
+    "id": "alert",
+    "name": "Alert",
+    "tagline": "Smooth height collapse on dismissal with tone styling",
+    "description": "An alert component that collapses smoothly in height and opacity on dismissal, with tone-aware icons, action slot, and accessibility roles.",
+    "category": "Feedback",
+    "badges": [
+      "Height Collapse",
+      "Dismissible",
+      "Accessible Roles",
+      "Light & Dark"
+    ],
+    "cliCommand": "npx shadcn@latest add Surajmaurya1/easyui/alert",
+    "features": [
+      "Dismissing collapses height and fades out smoothly without sudden content jumps",
+      "Supports 5 semantic tones: neutral, info, success, warning, and danger",
+      "Automatic matching Lucide icons with custom icon or icon={false} override",
+      "Action slot on the right for buttons, retry triggers, or secondary actions",
+      "Proper accessibility: role=\"alert\" for danger/warning and role=\"status\" for neutral/info/success"
+    ],
+    "props": [
+      {
+        "name": "tone",
+        "type": "'neutral' | 'info' | 'success' | 'warning' | 'danger'",
+        "default": "'neutral'",
+        "description": "Color tone and severity semantic level"
+      },
+      {
+        "name": "icon",
+        "type": "React.ReactNode | false",
+        "default": "undefined",
+        "description": "Custom icon element, or false to suppress icon"
+      },
+      {
+        "name": "dismissible",
+        "type": "boolean",
+        "default": "false",
+        "description": "Renders an interactive close button"
+      },
+      {
+        "name": "onDismiss",
+        "type": "() => void",
+        "default": "undefined",
+        "description": "Callback invoked after the exit collapse animation completes"
+      },
+      {
+        "name": "action",
+        "type": "React.ReactNode",
+        "default": "undefined",
+        "description": "Optional right-hand action element (e.g. action button)"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "default": "undefined",
+        "description": "Additional CSS classes for the alert container"
+      }
+    ],
+    "accessibility": [
+      "Applies role=\"alert\" for high-priority warning/danger tones and role=\"status\" for informative tones",
+      "Dismiss button includes aria-label=\"Dismiss\" and clear focus-visible rings",
+      "High contrast color ratios in both light and dark themes"
+    ],
+    "createdAt": "2026-10-11",
+    "usageCode": "import { Alert, AlertTitle, AlertDescription } from \"@/components/ui/alert\";\n\n<Alert tone=\"danger\" dismissible onDismiss={() => handleDismiss()}>\n  <AlertTitle>Payment failed</AlertTitle>\n  <AlertDescription>Your card was declined. Please try another card.</AlertDescription>\n</Alert>\n\n<Alert tone=\"success\">\n  <AlertTitle>Changes saved successfully</AlertTitle>\n</Alert>",
+    "dependencies": [
+      "framer-motion",
+      "lucide-react"
+    ],
+    "files": [
+      {
+        "path": "src/components/ui/alert.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/alert.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      }
+    ]
+  },
+  {
     "id": "animated-file-upload",
     "name": "Animated File Upload",
     "tagline": "Physical drag-and-drop file uploader with per-file progress morphing",
@@ -841,6 +923,88 @@ export const EASY_COMPONENTS: EasyComponentMeta[] = [
     ]
   },
   {
+    "id": "badge",
+    "name": "Badge",
+    "tagline": "Rolling number animation & live status pulse",
+    "description": "An animated status badge where numbers and strings roll on value change, with live status pulse dot, removable chip actions, and rich tone variants.",
+    "category": "Feedback",
+    "badges": [
+      "Roll Animation",
+      "Status Dot",
+      "Removable Chip",
+      "Light & Dark"
+    ],
+    "cliCommand": "npx shadcn@latest add Surajmaurya1/easyui/badge",
+    "features": [
+      "Numbers and text roll up with spring physics when updated",
+      "Optional live status dot with pulsing radar ping effect",
+      "Interactive removable chip support with animated onRemove trigger",
+      "3 styles (soft, solid, outline) × 4 tones (neutral, success, warning, danger)",
+      "Motion-ready component accepting initial, animate, and layout animations directly"
+    ],
+    "props": [
+      {
+        "name": "variant",
+        "type": "'soft' | 'solid' | 'outline'",
+        "default": "'soft'",
+        "description": "Visual style of the badge"
+      },
+      {
+        "name": "tone",
+        "type": "'neutral' | 'success' | 'warning' | 'danger'",
+        "default": "'neutral'",
+        "description": "Color tone of the badge"
+      },
+      {
+        "name": "dot",
+        "type": "boolean",
+        "default": "false",
+        "description": "Displays a leading status indicator dot"
+      },
+      {
+        "name": "pulse",
+        "type": "boolean",
+        "default": "false",
+        "description": "Adds a soft animated pulse ring to the status dot"
+      },
+      {
+        "name": "onRemove",
+        "type": "() => void",
+        "default": "undefined",
+        "description": "Callback enabling dismissible chip mode with an × icon"
+      },
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "default": "undefined",
+        "description": "Badge contents (strings & numbers auto-roll on change)"
+      }
+    ],
+    "accessibility": [
+      "Removable chips provide aria-label=\"Remove\" and focus visible rings",
+      "Pulse animations respect motion-reduce preferences",
+      "High-contrast tone combinations tested in both light and dark modes"
+    ],
+    "createdAt": "2026-10-11",
+    "usageCode": "import { Badge } from \"@/components/ui/badge\";\n\n<Badge>Draft</Badge>\n<Badge tone=\"success\" dot pulse>Live</Badge>\n<Badge variant=\"solid\" tone=\"danger\">{unreadCount}</Badge>\n<Badge variant=\"outline\" tone=\"warning\" onRemove={() => removeTag()}>Tag</Badge>",
+    "dependencies": [
+      "framer-motion",
+      "lucide-react"
+    ],
+    "files": [
+      {
+        "path": "src/components/ui/badge.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/badge.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      }
+    ]
+  },
+  {
     "id": "batch-gesture-tray",
     "name": "Batch Gesture Tray",
     "tagline": "Spring floating tray with multi-select batch actions",
@@ -1053,6 +1217,83 @@ export const EASY_COMPONENTS: EasyComponentMeta[] = [
     ]
   },
   {
+    "id": "breadcrumb",
+    "name": "Breadcrumb",
+    "tagline": "Gliding hover pill with animated trail expansion",
+    "description": "A navigation trail with a gliding hover pill, smooth expansion for collapsed trails with automatic focus transfer, and light/dark theme adaptation.",
+    "category": "Navigation",
+    "badges": [
+      "Spring Hover",
+      "Smart Collapse",
+      "Focus Transfer",
+      "Light & Dark"
+    ],
+    "cliCommand": "npx shadcn@latest add Surajmaurya1/easyui/breadcrumb",
+    "features": [
+      "Hover pill smoothly glides between links using Framer Motion layoutId",
+      "Long trails collapse the middle items into an ellipsis trigger button",
+      "Clicking ellipsis animates hidden crumbs in while focus transfers to the first revealed crumb",
+      "Supports chevron or slash separator styles and custom router link components (Next.js Link or <a>)",
+      "Full accessibility with aria-label=\"Breadcrumb\", aria-current=\"page\", and keyboard navigation"
+    ],
+    "props": [
+      {
+        "name": "items",
+        "type": "BreadcrumbItem[]",
+        "default": "undefined",
+        "description": "Array of breadcrumb items with label, href, and optional icon"
+      },
+      {
+        "name": "separator",
+        "type": "'chevron' | 'slash'",
+        "default": "'chevron'",
+        "description": "Separator style between breadcrumb items"
+      },
+      {
+        "name": "maxItems",
+        "type": "number",
+        "default": "4",
+        "description": "Collapse the middle items when length exceeds this number"
+      },
+      {
+        "name": "as",
+        "type": "React.ElementType",
+        "default": "'a'",
+        "description": "Custom link component (e.g. Next.js Link)"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "default": "undefined",
+        "description": "Additional CSS classes for the nav container"
+      }
+    ],
+    "accessibility": [
+      "Uses semantic <nav aria-label=\"Breadcrumb\"> and <ol> list structure",
+      "Marks the current terminal page with aria-current=\"page\"",
+      "Focus automatically transfers to the first newly revealed item upon expanding",
+      "Full keyboard focus indicators and focus rings for accessibility"
+    ],
+    "createdAt": "2026-10-11",
+    "usageCode": "import Link from \"next/link\";\nimport { Home } from \"lucide-react\";\nimport { Breadcrumb } from \"@/components/ui/breadcrumb\";\n\n<Breadcrumb\n  as={Link}\n  items={[\n    { label: \"Home\", href: \"/\", icon: <Home className=\"size-4\" /> },\n    { label: \"Projects\", href: \"/projects\" },\n    { label: \"EasyUI\", href: \"/projects/easyui\" },\n    { label: \"Components\", href: \"/projects/easyui/components\" },\n    { label: \"Breadcrumb\" }, // Current page (no href needed)\n  ]}\n/>",
+    "dependencies": [
+      "framer-motion",
+      "lucide-react"
+    ],
+    "files": [
+      {
+        "path": "src/components/ui/breadcrumb.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/breadcrumb.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      }
+    ]
+  },
+  {
     "id": "button",
     "name": "Button",
     "tagline": "Multi-variant button system with tactile physics",
@@ -1154,6 +1395,119 @@ export const EASY_COMPONENTS: EasyComponentMeta[] = [
       }
     ],
     "featured": true
+  },
+  {
+    "id": "calendar",
+    "name": "Calendar",
+    "tagline": "Gliding selection pill & directional month slides",
+    "description": "A dependency-free calendar with a selected-day pill that glides from date to date, range support with a live hover preview band, and months that slide in the direction you navigate.",
+    "category": "Forms",
+    "badges": [
+      "Layout Springs",
+      "Keyboard Friendly",
+      "Light & Dark",
+      "Zero Dependencies"
+    ],
+    "cliCommand": "npx shadcn@latest add Surajmaurya1/easyui/calendar",
+    "features": [
+      "Selected day is one pill that springs between dates; range mode glides start and end pills separately",
+      "Live hover preview band while picking a range",
+      "Months slide in the navigation direction; fixed height so nothing jumps between months",
+      "Single + range modes, min/max dates, and custom isDateDisabled",
+      "Full keyboard navigation: arrows, Home/End, PageUp/PageDown (Shift = year)",
+      "No date library — pure Intl + Date helpers"
+    ],
+    "props": [
+      {
+        "name": "mode",
+        "type": "'single' | 'range'",
+        "default": "'single'",
+        "description": "Selection mode"
+      },
+      {
+        "name": "value",
+        "type": "Date | null | DateRange",
+        "default": "undefined",
+        "description": "Controlled selected date or range"
+      },
+      {
+        "name": "defaultValue",
+        "type": "Date | null | DateRange",
+        "default": "null",
+        "description": "Initial selection (uncontrolled)"
+      },
+      {
+        "name": "onChange",
+        "type": "(date: Date | null) => void | (range: DateRange) => void",
+        "default": "undefined",
+        "description": "Selection change callback"
+      },
+      {
+        "name": "defaultMonth",
+        "type": "Date",
+        "default": "undefined",
+        "description": "Month shown initially"
+      },
+      {
+        "name": "minDate",
+        "type": "Date",
+        "default": "undefined",
+        "description": "Earliest selectable date"
+      },
+      {
+        "name": "maxDate",
+        "type": "Date",
+        "default": "undefined",
+        "description": "Latest selectable date"
+      },
+      {
+        "name": "isDateDisabled",
+        "type": "(date: Date) => boolean",
+        "default": "undefined",
+        "description": "Predicate to disable specific dates"
+      },
+      {
+        "name": "weekStartsOn",
+        "type": "0 | 1",
+        "default": "0",
+        "description": "First day of the week (0 = Sunday, 1 = Monday)"
+      },
+      {
+        "name": "locale",
+        "type": "string",
+        "default": "undefined",
+        "description": "BCP 47 locale for formatting"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "default": "undefined",
+        "description": "Additional class for the root"
+      }
+    ],
+    "accessibility": [
+      "role=\"grid\" with labeled rows and cells; aria-selected on picked days",
+      "Full keyboard navigation with roving tabIndex and aria-live month announcements",
+      "Disabled dates expose aria-disabled and skip selection"
+    ],
+    "createdAt": "2026-10-11",
+    "usageCode": "import { Calendar, type DateRange } from \"@/components/ui/calendar\";\n\n// single\nconst [date, setDate] = React.useState<Date | null>(null);\n<Calendar value={date} onChange={setDate} />\n\n// range\nconst [range, setRange] = React.useState<DateRange>({ from: null, to: null });\n<Calendar mode=\"range\" value={range} onChange={setRange} />\n\n// limits\n<Calendar minDate={new Date()} isDateDisabled={(d) => d.getDay() === 0} weekStartsOn={1} />",
+    "dependencies": [
+      "framer-motion",
+      "lucide-react"
+    ],
+    "files": [
+      {
+        "path": "src/components/ui/calendar.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/calendar.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      }
+    ]
   },
   {
     "id": "car-smoke-page-transition",
@@ -1555,6 +1909,118 @@ export const EASY_COMPONENTS: EasyComponentMeta[] = [
     ]
   },
   {
+    "id": "combobox",
+    "name": "Combobox",
+    "tagline": "Gliding highlight & type-to-match underline",
+    "description": "A searchable select where one highlight glides between options as you move (keyboard or mouse), the match underlines as you type, and the check pops in on selection.",
+    "category": "Forms",
+    "badges": [
+      "Layout Springs",
+      "Keyboard Friendly",
+      "Searchable",
+      "Light & Dark"
+    ],
+    "cliCommand": "npx shadcn@latest add Surajmaurya1/easyui/combobox",
+    "features": [
+      "Single measured highlight glides to the active row and survives scrolling",
+      "Fuzzy-free substring search across labels, descriptions, and keywords with match underline",
+      "Descriptions, icons, and disabled options supported",
+      "Arrow/Home/End/Enter/Esc keys wired; opens upward when there is no room below",
+      "ARIA combobox/listbox with aria-activedescendant wired end to end"
+    ],
+    "props": [
+      {
+        "name": "options",
+        "type": "ComboboxOption[]",
+        "default": "undefined",
+        "description": "Options with value, label, description, icon, keywords, disabled"
+      },
+      {
+        "name": "value",
+        "type": "string | null",
+        "default": "undefined",
+        "description": "Controlled selected value"
+      },
+      {
+        "name": "defaultValue",
+        "type": "string | null",
+        "default": "null",
+        "description": "Initial value (uncontrolled)"
+      },
+      {
+        "name": "onValueChange",
+        "type": "(value: string | null) => void",
+        "default": "undefined",
+        "description": "Selection change callback"
+      },
+      {
+        "name": "placeholder",
+        "type": "string",
+        "default": "'Select…'",
+        "description": "Trigger placeholder"
+      },
+      {
+        "name": "searchPlaceholder",
+        "type": "string",
+        "default": "'Search…'",
+        "description": "Search input placeholder"
+      },
+      {
+        "name": "emptyText",
+        "type": "string",
+        "default": "'No results.'",
+        "description": "Empty state message"
+      },
+      {
+        "name": "align",
+        "type": "'start' | 'end'",
+        "default": "'start'",
+        "description": "Popover alignment"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "default": "false",
+        "description": "Disables the trigger"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "default": "undefined",
+        "description": "Additional class for the wrapper (set width, e.g. w-72)"
+      },
+      {
+        "name": "aria-label",
+        "type": "string",
+        "default": "placeholder",
+        "description": "Accessible name for the combobox"
+      }
+    ],
+    "accessibility": [
+      "role=\"combobox\" trigger + role=\"listbox\" with role=\"option\" children",
+      "aria-activedescendant tracks the highlighted option; aria-disabled on disabled options",
+      "Full keyboard support: ArrowDown/Up, Home/End, Enter selects, Escape closes and restores focus"
+    ],
+    "createdAt": "2026-10-11",
+    "usageCode": "import { Combobox, type ComboboxOption } from \"@/components/ui/combobox\";\n\nconst frameworks: ComboboxOption[] = [\n  { value: \"next\", label: \"Next.js\", description: \"React framework\" },\n  { value: \"remix\", label: \"Remix\", description: \"Web standards\" },\n  { value: \"astro\", label: \"Astro\", description: \"Content sites\", keywords: [\"islands\"] },\n  { value: \"vite\", label: \"Vite\", disabled: true },\n];\n\nconst [fw, setFw] = React.useState<string | null>(\"next\");\n\n<Combobox options={frameworks} value={fw} onValueChange={setFw} placeholder=\"Framework\" />",
+    "dependencies": [
+      "framer-motion",
+      "lucide-react"
+    ],
+    "files": [
+      {
+        "path": "src/components/ui/combobox.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/combobox.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      }
+    ]
+  },
+  {
     "id": "command-menu",
     "name": "Command Menu",
     "tagline": "Global ⌘K fuzzy palette with category grouping",
@@ -1724,6 +2190,99 @@ export const EASY_COMPONENTS: EasyComponentMeta[] = [
         "path": "src/lib/utils.ts",
         "type": "registry:lib",
         "target": "lib/utils.ts"
+      }
+    ]
+  },
+  {
+    "id": "date-picker",
+    "name": "Date Picker",
+    "tagline": "Origin-aware popover with a spring landing",
+    "description": "A date picker (and date range picker) whose popover pops from the trigger edge with a spring, flips above when there is no room below, lands the selection pill, then closes and hands focus back to the trigger.",
+    "category": "Forms",
+    "badges": [
+      "Spring In",
+      "Flip Up",
+      "Keyboard Friendly",
+      "Light & Dark"
+    ],
+    "cliCommand": "npx shadcn@latest add Surajmaurya1/easyui/date-picker",
+    "features": [
+      "Popover scales from the trigger edge with a spring and flips above when space is tight",
+      "Single date + date range pickers share the same Calendar underneath",
+      "Selection pill lands before the popover closes, then focus returns to the trigger",
+      "Esc and outside-click close; controlled or uncontrolled value",
+      "Supports all Calendar options: minDate, maxDate, isDateDisabled, weekStartsOn, locale"
+    ],
+    "props": [
+      {
+        "name": "value",
+        "type": "Date | null | DateRange",
+        "default": "undefined",
+        "description": "Controlled selected value"
+      },
+      {
+        "name": "defaultValue",
+        "type": "Date | null | DateRange",
+        "default": "null",
+        "description": "Initial value (uncontrolled)"
+      },
+      {
+        "name": "onChange",
+        "type": "(date: Date | null) => void | (range: DateRange) => void",
+        "default": "undefined",
+        "description": "Selection change callback"
+      },
+      {
+        "name": "placeholder",
+        "type": "string",
+        "default": "'Pick a date' / 'Pick a range'",
+        "description": "Trigger placeholder text"
+      },
+      {
+        "name": "align",
+        "type": "'start' | 'end'",
+        "default": "'start'",
+        "description": "Popover alignment relative to the trigger"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "default": "false",
+        "description": "Disables the trigger"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "default": "undefined",
+        "description": "Additional class for the wrapper (set width, e.g. w-80)"
+      }
+    ],
+    "accessibility": [
+      "Trigger has aria-haspopup=\"dialog\" and aria-expanded",
+      "Popover closes on Escape and returns focus to the trigger",
+      "Calendar inside is fully keyboard navigable"
+    ],
+    "createdAt": "2026-10-11",
+    "usageCode": "import { DatePicker, DateRangePicker } from \"@/components/ui/date-picker\";\n\n<DatePicker value={date} onChange={setDate} placeholder=\"Due date\" minDate={new Date()} />\n\n<DateRangePicker value={range} onChange={setRange} />",
+    "dependencies": [
+      "framer-motion",
+      "lucide-react"
+    ],
+    "files": [
+      {
+        "path": "src/components/ui/date-picker.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/date-picker.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      },
+      {
+        "path": "src/components/ui/calendar.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/calendar.tsx"
       }
     ]
   },
@@ -4442,6 +5001,16 @@ export const EASY_COMPONENTS: EasyComponentMeta[] = [
         "path": "src/lib/motion-tokens.ts",
         "type": "registry:lib",
         "target": "lib/motion-tokens.ts"
+      },
+      {
+        "path": "src/components/ui/Button.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/button.tsx"
+      },
+      {
+        "path": "src/components/ui/Form.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/form.tsx"
       }
     ],
     "featured": true
@@ -5466,6 +6035,11 @@ export const EASY_COMPONENTS: EasyComponentMeta[] = [
         "path": "src/lib/motion-tokens.ts",
         "type": "registry:lib",
         "target": "lib/motion-tokens.ts"
+      },
+      {
+        "path": "src/components/ui/Button.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/button.tsx"
       }
     ],
     "featured": true
@@ -7548,6 +8122,88 @@ export const EASY_COMPONENTS: EasyComponentMeta[] = [
     ]
   },
   {
+    "id": "sheet",
+    "name": "Sheet",
+    "tagline": "Drag-to-dismiss sheet with spring physics",
+    "description": "A draggable sheet / drawer that slides in from any side and can be dragged away to dismiss — swipe left/right sheets anywhere on touch, top/bottom sheets via the grab handle. Springs back if you let go early.",
+    "category": "Overlays",
+    "badges": [
+      "Drag to Dismiss",
+      "Spring Physics",
+      "Accessible",
+      "Light & Dark"
+    ],
+    "cliCommand": "npx shadcn@latest add Surajmaurya1/easyui/sheet",
+    "features": [
+      "Four sides: right, left, top, bottom with directional drag-to-dismiss",
+      "Touch: swipe left/right sheets anywhere; top/bottom sheets use the grab handle",
+      "Springs back when released early; rubber-band elastic resistance",
+      "Portal rendering, focus trap + focus return, Esc, scroll lock without layout shift",
+      "ARIA dialog wired to SheetTitle/SheetDescription; backdrop click closes"
+    ],
+    "props": [
+      {
+        "name": "open",
+        "type": "boolean",
+        "default": "undefined",
+        "description": "Controlled open state (on Sheet)"
+      },
+      {
+        "name": "defaultOpen",
+        "type": "boolean",
+        "default": "false",
+        "description": "Initial open state (uncontrolled)"
+      },
+      {
+        "name": "onOpenChange",
+        "type": "(open: boolean) => void",
+        "default": "undefined",
+        "description": "Open state change callback"
+      },
+      {
+        "name": "side",
+        "type": "'right' | 'left' | 'top' | 'bottom'",
+        "default": "'right'",
+        "description": "Side the sheet slides in from (on SheetContent)"
+      },
+      {
+        "name": "showClose",
+        "type": "boolean",
+        "default": "true",
+        "description": "Show the built-in close button"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "default": "undefined",
+        "description": "Additional class for the panel"
+      }
+    ],
+    "accessibility": [
+      "role=\"dialog\" with aria-modal, labelled by SheetTitle, described by SheetDescription",
+      "Focus is trapped inside and returned to the trigger on close; Escape dismisses",
+      "Body scroll locks while open with scrollbar-width compensation (no layout shift)"
+    ],
+    "createdAt": "2026-10-11",
+    "usageCode": "import {\n  Sheet, SheetBody, SheetClose, SheetContent, SheetDescription,\n  SheetFooter, SheetHeader, SheetTitle, SheetTrigger,\n} from \"@/components/ui/sheet\";\n\n<Sheet>\n  <SheetTrigger className=\"h-9 rounded-lg bg-neutral-900 px-4 text-sm text-white dark:bg-white dark:text-neutral-900\">\n    Open\n  </SheetTrigger>\n\n  <SheetContent side=\"right\">\n    <SheetHeader>\n      <SheetTitle>Edit profile</SheetTitle>\n      <SheetDescription>Make changes, then save.</SheetDescription>\n    </SheetHeader>\n    <SheetBody>{/* scrolls on its own */}</SheetBody>\n    <SheetFooter>\n      <SheetClose>Cancel</SheetClose>\n    </SheetFooter>\n  </SheetContent>\n</Sheet>",
+    "dependencies": [
+      "framer-motion",
+      "lucide-react"
+    ],
+    "files": [
+      {
+        "path": "src/components/ui/sheet.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/sheet.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      }
+    ]
+  },
+  {
     "id": "shooting-stars",
     "name": "Shooting Stars",
     "tagline": "Deep space canvas cosmos with glowing shooting stars, radiant twinkling starfield, and interactive stardust",
@@ -7710,6 +8366,118 @@ export const EASY_COMPONENTS: EasyComponentMeta[] = [
     ]
   },
   {
+    "id": "sidebar",
+    "name": "Sidebar",
+    "tagline": "Cursor-following hover pill & gliding active indicator",
+    "description": "A collapsible application sidebar with a hover pill that follows the cursor and a shared-layout active pill that glides between items. Includes nested sections, icon-only mode with tooltips, ⌘B toggle, and a draggable mobile drawer.",
+    "category": "Navigation",
+    "badges": [
+      "Layout Springs",
+      "Keyboard Friendly",
+      "Light & Dark",
+      "Mobile Drawer"
+    ],
+    "cliCommand": "npx shadcn@latest add Surajmaurya1/easyui/sidebar",
+    "features": [
+      "Hover pill tracks the cursor; active pill glides between items with a shared layout spring",
+      "Nested items with animated expand/collapse and active dot indicator",
+      "Icon-only collapse mode with floating tooltips, toggled via ⌘B / Ctrl+B",
+      "Mobile drawer under md with drag-to-dismiss and backdrop blur",
+      "Header and footer slots adapt to the collapsed state via useSidebar()"
+    ],
+    "props": [
+      {
+        "name": "sections",
+        "type": "SidebarSection[]",
+        "default": "undefined",
+        "description": "Navigation sections with items, optional titles, badges, and nested children"
+      },
+      {
+        "name": "activeId",
+        "type": "string",
+        "default": "undefined",
+        "description": "ID of the active item"
+      },
+      {
+        "name": "onActiveChange",
+        "type": "(id: string) => void",
+        "default": "undefined",
+        "description": "Called when an item or child is selected"
+      },
+      {
+        "name": "header",
+        "type": "React.ReactNode",
+        "default": "undefined",
+        "description": "Brand/header slot (use useSidebar() to adapt when collapsed)"
+      },
+      {
+        "name": "footer",
+        "type": "React.ReactNode",
+        "default": "undefined",
+        "description": "Footer slot above the collapse toggle"
+      },
+      {
+        "name": "collapsed",
+        "type": "boolean",
+        "default": "undefined",
+        "description": "Controlled collapsed (icon-only) state"
+      },
+      {
+        "name": "defaultCollapsed",
+        "type": "boolean",
+        "default": "false",
+        "description": "Initial collapsed state (uncontrolled)"
+      },
+      {
+        "name": "onCollapsedChange",
+        "type": "(collapsed: boolean) => void",
+        "default": "undefined",
+        "description": "Collapse state change callback"
+      },
+      {
+        "name": "mobileOpen",
+        "type": "boolean",
+        "default": "undefined",
+        "description": "Controlled mobile drawer open state"
+      },
+      {
+        "name": "onMobileOpenChange",
+        "type": "(open: boolean) => void",
+        "default": "undefined",
+        "description": "Mobile drawer open state callback"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "default": "undefined",
+        "description": "Additional class for the aside"
+      }
+    ],
+    "accessibility": [
+      "aria-current=\"page\" on active items, aria-expanded on parents, aria-label in icon-only mode",
+      "Full keyboard support: Tab focusable items, ⌘B / Ctrl+B toggle, Esc closes the mobile drawer",
+      "Mobile drawer uses role=\"dialog\" with aria-modal and backdrop click to close"
+    ],
+    "createdAt": "2026-10-11",
+    "usageCode": "import * as React from \"react\";\nimport { Bell, Folder, Home, Inbox, Settings, Users } from \"lucide-react\";\nimport { Sidebar, SidebarTrigger, useSidebar, type SidebarSection } from \"@/components/ui/sidebar\";\n\nconst sections: SidebarSection[] = [\n  {\n    items: [\n      { id: \"home\", label: \"Home\", icon: <Home /> },\n      { id: \"inbox\", label: \"Inbox\", icon: <Inbox />, badge: 4 },\n    ],\n  },\n  {\n    title: \"Workspace\",\n    items: [\n      {\n        id: \"projects\",\n        label: \"Projects\",\n        icon: <Folder />,\n        children: [\n          { id: \"active\", label: \"Active\", badge: 12 },\n          { id: \"archived\", label: \"Archived\" },\n        ],\n      },\n      { id: \"team\", label: \"Team\", icon: <Users /> },\n      { id: \"alerts\", label: \"Alerts\", icon: <Bell /> },\n      { id: \"settings\", label: \"Settings\", icon: <Settings /> },\n    ],\n  },\n];\n\nexport default function Page() {\n  const [active, setActive] = React.useState(\"home\");\n\n  return (\n    <div className=\"flex h-screen\">\n      <Sidebar sections={sections} activeId={active} onActiveChange={setActive} />\n      <main className=\"flex-1 p-4\">\n        <SidebarTrigger />\n      </main>\n    </div>\n  );\n}",
+    "dependencies": [
+      "framer-motion",
+      "lucide-react"
+    ],
+    "files": [
+      {
+        "path": "src/components/ui/sidebar.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/sidebar.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      }
+    ]
+  },
+  {
     "id": "sign-up",
     "name": "Sign Up",
     "tagline": "Multi-step capable user registration with strength telemetry",
@@ -7820,9 +8588,94 @@ export const EASY_COMPONENTS: EasyComponentMeta[] = [
         "path": "src/lib/motion-tokens.ts",
         "type": "registry:lib",
         "target": "lib/motion-tokens.ts"
+      },
+      {
+        "path": "src/components/ui/Button.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/button.tsx"
+      },
+      {
+        "path": "src/components/ui/Form.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/form.tsx"
       }
     ],
     "featured": true
+  },
+  {
+    "id": "skeleton",
+    "name": "Skeleton",
+    "tagline": "Subtle shimmer sweep and smooth content reveal",
+    "description": "Placeholder blocks with a subtle light sweep, text/avatar presets, and a SkeletonReveal container that eases real content in with a gentle rise and un-blur.",
+    "category": "Feedback",
+    "badges": [
+      "Light Sweep",
+      "Content Reveal",
+      "Avatar & Text",
+      "Light & Dark"
+    ],
+    "cliCommand": "npx shadcn@latest add Surajmaurya1/easyui/skeleton",
+    "features": [
+      "Quiet shimmer blocks with smooth gradient light sweep animation",
+      "SkeletonReveal transitions seamlessly to live content using fade, subtle rise, and un-blur",
+      "Convenient SkeletonText preset with natural staggered line length distribution",
+      "SkeletonAvatar preset for profile pictures and user thumbnails",
+      "Clean reduced-motion fallback that disables continuous sweeping"
+    ],
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "default": "undefined",
+        "description": "CSS classes to size and position the skeleton block"
+      },
+      {
+        "name": "lines",
+        "type": "number",
+        "default": "3",
+        "description": "Number of lines for the SkeletonText component"
+      },
+      {
+        "name": "size",
+        "type": "number",
+        "default": "40",
+        "description": "Pixel size for the circular SkeletonAvatar component"
+      },
+      {
+        "name": "loading",
+        "type": "boolean",
+        "default": "undefined",
+        "description": "Active loading state for the SkeletonReveal wrapper"
+      },
+      {
+        "name": "skeleton",
+        "type": "React.ReactNode",
+        "default": "undefined",
+        "description": "Placeholder element rendered while loading is true"
+      }
+    ],
+    "accessibility": [
+      "Applies aria-hidden to placeholder skeletons to avoid cluttering screen readers",
+      "SkeletonReveal uses role=\"status\" and aria-busy=\"true\" during loading",
+      "Respects prefers-reduced-motion without disorienting fast flashing"
+    ],
+    "createdAt": "2026-10-11",
+    "usageCode": "import { Skeleton, SkeletonAvatar, SkeletonText, SkeletonReveal } from \"@/components/ui/skeleton\";\n\n<SkeletonReveal\n  loading={isLoading}\n  skeleton={\n    <div className=\"flex gap-3\">\n      <SkeletonAvatar size={40} />\n      <div className=\"flex-1 space-y-2\">\n        <Skeleton className=\"h-4 w-1/3\" />\n        <SkeletonText lines={2} />\n      </div>\n    </div>\n  }\n>\n  <UserCard user={user} />\n</SkeletonReveal>",
+    "dependencies": [
+      "framer-motion"
+    ],
+    "files": [
+      {
+        "path": "src/components/ui/skeleton.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/skeleton.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      }
+    ]
   },
   {
     "id": "slide-pagination",
@@ -8850,6 +9703,81 @@ export const EASY_COMPONENTS: EasyComponentMeta[] = [
         "path": "src/components/ui/StackedCards.tsx",
         "type": "registry:ui",
         "target": "components/ui/stacked-cards.tsx"
+      },
+      {
+        "path": "src/lib/utils.ts",
+        "type": "registry:lib",
+        "target": "lib/utils.ts"
+      }
+    ]
+  },
+  {
+    "id": "stepper",
+    "name": "Stepper",
+    "tagline": "Animated connector line, gliding focus ring, and step panels",
+    "description": "A multi-step progress indicator with line fills, gliding active rings, drawing checkmarks, and direction-aware sliding step panels.",
+    "category": "Navigation",
+    "badges": [
+      "Connector Line",
+      "Draw Checkmark",
+      "Directional Panels",
+      "Light & Dark"
+    ],
+    "cliCommand": "npx shadcn@latest add Surajmaurya1/easyui/stepper",
+    "features": [
+      "Connector line fills smoothly as you advance through steps",
+      "A single active indicator ring glides between steps using Framer Motion layoutId",
+      "Completed step checkmark animates its stroke path on completion",
+      "Direction-aware StepPanels: slides left/right depending on forward or backward navigation",
+      "Horizontal and vertical layouts, clickable completed steps, and responsive mobile labels"
+    ],
+    "props": [
+      {
+        "name": "steps",
+        "type": "Step[]",
+        "default": "undefined",
+        "description": "List of steps with title and optional description"
+      },
+      {
+        "name": "current",
+        "type": "number",
+        "default": "0",
+        "description": "Zero-based index of the active step"
+      },
+      {
+        "name": "onStepChange",
+        "type": "(index: number) => void",
+        "default": "undefined",
+        "description": "Callback enabling jump-back clicks on completed steps"
+      },
+      {
+        "name": "orientation",
+        "type": "'horizontal' | 'vertical'",
+        "default": "'horizontal'",
+        "description": "Layout direction of the stepper line"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "default": "undefined",
+        "description": "Additional CSS classes for the stepper container"
+      }
+    ],
+    "accessibility": [
+      "Uses semantic <ol aria-label=\"Progress\"> and <li> elements with aria-current=\"step\"",
+      "Provides hidden text \"(completed)\" for screen readers on completed steps",
+      "Full keyboard navigation and visible focus rings for interactive step buttons"
+    ],
+    "createdAt": "2026-10-11",
+    "usageCode": "import { Stepper, StepPanels, type Step } from \"@/components/ui/stepper\";\n\nconst steps: Step[] = [\n  { title: \"Account\", description: \"Your details\" },\n  { title: \"Workspace\", description: \"Name it\" },\n  { title: \"Invite\", description: \"Optional\" },\n  { title: \"Done\" },\n];\n\nconst [current, setCurrent] = React.useState(0);\n\n<Stepper steps={steps} current={current} onStepChange={setCurrent} />\n<StepPanels current={current}>\n  <div>Step 1 content</div>\n  <div>Step 2 content</div>\n  <div>Step 3 content</div>\n  <div>Step 4 content</div>\n</StepPanels>",
+    "dependencies": [
+      "framer-motion"
+    ],
+    "files": [
+      {
+        "path": "src/components/ui/stepper.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/stepper.tsx"
       },
       {
         "path": "src/lib/utils.ts",

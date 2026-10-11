@@ -13,7 +13,7 @@
 
 ## Components Directory
 
-- [All Components Catalog](https://easyui.site/components): Browse the full catalog of 108 animated React components.
+- [All Components Catalog](https://easyui.site/components): Browse the full catalog of 118 animated React components.
 
 ### Component Index
 
@@ -22,20 +22,26 @@
 - [AI Agent Activity](https://easyui.site/components/ai-agent-activity): A timeline component for tracking AI agent reasoning, tool calls, API queries, database fetches, and execution states with inspectable parameters and results.
 - [AI Response](https://easyui.site/components/ai-response): A production-ready, accessible AI response component supporting streaming markdown, syntax-styled code blocks, citations, feedback actions, and tool execution status.
 - [Airport Matrix Clock](https://easyui.site/components/airport-matrix-clock): A live world clock that renders local times and city names as crisp dot-matrix characters with restrained, character-level rolling transitions.
+- [Alert](https://easyui.site/components/alert): An alert component that collapses smoothly in height and opacity on dismissal, with tone-aware icons, action slot, and accessibility roles.
 - [Animated File Upload](https://easyui.site/components/animated-file-upload): A minimal, physical drag-and-drop file uploader with smooth drop reaction, independent file upload tracking, progressive state morphing, and accessible retry flows.
 - [Animated Number Morph](https://easyui.site/components/animated-number): An Apple-grade smooth rolling digit counter that independently morphs individual numerical columns with physics-based springs, locale commas, currencies, and compact notation.
 - [Animated Tabs](https://easyui.site/components/animated-tabs): A tabbed switcher with physical pill indicator sliding smoothly between active items with content cross-fades.
 - [Avatar Stack](https://easyui.site/components/avatar-stack): An interactive, stacked facepile of overlapping avatars that smoothly elevates and scales the hovered avatar to the front with spring physics, revealing the full image and name tooltip.
+- [Badge](https://easyui.site/components/badge): An animated status badge where numbers and strings roll on value change, with live status pulse dot, removable chip actions, and rich tone variants.
 - [Batch Gesture Tray](https://easyui.site/components/batch-gesture-tray): A touch-ready contextual tray that slides into view upon item selection, presenting bulk actions and real-time count telemetry.
 - [Book Call Button](https://easyui.site/components/book-call-button): A premium "Book a call" pill with a green expanding capsule. At rest, a 36% accent capsule holds a dotted arrow + label; on hover, the capsule fills the pill, the label slides out, and a phone icon with ringing lines fades in centered.
 - [Branching Submenu](https://easyui.site/components/branching-submenu): A spatial submenu that connects parent options to child actions with staged branch motion.
+- [Breadcrumb](https://easyui.site/components/breadcrumb): A navigation trail with a gliding hover pill, smooth expansion for collapsed trails with automatic focus transfer, and light/dark theme adaptation.
 - [Button](https://easyui.site/components/button): A versatile, production-ready button system with 8 visual variants, 4 sizes, loading spinner states, icon slots, and spring tap feedback.
+- [Calendar](https://easyui.site/components/calendar): A dependency-free calendar with a selected-day pill that glides from date to date, range support with a live hover preview band, and months that slide in the direction you navigate.
 - [Car Smoke Page Transition](https://easyui.site/components/car-smoke-page-transition): A cinematic page transition where a speeding car crosses the screen, leaving a smoke trail before transitioning to the next page.
 - [Chat](https://easyui.site/components/chat): A production-grade conversational chat component with thread history sidebar, rich message rendering, status indicators, file attachments, and auto-expanding composer.
 - [Circular Orbit](https://easyui.site/components/circular-orbit): A circular gallery of image tiles orbiting around a centered title. All motion runs on a single MotionValue driven by useAnimationFrame, so no React renders per frame.
 - [Code Snippet Deck](https://easyui.site/components/code-snippet-deck): An interactive multi-runtime developer code snippet deck with runtime switching (cURL, TypeScript, Python, Go, Rust), live dynamic parameter customizations, and line highlighting.
+- [Combobox](https://easyui.site/components/combobox): A searchable select where one highlight glides between options as you move (keyboard or mouse), the match underlines as you type, and the check pops in on selection.
 - [Command Menu](https://easyui.site/components/command-menu): A global keyboard-first command palette with fuzzy filtering, category badges, and keyboard arrow controls.
 - [Cursor Follower](https://easyui.site/components/cursor-follower): A smooth spring-based cursor follower with customizable physics, velocity scaling, and custom child icons or badges.
+- [Date Picker](https://easyui.site/components/date-picker): A date picker (and date range picker) whose popover pops from the trigger edge with a spring, flips above when there is no room below, lands the selection pill, then closes and hands focus back to the trigger.
 - [Density Lens](https://easyui.site/components/density-lens): An interactive floating lens that tracks pointer movement to reveal high-density data, magnified details, or alternative views.
 - [Dependency Trace](https://easyui.site/components/dependency-trace): An interactive SVG node graph that maps and dynamically traces relationship connections with directional bezier curves.
 - [Depth Corridor](https://easyui.site/components/depth-corridor): A 3D spatial layer stack with receding perspective depth, progressive focal blurs, and pointer parallax motion.
@@ -100,8 +106,11 @@
 - [Scroll Velocity Text](https://easyui.site/components/scrollvelocitytext): A direction-aware kinetic typography component that smoothly expands letter-spacing and scale on downward scroll, and winds back on upward scroll, with zero per-frame React re-renders.
 - [Selection Basket](https://easyui.site/components/selection-basket): A floating bulk-action toolbar that smoothly rises from the bottom of the screen when multiple dataset items are selected, supporting batch operations, horizontal scrolling, and clear triggers.
 - [SettleModal](https://easyui.site/components/settle-modal): A modal whose content has a tiny scale/settle instead of a generic fade. The panel scales 0.94 -> 1.02 -> 1.0 with a small y travel, then the inner content layers its own gentle settle on top.
+- [Sheet](https://easyui.site/components/sheet): A draggable sheet / drawer that slides in from any side and can be dragged away to dismiss — swipe left/right sheets anywhere on touch, top/bottom sheets via the grab handle. Springs back if you let go early.
 - [Shooting Stars](https://easyui.site/components/shooting-stars): A high-performance deep-space cosmos background featuring multi-depth twinkling celestial stars, glowing atmospheric nebula clouds, and cinematic shooting stars with luminous head flares, tapered fading trails, ember stardust, and click-to-summon interactivity.
+- [Sidebar](https://easyui.site/components/sidebar): A collapsible application sidebar with a hover pill that follows the cursor and a shared-layout active pill that glides between items. Includes nested sections, icon-only mode with tooltips, ⌘B toggle, and a draggable mobile drawer.
 - [Sign Up](https://easyui.site/components/sign-up): A comprehensive registration card with live password strength metrics, password confirmation matching, terms validation, and social onboarding.
+- [Skeleton](https://easyui.site/components/skeleton): Placeholder blocks with a subtle light sweep, text/avatar presets, and a SkeletonReveal container that eases real content in with a gentle rise and un-blur.
 - [SlidePagination](https://easyui.site/components/slide-pagination): A pagination control where the active indicator slides between pages rather than instantly switching. The active background uses shared layoutId so the indicator visibly travels from one item to the next.
 - [Small Floating Dock](https://easyui.site/components/small-floating-dock): A minimal, gesture-responsive floating dock for quick access to 3-5 primary actions.
 - [Smart Comparison](https://easyui.site/components/smart-comparison): An interactive feature matrix and SaaS tier comparison component featuring live difference filtering, collapsible specification categories, search indexing, and mobile card toggle.
@@ -114,6 +123,7 @@
 - [SpringSelect](https://easyui.site/components/spring-select): A select dropdown whose menu follows the trigger with a tiny spring. The chevron rotates a hair past 180° before settling, and the panel slides down with a subtle overshoot.
 - [Stack Unfold Panel](https://easyui.site/components/stack-unfold-panel): A vertically stacked card deck that unfolds progressively with spring physics, shifting adjacent panels with zero layout jank.
 - [Stacked Cards](https://easyui.site/components/stacked-cards): A responsive, scroll-driven stacking cards component built with Tailwind CSS and Framer Motion. Cards start aligned in a column and stack gracefully on scroll without hijacking page scrolling.
+- [Stepper](https://easyui.site/components/stepper): A multi-step progress indicator with line fills, gliding active rings, drawing checkmarks, and direction-aware sliding step panels.
 - [Sticky Pages](https://easyui.site/components/sticky-pages): A pure static full-page sticky stacking scroll component where pages slide up and stack cleanly one over another without any tilting or distortion, before releasing smoothly into natural page scrolling.
 - [Story Cards](https://easyui.site/components/story-card): A responsive, accessible story cards carousel for React applications built with Tailwind CSS and Framer Motion.
 - [StretchSwitch](https://easyui.site/components/stretch-switch): A toggle switch whose thumb stretches slightly while dragging or pressing, then snaps naturally to its destination via a snappy spring.

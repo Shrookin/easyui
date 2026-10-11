@@ -670,6 +670,66 @@ export const PREVIEW_REGISTRY: Record<string, ComponentPreviewDefinition> = {
     load: () => import('./items/pull-to-refresh'),
     metadata: { type: 'interactive' },
   },
+  'sidebar': {
+    id: 'sidebar',
+    componentId: 'sidebar',
+    load: () => import('./items/sidebar'),
+    metadata: { type: 'interactive' },
+  },
+  'calendar': {
+    id: 'calendar',
+    componentId: 'calendar',
+    load: () => import('./items/calendar'),
+    metadata: { type: 'interactive' },
+  },
+  'date-picker': {
+    id: 'date-picker',
+    componentId: 'date-picker',
+    load: () => import('./items/date-picker'),
+    metadata: { type: 'interactive' },
+  },
+  'combobox': {
+    id: 'combobox',
+    componentId: 'combobox',
+    load: () => import('./items/combobox'),
+    metadata: { type: 'interactive' },
+  },
+  'sheet': {
+    id: 'sheet',
+    componentId: 'sheet',
+    load: () => import('./items/sheet'),
+    metadata: { type: 'interactive' },
+  },
+  'breadcrumb': {
+    id: 'breadcrumb',
+    componentId: 'breadcrumb',
+    load: () => import('./items/breadcrumb'),
+    metadata: { type: 'interactive' },
+  },
+  'badge': {
+    id: 'badge',
+    componentId: 'badge',
+    load: () => import('./items/badge'),
+    metadata: { type: 'interactive' },
+  },
+  'alert': {
+    id: 'alert',
+    componentId: 'alert',
+    load: () => import('./items/alert'),
+    metadata: { type: 'interactive' },
+  },
+  'skeleton': {
+    id: 'skeleton',
+    componentId: 'skeleton',
+    load: () => import('./items/skeleton'),
+    metadata: { type: 'interactive' },
+  },
+  'stepper': {
+    id: 'stepper',
+    componentId: 'stepper',
+    load: () => import('./items/stepper'),
+    metadata: { type: 'interactive' },
+  },
 };
 
 // Fast lookup map supporting both primary slugs and aliases

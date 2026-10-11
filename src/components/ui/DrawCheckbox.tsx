@@ -95,10 +95,11 @@ export const DrawCheckbox = forwardRef<HTMLInputElement, DrawCheckboxProps>(
                 width="12"
                 height="12"
                 fill="none"
-                stroke="var(--bg)"
+                stroke="currentColor"
                 strokeWidth="2.4"
                 strokeLinecap="round"
                 strokeLinejoin="round"
+                className="text-black dark:text-white stroke-black dark:stroke-white"
                 initial={{ pathLength: 0, scale: 0.6, opacity: 0 }}
                 animate={{
                   pathLength: 1,
@@ -130,7 +131,7 @@ export const DrawCheckbox = forwardRef<HTMLInputElement, DrawCheckboxProps>(
                 animate={{ scaleX: 1 }}
                 transition={motionTransitions.springSnappy}
                 style={{ transformOrigin: 'left center' }}
-                className="w-2.5 h-[2px] rounded-full bg-[var(--bg)]"
+                className="w-2.5 h-[2px] rounded-full bg-black dark:bg-white"
               />
             )}
           </motion.div>
