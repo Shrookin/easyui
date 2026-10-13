@@ -489,8 +489,7 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
       "Light & Dark"
     ],
     "cliCommand": "npx shadcn@latest add Surajmaurya1/easyui/draw-checkbox",
-    "createdAt": "2026-09-03",
-    "featured": true
+    "createdAt": "2026-09-03"
   },
   {
     "id": "dynamic-island",
@@ -700,6 +699,22 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
     ],
     "cliCommand": "npx shadcn@latest add Surajmaurya1/easyui/hamburger-menu",
     "createdAt": "2026-08-24"
+  },
+  {
+    "id": "interactive-area-chart",
+    "name": "Interactive Area Chart",
+    "tagline": "Zero-dependency interactive SVG area chart with range morphing and scrubbing",
+    "description": "A hand-written, dependency-free interactive SVG area chart with interruptible dataset morphing, Catmull-Rom spline resampling, scrubbing tooltip, and keyboard accessibility.",
+    "category": "Feedback",
+    "badges": [
+      "SVG",
+      "Area Chart",
+      "Data Visualization",
+      "Interactive"
+    ],
+    "cliCommand": "npx shadcn@latest add Surajmaurya1/easyui/interactive-area-chart",
+    "createdAt": "2026-10-13",
+    "featured": true
   },
   {
     "id": "interactive-timeline",
@@ -938,6 +953,21 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
     "createdAt": "2026-09-16"
   },
   {
+    "id": "morphing-mega-menu",
+    "name": "Morphing Mega Menu",
+    "tagline": "Stripe-style morphing navigation panel with spring physics and cursor tracking",
+    "description": "A Stripe-inspired mega menu with a single continuous morphing panel that smoothly adapts its size, position, and arrow to any trigger.",
+    "category": "Navigation",
+    "badges": [
+      "Mega Menu",
+      "Morphing Panel",
+      "Spring Physics",
+      "Keyboard Nav"
+    ],
+    "cliCommand": "npx shadcn@latest add Surajmaurya1/easyui/morphing-mega-menu",
+    "createdAt": "2026-10-13"
+  },
+  {
     "id": "morphing-shape-loader",
     "name": "Morphing Shape Loader",
     "tagline": "Continuously morphing SVG shape loader",
@@ -1173,6 +1203,22 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
     ],
     "cliCommand": "npx shadcn@latest add Surajmaurya1/easyui/pricing",
     "createdAt": "2026-09-03"
+  },
+  {
+    "id": "product-tour",
+    "name": "Product Tour",
+    "tagline": "Interactive walkthrough with spring spotlight cutout and responsive docking",
+    "description": "An interactive product walkthrough with spring-animated spotlight cutout, auto-scrolling targets, responsive bottom-sheet docking, and keyboard navigation.",
+    "category": "Feedback",
+    "badges": [
+      "Walkthrough",
+      "Spotlight",
+      "Spring Physics",
+      "Keyboard Nav",
+      "Portal"
+    ],
+    "cliCommand": "npx shadcn@latest add Surajmaurya1/easyui/product-tour",
+    "createdAt": "2026-10-13"
   },
   {
     "id": "profile-card",

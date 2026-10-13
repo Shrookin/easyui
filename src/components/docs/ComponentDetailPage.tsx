@@ -180,6 +180,9 @@ const SkeletonAvatar = lazyNamed(() => import('../ui/skeleton'), 'SkeletonAvatar
 const SkeletonReveal = lazyNamed(() => import('../ui/skeleton'), 'SkeletonReveal');
 const Stepper = lazyNamed(() => import('../ui/stepper'), 'Stepper');
 const StepPanels = lazyNamed(() => import('../ui/stepper'), 'StepPanels');
+const MorphingMegaMenu = lazyNamed(() => import('../ui/MorphingMegaMenu'), 'MorphingMegaMenu');
+const InteractiveAreaChart = lazyNamed(() => import('../ui/InteractiveAreaChart'), 'InteractiveAreaChart');
+const ProductTour = lazyNamed(() => import('../ui/ProductTour'), 'ProductTour');
 const AIResponseLiveShowcase = lazyNamed(() => import('./sections/NewComponentsShowcase'), 'AIResponseLiveShowcase');
 const AdvancedDataTableLiveShowcase = lazyNamed(() => import('./sections/NewComponentsShowcase'), 'AdvancedDataTableLiveShowcase');
 const ChatLiveShowcase = lazyNamed(() => import('./sections/NewComponentsShowcase'), 'ChatLiveShowcase');
@@ -311,6 +314,9 @@ const DEMO_PRELOADERS: Record<string, () => Promise<any>> = {
   'shooting-stars': () => ShootingStarsLiveShowcase.preload(),
   'sparkles-core': () => SparklesCoreLiveShowcase.preload(),
   'sticky-pages': () => StickyPagesLiveShowcase.preload(),
+  'morphing-mega-menu': () => MorphingMegaMenu.preload(),
+  'interactive-area-chart': () => InteractiveAreaChart.preload(),
+  'product-tour': () => ProductTour.preload(),
 };
 
 /**
@@ -1761,6 +1767,108 @@ const StepperDemo: React.FC = () => {
           </button>
         </div>
       </div>
+    </div>
+  );
+};
+
+const MorphingMegaMenuDemo: React.FC = () => {
+  return (
+    <div className="flex flex-col items-center justify-start gap-4 sm:gap-6 p-0 sm:p-4 w-full min-h-[460px]">
+      <div className="w-full max-w-2xl py-2 sm:py-6 flex flex-col items-center">
+        <MorphingMegaMenu />
+        <p className="mt-80 sm:mt-28 text-xs text-[var(--text-muted)] text-center px-2">
+          Hover over or click any trigger to open.
+        </p>
+      </div>
+    </div>
+  );
+};
+
+const InteractiveAreaChartDemo: React.FC = () => {
+  return (
+    <div className="flex flex-col items-center justify-center gap-4 sm:gap-6 p-1 sm:p-4 w-full max-w-2xl">
+      <div className="w-full rounded-2xl border border-[var(--border)] bg-card p-3 sm:p-6 shadow-xs">
+        <InteractiveAreaChart
+          title="Portfolio Valuation"
+          height={260}
+          defaultRange="30D"
+        />
+      </div>
+    </div>
+  );
+};
+
+const ProductTourDemoShowcase: React.FC = () => {
+  const [open, setOpen] = useState(false);
+
+  const steps = [
+    { title: "Welcome aboard", body: "A quick tour of the essentials. Tap Next to move around (← → and Esc work too)." },
+    { target: '[data-tour="stage-search"]', title: "Search anything", body: "Jump to any project, person or setting from one place.", placement: "bottom" as const },
+    { target: '[data-tour="stage-new"]', title: "Start something new", body: "Projects live here. Create your first one in a click.", placement: "left" as const },
+    { target: '[data-tour="stage-stats"]', title: "Numbers at a glance", body: "Revenue, active users and churn update in real time.", placement: "bottom" as const },
+    { target: '[data-tour="stage-activity"]', title: "Stay in the loop", body: "Everything your team does lands in this live feed.", placement: "top" as const },
+  ];
+
+  const cardStyle = "rounded-2xl border border-[var(--border)] bg-card p-3 sm:p-4";
+
+  return (
+    <div className="w-full max-w-2xl flex flex-col gap-4 p-2 sm:p-4">
+      <header className="flex items-center gap-2">
+        <div
+          data-tour="stage-search"
+          className="flex h-9 flex-1 min-w-0 items-center gap-2 rounded-xl border border-[var(--border)] bg-card px-3 text-xs text-[var(--text-muted)]"
+        >
+          <Search className="w-3.5 h-3.5 text-[var(--text-muted)] shrink-0" />
+          <span className="hidden sm:inline truncate">Search projects…</span>
+        </div>
+        <div className="flex items-center gap-2 shrink-0">
+          <button
+            type="button"
+            onClick={() => setOpen(true)}
+            className="h-9 rounded-xl border border-[var(--border)] bg-card px-3 sm:px-3.5 text-xs font-medium text-[var(--text-primary)] shadow-2xs hover:bg-[var(--accent)] transition cursor-pointer whitespace-nowrap"
+          >
+            Start tour
+          </button>
+          <button
+            type="button"
+            data-tour="stage-new"
+            className="h-9 rounded-xl bg-[var(--text-primary)] px-3 sm:px-3.5 text-xs font-medium text-[var(--bg)] shadow-2xs cursor-pointer whitespace-nowrap"
+          >
+            + New project
+          </button>
+        </div>
+      </header>
+
+      <div data-tour="stage-stats" className="grid grid-cols-3 gap-2 sm:gap-3">
+        {[
+          { label: "Revenue", val: "$48.2k" },
+          { label: "Active users", val: "2,841" },
+          { label: "Growth", val: "+24.8%" },
+        ].map((item) => (
+          <div key={item.label} className={cardStyle}>
+            <p className="text-[11px] text-[var(--text-muted)]">{item.label}</p>
+            <p className="mt-0.5 text-base sm:text-lg font-semibold tabular-nums text-[var(--text-primary)]">
+              {item.val}
+            </p>
+          </div>
+        ))}
+      </div>
+
+      <div data-tour="stage-activity" className={`${cardStyle} min-h-24`}>
+        <div className="flex items-center justify-between pb-2 border-b border-[var(--border)]">
+          <p className="text-xs font-medium text-[var(--text-primary)]">Recent Activity</p>
+          <span className="text-[10px] text-emerald-500 font-medium">● Live</span>
+        </div>
+        <p className="mt-2 text-xs text-[var(--text-muted)]">
+          Deployed release v2.4.0 to production · 2 minutes ago
+        </p>
+      </div>
+
+      <p className="text-xs text-[var(--text-muted)] text-center px-2">
+        Click &quot;Start tour&quot; to launch the spotlight walkthrough with spring physics and responsive card docking.
+      </p>
+
+      <ProductTour open={open} steps={steps} onClose={() => setOpen(false)} />
     </div>
   );
 };
@@ -3731,6 +3839,12 @@ const completion = await client.completions.create({
         return <SkeletonDemo key={demoKey} />;
       case 'stepper':
         return <StepperDemo key={demoKey} />;
+      case 'morphing-mega-menu':
+        return <MorphingMegaMenuDemo key={demoKey} />;
+      case 'interactive-area-chart':
+        return <InteractiveAreaChartDemo key={demoKey} />;
+      case 'product-tour':
+        return <ProductTourDemoShowcase key={demoKey} />;
       default:
         return (
           <div className="py-12 text-center text-xs text-[#808080]">
@@ -4103,7 +4217,7 @@ const completion = await client.completions.create({
                     </div>
 
                     {/* Component Render Canvas — seamless unified stage matching card background */}
-                    <div className="relative min-h-[360px] sm:min-h-[440px] p-3 sm:p-8 flex items-center justify-center overflow-hidden text-text-primary">
+                    <div className={cn("relative min-h-[360px] sm:min-h-[440px] p-2 sm:p-8 flex items-center justify-center text-text-primary", component.id === 'morphing-mega-menu' ? 'overflow-visible' : 'overflow-hidden')}>
                       <div className="w-full flex items-center justify-center">
                         {!isFullscreenPreview && (
                           <Suspense fallback={<div className="min-h-48 w-full flex items-center justify-center text-xs text-text-muted">Loading preview…</div>}>

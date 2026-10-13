@@ -13,7 +13,7 @@
 
 ## Components Directory
 
-- [All Components Catalog](https://easyui.site/components): Browse the full catalog of 118 animated React components.
+- [All Components Catalog](https://easyui.site/components): Browse the full catalog of 121 animated React components.
 
 ### Component Index
 
@@ -64,6 +64,7 @@
 - [Gooey Menu](https://easyui.site/components/gooey-menu): A tactile liquid dropdown menu with organic SVG metaball fusion filter and spring-driven extrusion animation.
 - [Gravity Particle Burst](https://easyui.site/components/gravity-particle-burst): A pointer-triggered canvas particle burst with velocity, gravity, friction, and short-lived physical follow-through.
 - [Hamburger Menu](https://easyui.site/components/hamburger-menu): An iconic three-line menu toggle that transforms smoothly into a symmetrical close symbol.
+- [Interactive Area Chart](https://easyui.site/components/interactive-area-chart): A hand-written, dependency-free interactive SVG area chart with interruptible dataset morphing, Catmull-Rom spline resampling, scrubbing tooltip, and keyboard accessibility.
 - [Interactive Timeline](https://easyui.site/components/interactive-timeline): A developer-focused milestone and deployment timeline featuring dynamic progress lines, pulsating status nodes, expandable telemetry cards, and commit hash copy.
 - [Intro Loader](https://easyui.site/components/intro-loader): An Apple-inspired multilingual welcome splash and intro loader that rapidly cycles localized greetings with fluid blur transitions, progress tracking, and accessible skip controls.
 - [iOS-style Search Bar](https://easyui.site/components/ios-search-bar): A minimalist search pill that smoothly expands on focus and reveals quick-clear controls with spring animation.
@@ -80,6 +81,7 @@
 - [Morphing Button](https://easyui.site/components/morphing-button): A layout-stable interactive action button that smoothly transitions between Idle, Loading, Success, and Error states without jarring jumps or dimension shifts.
 - [Morphing Dialog](https://easyui.site/components/morphing-dialog): An expandable card trigger that fluidly morphs into a centered dialog without jarring popup animations.
 - [Morphing Icon](https://easyui.site/components/morphing-icon): An animated micro-interaction wrapper that smoothly morphs between two icon states with coordinated rotation, scale, and cross-fade transitions.
+- [Morphing Mega Menu](https://easyui.site/components/morphing-mega-menu): A Stripe-inspired mega menu with a single continuous morphing panel that smoothly adapts its size, position, and arrow to any trigger.
 - [Morphing Shape Loader](https://easyui.site/components/morphing-shape-loader): A loading indicator that continuously morphs between configurable SVG shapes via real path interpolation. The transition is a genuine geometric morph — never a fade out / in.
 - [Neon Edge Button](https://easyui.site/components/neon-edge-button): A button with a restrained light source travelling around the border while the label remains primary.
 - [Nimbu Mirchi](https://easyui.site/components/nimbu-mirchi): A hanging lemon-and-green-chilli charm that swings with realistic inertia in response to the pointer, built from layered physical springs rather than a single rigid illustration.
@@ -96,6 +98,7 @@
 - [Pill Navigation](https://easyui.site/components/pill-navigation): A restrained segmented navigation control with shared pill layout morphing and nested submenu dropdown support.
 - [PressButton](https://easyui.site/components/press-button): A button that compresses slightly on press and settles with a tiny natural overshoot for a tactile, physical feel.
 - [Pricing](https://easyui.site/components/pricing): A minimal two-tier pricing component for EasyUI. Native to the existing design system, fully theme-aware, with a quiet Free tier and a slightly more attractive Pro tier — without resorting to SaaS marketing tropes.
+- [Product Tour](https://easyui.site/components/product-tour): An interactive product walkthrough with spring-animated spotlight cutout, auto-scrolling targets, responsive bottom-sheet docking, and keyboard navigation.
 - [Profile Card](https://easyui.site/components/profile-card): A premium dark social profile card with a painted blue cover-art panel, action row, and a detail panel with avatar, verified name, bio, follower stats, and outbound website link.
 - [Pull to Refresh](https://easyui.site/components/pull-to-refresh): A physical pull-to-refresh component and container featuring realistic elastic resistance curves, smooth cubic bezier line chart visualization with interactive point scrubbing, high/low metrics, and seamless light & dark mode compatibility.
 - [Rainbow Button](https://easyui.site/components/rainbow-button): A vibrant button featuring an animated chromatic rainbow gradient border, dynamic 3D surface reflections, and an ambient blurred rainbow underglow.

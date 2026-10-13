@@ -730,6 +730,24 @@ export const PREVIEW_REGISTRY: Record<string, ComponentPreviewDefinition> = {
     load: () => import('./items/stepper'),
     metadata: { type: 'interactive' },
   },
+  'morphing-mega-menu': {
+    id: 'morphing-mega-menu',
+    componentId: 'morphing-mega-menu',
+    load: () => import('./items/morphing-mega-menu'),
+    metadata: { type: 'interactive' },
+  },
+  'interactive-area-chart': {
+    id: 'interactive-area-chart',
+    componentId: 'interactive-area-chart',
+    load: () => import('./items/interactive-area-chart'),
+    metadata: { type: 'interactive' },
+  },
+  'product-tour': {
+    id: 'product-tour',
+    componentId: 'product-tour',
+    load: () => import('./items/product-tour'),
+    metadata: { type: 'interactive' },
+  },
 };
 
 // Fast lookup map supporting both primary slugs and aliases

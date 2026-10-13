@@ -1133,6 +1133,22 @@
       ]
     },
     {
+      "name": "interactive-area-chart",
+      "type": "registry:ui",
+      "title": "Interactive Area Chart",
+      "description": "A hand-written, dependency-free interactive SVG area chart with interruptible dataset morphing, Catmull-Rom spline resampling, scrubbing tooltip, and keyboard accessibility.",
+      "dependencies": [
+        "framer-motion"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/InteractiveAreaChart.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/interactive-area-chart.tsx"
+        }
+      ]
+    },
+    {
       "name": "interactive-timeline",
       "type": "registry:ui",
       "title": "Interactive Timeline",
@@ -1545,6 +1561,22 @@
       ]
     },
     {
+      "name": "morphing-mega-menu",
+      "type": "registry:ui",
+      "title": "Morphing Mega Menu",
+      "description": "A Stripe-inspired mega menu with a single continuous morphing panel that smoothly adapts its size, position, and arrow to any trigger.",
+      "dependencies": [
+        "framer-motion"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/MorphingMegaMenu.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/morphing-mega-menu.tsx"
+        }
+      ]
+    },
+    {
       "name": "morphing-shape-loader",
       "type": "registry:ui",
       "title": "Morphing Shape Loader",
@@ -1948,6 +1980,23 @@
           "path": "src/lib/motion-tokens.ts",
           "type": "registry:lib",
           "target": "lib/motion-tokens.ts"
+        }
+      ]
+    },
+    {
+      "name": "product-tour",
+      "type": "registry:ui",
+      "title": "Product Tour",
+      "description": "An interactive product walkthrough with spring-animated spotlight cutout, auto-scrolling targets, responsive bottom-sheet docking, and keyboard navigation.",
+      "dependencies": [
+        "framer-motion",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/ProductTour.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/product-tour.tsx"
         }
       ]
     },
