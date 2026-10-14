@@ -5421,6 +5421,115 @@ export const EASY_COMPONENTS: EasyComponentMeta[] = [
     ]
   },
   {
+    "id": "money-card",
+    "name": "Money Card",
+    "tagline": "Interactive financial wallet card with quick-send contacts and animated transfer sheets",
+    "description": "An interactive financial wallet card featuring animated live balance updates, quick-send contact shortcuts, recent transaction history, and responsive modal sheets for sending, receiving, and viewing activity.",
+    "category": "Motion",
+    "badges": [
+      "Financial Card",
+      "Quick Send",
+      "Interactive Sheet",
+      "Motion"
+    ],
+    "cliCommand": "npx shadcn@latest add Surajmaurya1/easyui/money-card",
+    "features": [
+      "Animated balance counter utilizing MotionValue and custom formatters for fluid number interpolation",
+      "Interactive send and receive sheets with built-in keypad, contact selector, note input, and error handling",
+      "Quick-send contact avatars straddling the card boundary with spring-press tactile response",
+      "Animated transaction feed displaying directional amount badges and expandable activity list",
+      "Settings drawer with toggleable balance masking and copyable personal payment link",
+      "Container query architecture ensuring flawless responsiveness across all screen sizes"
+    ],
+    "props": [
+      {
+        "name": "user",
+        "type": "{ name: string; avatar: string }",
+        "default": "DEFAULT_USER",
+        "description": "User profile with display name and avatar icon"
+      },
+      {
+        "name": "balance",
+        "type": "number",
+        "default": "52002.5",
+        "description": "Headline account balance in major currency units"
+      },
+      {
+        "name": "contacts",
+        "type": "Contact[]",
+        "default": "DEFAULT_CONTACTS",
+        "description": "List of quick-send contacts with avatars and tints"
+      },
+      {
+        "name": "transactions",
+        "type": "Transaction[]",
+        "default": "DEFAULT_TRANSACTIONS",
+        "description": "List of recent transactions sorted newest first"
+      },
+      {
+        "name": "onSend",
+        "type": "(req: TransferRequest) => Promise<void>",
+        "default": "undefined",
+        "description": "Async handler called upon submitting a send transfer"
+      },
+      {
+        "name": "onRequest",
+        "type": "(req: TransferRequest) => Promise<void>",
+        "default": "undefined",
+        "description": "Async handler called upon submitting a request transfer"
+      },
+      {
+        "name": "onViewAll",
+        "type": "() => void",
+        "default": "undefined",
+        "description": "Optional callback overriding default activity list opening"
+      },
+      {
+        "name": "currency",
+        "type": "string",
+        "default": "'USD'",
+        "description": "ISO currency symbol used for formatted monetary values"
+      },
+      {
+        "name": "locale",
+        "type": "string",
+        "default": "'en-US'",
+        "description": "Locale string for number and date formatting"
+      },
+      {
+        "name": "paymentLink",
+        "type": "string",
+        "default": "'pay.example/ana'",
+        "description": "Personal payment link displayed on receive and settings sheets"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "default": "''",
+        "description": "Optional CSS class overrides for the outer container"
+      }
+    ],
+    "accessibility": [
+      "Accessible dialog sheets with focus traps, Escape key dismissal, and backdrop click handlers",
+      "Polite aria-live region announcing balance changes and masked privacy states",
+      "Touch-friendly drag dismiss handles on mobile bottom sheets with reduced motion alternatives",
+      "Semantic role=\"switch\" for privacy balance toggle with visible keyboard focus rings"
+    ],
+    "createdAt": "2026-10-14",
+    "usageCode": "import { MoneyCard } from \"@/components/ui/money-card\";\n\nexport function Demo() {\n  return (\n    <div className=\"w-full py-12 flex justify-center\">\n      <MoneyCard\n        balance={52002.5}\n        onSend={async ({ contact, amount }) => {\n          console.log(`Sent ${amount} to ${contact.name}`);\n        }}\n        onRequest={async ({ contact, amount }) => {\n          console.log(`Requested ${amount} from ${contact.name}`);\n        }}\n      />\n    </div>\n  );\n}",
+    "dependencies": [
+      "framer-motion",
+      "lucide-react"
+    ],
+    "files": [
+      {
+        "path": "src/components/ui/MoneyCard.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/money-card.tsx"
+      }
+    ]
+  },
+  {
     "id": "morphing-blob",
     "name": "Morphing Blob",
     "tagline": "Fluid spring-physics blob with cursor interaction",
@@ -10912,6 +11021,96 @@ export const EASY_COMPONENTS: EasyComponentMeta[] = [
         "path": "src/lib/motion-tokens.ts",
         "type": "registry:lib",
         "target": "lib/motion-tokens.ts"
+      }
+    ]
+  },
+  {
+    "id": "wallet-balance",
+    "name": "Wallet Balance",
+    "tagline": "Interactive payment cards tucked into a leather pouch with eye-toggle balance obscuring",
+    "description": "An interactive wallet balance component where branded cards tuck neatly into an embossed leather pouch with spring physics. Tap the eye button to reveal or mask balances with smooth blur-crossfade transitions.",
+    "category": "Motion",
+    "badges": [
+      "Wallet",
+      "Spring Physics",
+      "Privacy Eye",
+      "Motion"
+    ],
+    "cliCommand": "npx shadcn@latest add Surajmaurya1/easyui/wallet-balance",
+    "features": [
+      "Interactive eye-toggle button to reveal or mask balances with blur-crossfade and popLayout transitions",
+      "Staggered spring animations for fanning out and tucking cards into the pouch",
+      "Responsive stage scaling with ResizeObserver for crisp rendering on any viewport width",
+      "Customizable accounts array with brand marks, individual balances, and background themes",
+      "Full accessibility support with aria-pressed, live screen reader announcements, and prefers-reduced-motion"
+    ],
+    "props": [
+      {
+        "name": "accounts",
+        "type": "WalletAccount[]",
+        "default": "DEFAULT_ACCOUNTS",
+        "description": "Array of up to 3 accounts displaying logo, balance, and custom colors"
+      },
+      {
+        "name": "visible",
+        "type": "boolean",
+        "default": "undefined",
+        "description": "Controlled visibility state for balances and cards"
+      },
+      {
+        "name": "defaultVisible",
+        "type": "boolean",
+        "default": "true",
+        "description": "Uncontrolled initial visibility state"
+      },
+      {
+        "name": "onVisibleChange",
+        "type": "(visible: boolean) => void",
+        "default": "undefined",
+        "description": "Callback fired when balance visibility is toggled"
+      },
+      {
+        "name": "currency",
+        "type": "string",
+        "default": "'USD'",
+        "description": "ISO currency symbol used for formatted card amounts"
+      },
+      {
+        "name": "locale",
+        "type": "string",
+        "default": "'en-US'",
+        "description": "Locale string for number formatting"
+      },
+      {
+        "name": "totalLabel",
+        "type": "string",
+        "default": "'Total Balance'",
+        "description": "Caption label displayed below the total balance figure"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "default": "''",
+        "description": "Optional CSS class overrides for the outer container"
+      }
+    ],
+    "accessibility": [
+      "Toggle button provides aria-pressed and dynamic aria-label (\"Show balances\" / \"Hide balances\")",
+      "Polite aria-live region announces total balance changes when revealed or hidden",
+      "Card graphics and pocket SVG elements are marked aria-hidden to eliminate screen reader noise",
+      "Full keyboard navigation with visible focus outline on the interactive eye toggle",
+      "Respects prefers-reduced-motion with instant transitions and zero blur effects"
+    ],
+    "createdAt": "2026-10-14",
+    "usageCode": "import { WalletBalance } from \"@/components/ui/wallet-balance\";\n\nexport function Demo() {\n  return (\n    <div className=\"w-full py-12 flex justify-center\">\n      <WalletBalance />\n    </div>\n  );\n}",
+    "dependencies": [
+      "framer-motion"
+    ],
+    "files": [
+      {
+        "path": "src/components/ui/WalletBalance.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/wallet-balance.tsx"
       }
     ]
   },

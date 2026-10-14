@@ -1465,6 +1465,23 @@
       ]
     },
     {
+      "name": "money-card",
+      "type": "registry:ui",
+      "title": "Money Card",
+      "description": "An interactive financial wallet card featuring animated live balance updates, quick-send contact shortcuts, recent transaction history, and responsive modal sheets for sending, receiving, and viewing activity.",
+      "dependencies": [
+        "framer-motion",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/MoneyCard.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/money-card.tsx"
+        }
+      ]
+    },
+    {
       "name": "morphing-blob",
       "type": "registry:ui",
       "title": "Morphing Blob",
@@ -2909,6 +2926,22 @@
           "path": "src/lib/motion-tokens.ts",
           "type": "registry:lib",
           "target": "lib/motion-tokens.ts"
+        }
+      ]
+    },
+    {
+      "name": "wallet-balance",
+      "type": "registry:ui",
+      "title": "Wallet Balance",
+      "description": "An interactive wallet balance component where branded cards tuck neatly into an embossed leather pouch with spring physics. Tap the eye button to reveal or mask balances with smooth blur-crossfade transitions.",
+      "dependencies": [
+        "framer-motion"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/WalletBalance.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/wallet-balance.tsx"
         }
       ]
     },

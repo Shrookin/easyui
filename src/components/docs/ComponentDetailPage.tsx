@@ -123,6 +123,8 @@ const IntroLoader = lazyNamed(() => import('../ui/IntroLoader'), 'IntroLoader');
 const NimbuMirchi = lazyNamed(() => import('../ui/NimbuMirchi'), 'NimbuMirchi');
 const EvilEye = lazyNamed(() => import('../ui/EvilEye'), 'EvilEye');
 const WalletCard = lazyNamed(() => import('../ui/WalletCard'), 'WalletCard');
+const WalletBalance = lazyNamed(() => import('../ui/WalletBalance'), 'WalletBalance');
+const MoneyCard = lazyNamed(() => import('../ui/MoneyCard'), 'MoneyCard');
 const CircularOrbit = lazyNamed(() => import('../ui/CircularOrbit'), 'CircularOrbit');
 const ProfileCard = lazyNamed(() => import('../ui/ProfileCard'), 'ProfileCard');
 const BookCallButton = lazyNamed(() => import('../ui/BookCallButton'), 'BookCallButton');
@@ -261,6 +263,8 @@ const DEMO_PRELOADERS: Record<string, () => Promise<any>> = {
   'nimbu-mirchi': () => NimbuMirchi.preload(),
   'evil-eye': () => EvilEye.preload(),
   'wallet-card': () => WalletCard.preload(),
+  'wallet-balance': () => WalletBalance.preload(),
+  'money-card': () => MoneyCard.preload(),
   'circular-orbit': () => CircularOrbit.preload(),
   'profile-card': () => ProfileCard.preload(),
   'book-call-button': () => BookCallButton.preload(),
@@ -3499,6 +3503,18 @@ const completion = await client.completions.create({
               buttonLabel="Use Wallet"
               balanceLabel="Total Balance"
             />
+          </div>
+        );
+      case 'wallet-balance':
+        return (
+          <div className="w-full flex items-center justify-center py-6">
+            <WalletBalance key={demoKey} className="max-w-[360px]" />
+          </div>
+        );
+      case 'money-card':
+        return (
+          <div className="w-full flex items-center justify-center py-6">
+            <MoneyCard key={demoKey} className="max-w-[440px]" />
           </div>
         );
       case 'circular-orbit':

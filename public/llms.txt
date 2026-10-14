@@ -13,7 +13,7 @@
 
 ## Components Directory
 
-- [All Components Catalog](https://easyui.site/components): Browse the full catalog of 121 animated React components.
+- [All Components Catalog](https://easyui.site/components): Browse the full catalog of 123 animated React components.
 
 ### Component Index
 
@@ -77,6 +77,7 @@
 - [Magnetic Button](https://easyui.site/components/magnetic-button): A responsive button with subtle proximity-based physics that pulls towards the cursor on hover and snaps back on departure.
 - [Meteors](https://easyui.site/components/meteors): A lightweight, highly aesthetic animated meteor shower effect that streams diagonal glowing celestial light beams across cards, badges, hero containers, and call-to-action sections.
 - [Metric HUD](https://easyui.site/components/metric-hud): An interactive developer telemetry card featuring hardware-accelerated SVG sparklines, pointer-scrubbing point inspection, spring-animated time range morphing, and delta indicators.
+- [Money Card](https://easyui.site/components/money-card): An interactive financial wallet card featuring animated live balance updates, quick-send contact shortcuts, recent transaction history, and responsive modal sheets for sending, receiving, and viewing activity.
 - [Morphing Blob](https://easyui.site/components/morphing-blob): An ambient, accessible SVG blob background that continuously morphs with spring physics and subtly follows the cursor for a fluid, interactive visual effect.
 - [Morphing Button](https://easyui.site/components/morphing-button): A layout-stable interactive action button that smoothly transitions between Idle, Loading, Success, and Error states without jarring jumps or dimension shifts.
 - [Morphing Dialog](https://easyui.site/components/morphing-dialog): An expandable card trigger that fluidly morphs into a centered dialog without jarring popup animations.
@@ -137,6 +138,7 @@
 - [Undo Toast](https://easyui.site/components/undo-toast): An advanced undo notification toast featuring an interactive progress countdown, pause-on-hover mechanics, action reversal animation, and versatile position anchoring.
 - [UnfoldAccordion](https://easyui.site/components/unfold-accordion): An accordion whose content unfolds with the chevron and spacing moving together. The chevron rotates 180° while the content height expands and the inner content slides up to close the gap, producing a single, fluid motion.
 - [VelocityToast](https://easyui.site/components/velocity-toast): A toast that enters with velocity and settles, with a progress indicator that responds naturally — pauses on hover, resumes with no jump, and eases slightly in the final 10% so dismissal feels intentional.
+- [Wallet Balance](https://easyui.site/components/wallet-balance): An interactive wallet balance component where branded cards tuck neatly into an embossed leather pouch with spring physics. Tap the eye button to reveal or mask balances with smooth blur-crossfade transitions.
 - [Wallet Card](https://easyui.site/components/wallet-card): A premium dark wallet card with a blue radial-gradient surface, live balance display, iOS-style toggle, and a primary action button. The card surface responds to the pointer with a soft cyan shine driven entirely by MotionValues.
 
 ## Resources

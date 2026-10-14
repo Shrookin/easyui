@@ -521,3 +521,9 @@ export type { InteractiveAreaChartProps, AreaChartData, ChartPoint } from './Int
 export { ProductTour, ProductTourDemo } from './ProductTour';
 export type { ProductTourProps, TourStep, TourPlacement, TourTarget, TourCloseReason } from './ProductTour';
 
+export { WalletBalance } from './WalletBalance';
+export type { WalletBalanceProps, WalletAccount } from './WalletBalance';
+
+export { MoneyCard, MoneyCardDemo } from './MoneyCard';
+export type { MoneyCardProps, Contact, Transaction, TransferRequest } from './MoneyCard';
+

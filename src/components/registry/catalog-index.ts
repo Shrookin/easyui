@@ -897,6 +897,21 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
     "createdAt": "2026-08-19"
   },
   {
+    "id": "money-card",
+    "name": "Money Card",
+    "tagline": "Interactive financial wallet card with quick-send contacts and animated transfer sheets",
+    "description": "An interactive financial wallet card featuring animated live balance updates, quick-send contact shortcuts, recent transaction history, and responsive modal sheets for sending, receiving, and viewing activity.",
+    "category": "Motion",
+    "badges": [
+      "Financial Card",
+      "Quick Send",
+      "Interactive Sheet",
+      "Motion"
+    ],
+    "cliCommand": "npx shadcn@latest add Surajmaurya1/easyui/money-card",
+    "createdAt": "2026-10-14"
+  },
+  {
     "id": "morphing-blob",
     "name": "Morphing Blob",
     "tagline": "Fluid spring-physics blob with cursor interaction",
@@ -1781,6 +1796,21 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
     ],
     "cliCommand": "npx shadcn@latest add Surajmaurya1/easyui/velocity-toast",
     "createdAt": "2026-09-03"
+  },
+  {
+    "id": "wallet-balance",
+    "name": "Wallet Balance",
+    "tagline": "Interactive payment cards tucked into a leather pouch with eye-toggle balance obscuring",
+    "description": "An interactive wallet balance component where branded cards tuck neatly into an embossed leather pouch with spring physics. Tap the eye button to reveal or mask balances with smooth blur-crossfade transitions.",
+    "category": "Motion",
+    "badges": [
+      "Wallet",
+      "Spring Physics",
+      "Privacy Eye",
+      "Motion"
+    ],
+    "cliCommand": "npx shadcn@latest add Surajmaurya1/easyui/wallet-balance",
+    "createdAt": "2026-10-14"
   },
   {
     "id": "wallet-card",

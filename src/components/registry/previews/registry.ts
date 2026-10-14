@@ -748,6 +748,20 @@ export const PREVIEW_REGISTRY: Record<string, ComponentPreviewDefinition> = {
     load: () => import('./items/product-tour'),
     metadata: { type: 'interactive' },
   },
+  'wallet-balance': {
+    id: 'wallet-balance',
+    componentId: 'wallet-balance',
+    load: () => import('./items/wallet-balance'),
+    metadata: { type: 'interactive' },
+    aliases: ['walletbalance', 'wallet-balances'],
+  },
+  'money-card': {
+    id: 'money-card',
+    componentId: 'money-card',
+    load: () => import('./items/money-card'),
+    metadata: { type: 'interactive' },
+    aliases: ['moneycard', 'money-cards'],
+  },
 };
 
 // Fast lookup map supporting both primary slugs and aliases
