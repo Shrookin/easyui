@@ -3027,8 +3027,7 @@ export const EASY_COMPONENTS: EasyComponentMeta[] = [
         "type": "registry:lib",
         "target": "lib/motion-tokens.ts"
       }
-    ],
-    "featured": true
+    ]
   },
   {
     "id": "dynamic-island",
@@ -4286,6 +4285,79 @@ export const EASY_COMPONENTS: EasyComponentMeta[] = [
     ]
   },
   {
+    "id": "interactive-area-chart",
+    "name": "Interactive Area Chart",
+    "tagline": "Zero-dependency interactive SVG area chart with range morphing and scrubbing",
+    "description": "A hand-written, dependency-free interactive SVG area chart with interruptible dataset morphing, Catmull-Rom spline resampling, scrubbing tooltip, and keyboard accessibility.",
+    "category": "Feedback",
+    "badges": [
+      "SVG",
+      "Area Chart",
+      "Data Visualization",
+      "Interactive"
+    ],
+    "cliCommand": "npx shadcn@latest add Surajmaurya1/easyui/interactive-area-chart",
+    "features": [
+      "Hand-crafted SVG path generation with zero charting library dependencies",
+      "Interruptible dataset morphing transition between date ranges (7D, 30D, 1Y)",
+      "Catmull-Rom spline interpolation for smooth curve rendering",
+      "Fluid scrubbing with spring-tracked crosshair, dot, and floating tooltip",
+      "Full keyboard scrubbing support using Left and Right arrow keys"
+    ],
+    "props": [
+      {
+        "name": "data",
+        "type": "AreaChartData",
+        "default": "DEFAULT_AREA_CHART_DATA",
+        "description": "Dictionary of time-series datasets keyed by range labels (e.g. 7D, 30D, 1Y)"
+      },
+      {
+        "name": "defaultRange",
+        "type": "string",
+        "default": "\"30D\"",
+        "description": "Initial active range key"
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "default": "\"Revenue\"",
+        "description": "Chart title displayed in header"
+      },
+      {
+        "name": "height",
+        "type": "number",
+        "default": "280",
+        "description": "Fixed pixel height of the chart SVG area"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "default": "\"\"",
+        "description": "Additional CSS class names"
+      }
+    ],
+    "accessibility": [
+      "Accessible role=\"img\" with descriptive dynamic aria-label summarizing range and values",
+      "Keyboard navigatable with ArrowLeft and ArrowRight to scrub through data points",
+      "Escape key dismisses active hover tooltip and scrubber",
+      "ARIA role=\"tablist\" and role=\"tab\" with aria-selected for range selection buttons",
+      "Honors prefers-reduced-motion by bypassing initial line draw animation and spring delays"
+    ],
+    "createdAt": "2026-10-13",
+    "usageCode": "import { InteractiveAreaChart } from \"@/components/ui/interactive-area-chart\";\n\nexport function Demo() {\n  return (\n    <div className=\"w-full max-w-2xl p-6 bg-white dark:bg-neutral-950 rounded-2xl border border-neutral-200 dark:border-neutral-800\">\n      <InteractiveAreaChart title=\"Monthly Recurring Revenue\" />\n    </div>\n  );\n}",
+    "dependencies": [
+      "framer-motion"
+    ],
+    "files": [
+      {
+        "path": "src/components/ui/InteractiveAreaChart.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/interactive-area-chart.tsx"
+      }
+    ],
+    "featured": true
+  },
+  {
     "id": "interactive-timeline",
     "name": "Interactive Timeline",
     "tagline": "Milestone & pipeline tracker with spring progress physics",
@@ -5349,6 +5421,115 @@ export const EASY_COMPONENTS: EasyComponentMeta[] = [
     ]
   },
   {
+    "id": "money-card",
+    "name": "Money Card",
+    "tagline": "Interactive financial wallet card with quick-send contacts and animated transfer sheets",
+    "description": "An interactive financial wallet card featuring animated live balance updates, quick-send contact shortcuts, recent transaction history, and responsive modal sheets for sending, receiving, and viewing activity.",
+    "category": "Motion",
+    "badges": [
+      "Financial Card",
+      "Quick Send",
+      "Interactive Sheet",
+      "Motion"
+    ],
+    "cliCommand": "npx shadcn@latest add Surajmaurya1/easyui/money-card",
+    "features": [
+      "Animated balance counter utilizing MotionValue and custom formatters for fluid number interpolation",
+      "Interactive send and receive sheets with built-in keypad, contact selector, note input, and error handling",
+      "Quick-send contact avatars straddling the card boundary with spring-press tactile response",
+      "Animated transaction feed displaying directional amount badges and expandable activity list",
+      "Settings drawer with toggleable balance masking and copyable personal payment link",
+      "Container query architecture ensuring flawless responsiveness across all screen sizes"
+    ],
+    "props": [
+      {
+        "name": "user",
+        "type": "{ name: string; avatar: string }",
+        "default": "DEFAULT_USER",
+        "description": "User profile with display name and avatar icon"
+      },
+      {
+        "name": "balance",
+        "type": "number",
+        "default": "52002.5",
+        "description": "Headline account balance in major currency units"
+      },
+      {
+        "name": "contacts",
+        "type": "Contact[]",
+        "default": "DEFAULT_CONTACTS",
+        "description": "List of quick-send contacts with avatars and tints"
+      },
+      {
+        "name": "transactions",
+        "type": "Transaction[]",
+        "default": "DEFAULT_TRANSACTIONS",
+        "description": "List of recent transactions sorted newest first"
+      },
+      {
+        "name": "onSend",
+        "type": "(req: TransferRequest) => Promise<void>",
+        "default": "undefined",
+        "description": "Async handler called upon submitting a send transfer"
+      },
+      {
+        "name": "onRequest",
+        "type": "(req: TransferRequest) => Promise<void>",
+        "default": "undefined",
+        "description": "Async handler called upon submitting a request transfer"
+      },
+      {
+        "name": "onViewAll",
+        "type": "() => void",
+        "default": "undefined",
+        "description": "Optional callback overriding default activity list opening"
+      },
+      {
+        "name": "currency",
+        "type": "string",
+        "default": "'USD'",
+        "description": "ISO currency symbol used for formatted monetary values"
+      },
+      {
+        "name": "locale",
+        "type": "string",
+        "default": "'en-US'",
+        "description": "Locale string for number and date formatting"
+      },
+      {
+        "name": "paymentLink",
+        "type": "string",
+        "default": "'pay.example/ana'",
+        "description": "Personal payment link displayed on receive and settings sheets"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "default": "''",
+        "description": "Optional CSS class overrides for the outer container"
+      }
+    ],
+    "accessibility": [
+      "Accessible dialog sheets with focus traps, Escape key dismissal, and backdrop click handlers",
+      "Polite aria-live region announcing balance changes and masked privacy states",
+      "Touch-friendly drag dismiss handles on mobile bottom sheets with reduced motion alternatives",
+      "Semantic role=\"switch\" for privacy balance toggle with visible keyboard focus rings"
+    ],
+    "createdAt": "2026-10-14",
+    "usageCode": "import { MoneyCard } from \"@/components/ui/money-card\";\n\nexport function Demo() {\n  return (\n    <div className=\"w-full py-12 flex justify-center\">\n      <MoneyCard\n        balance={52002.5}\n        onSend={async ({ contact, amount }) => {\n          console.log(`Sent ${amount} to ${contact.name}`);\n        }}\n        onRequest={async ({ contact, amount }) => {\n          console.log(`Requested ${amount} from ${contact.name}`);\n        }}\n      />\n    </div>\n  );\n}",
+    "dependencies": [
+      "framer-motion",
+      "lucide-react"
+    ],
+    "files": [
+      {
+        "path": "src/components/ui/MoneyCard.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/money-card.tsx"
+      }
+    ]
+  },
+  {
     "id": "morphing-blob",
     "name": "Morphing Blob",
     "tagline": "Fluid spring-physics blob with cursor interaction",
@@ -5700,6 +5881,60 @@ export const EASY_COMPONENTS: EasyComponentMeta[] = [
         "path": "src/lib/utils.ts",
         "type": "registry:lib",
         "target": "lib/utils.ts"
+      }
+    ]
+  },
+  {
+    "id": "morphing-mega-menu",
+    "name": "Morphing Mega Menu",
+    "tagline": "Stripe-style morphing navigation panel with spring physics and cursor tracking",
+    "description": "A Stripe-inspired mega menu with a single continuous morphing panel that smoothly adapts its size, position, and arrow to any trigger.",
+    "category": "Navigation",
+    "badges": [
+      "Mega Menu",
+      "Morphing Panel",
+      "Spring Physics",
+      "Keyboard Nav"
+    ],
+    "cliCommand": "npx shadcn@latest add Surajmaurya1/easyui/morphing-mega-menu",
+    "features": [
+      "Single morphing surface that smoothly animates width, height, and x-position",
+      "Spring-tracked arrow indicator following pointer movement along the navigation triggers",
+      "ResizeObserver-driven dimension calculation for arbitrary nested menus",
+      "Full keyboard accessibility including ArrowDown direct content traversal and Esc dismissal",
+      "Graceful touch outside-press dismissal and reduced motion awareness"
+    ],
+    "props": [
+      {
+        "name": "items",
+        "type": "MegaMenuItem[]",
+        "default": "DEFAULT_MEGA_MENU_ITEMS",
+        "description": "Array of menu items with optional custom content panels"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "default": "\"\"",
+        "description": "Optional CSS class overrides for root wrapper"
+      }
+    ],
+    "accessibility": [
+      "Uses semantic nav and button elements with aria-expanded and aria-controls attributes",
+      "ArrowDown shortcut moves focus directly into panel action links",
+      "Escape key closes the active panel and restores focus to the active trigger",
+      "Inert attribute ensures inactive panels cannot receive focus or pointer events",
+      "Respects prefers-reduced-motion with instant position updates"
+    ],
+    "createdAt": "2026-10-13",
+    "usageCode": "import { MorphingMegaMenu } from \"@/components/ui/morphing-mega-menu\";\n\nexport function Demo() {\n  return (\n    <div className=\"w-full py-12 flex justify-center\">\n      <MorphingMegaMenu />\n    </div>\n  );\n}",
+    "dependencies": [
+      "framer-motion"
+    ],
+    "files": [
+      {
+        "path": "src/components/ui/MorphingMegaMenu.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/morphing-mega-menu.tsx"
       }
     ]
   },
@@ -7198,6 +7433,84 @@ export const EASY_COMPONENTS: EasyComponentMeta[] = [
         "path": "src/lib/motion-tokens.ts",
         "type": "registry:lib",
         "target": "lib/motion-tokens.ts"
+      }
+    ]
+  },
+  {
+    "id": "product-tour",
+    "name": "Product Tour",
+    "tagline": "Interactive walkthrough with spring spotlight cutout and responsive docking",
+    "description": "An interactive product walkthrough with spring-animated spotlight cutout, auto-scrolling targets, responsive bottom-sheet docking, and keyboard navigation.",
+    "category": "Feedback",
+    "badges": [
+      "Walkthrough",
+      "Spotlight",
+      "Spring Physics",
+      "Keyboard Nav",
+      "Portal"
+    ],
+    "cliCommand": "npx shadcn@latest add Surajmaurya1/easyui/product-tour",
+    "features": [
+      "Spring-animated SVG mask spotlight that smoothly transitions between target elements",
+      "Automatic scroll-into-view with scroll settlement detection before positioning",
+      "Responsive viewport placement: floating tooltip on desktop, docked bottom sheet on mobile",
+      "Complete keyboard controls (Left/Right arrows to navigate, Escape to dismiss, Tab trapping)",
+      "Dynamic height animation with ResizeObserver as step copy changes",
+      "Reduced motion support and full dark and light mode styling"
+    ],
+    "props": [
+      {
+        "name": "steps",
+        "type": "TourStep[]",
+        "description": "List of tour steps with target selector, title, body, and placement preference"
+      },
+      {
+        "name": "open",
+        "type": "boolean",
+        "description": "Controls whether the spotlight tour overlay is open"
+      },
+      {
+        "name": "onClose",
+        "type": "(reason: TourCloseReason) => void",
+        "description": "Callback triggered when tour completes, is skipped, or is dismissed"
+      },
+      {
+        "name": "onStepChange",
+        "type": "(index: number) => void",
+        "default": "undefined",
+        "description": "Optional callback invoked whenever the active step index changes"
+      },
+      {
+        "name": "startAt",
+        "type": "number",
+        "default": "0",
+        "description": "Zero-based initial step index when the tour opens"
+      },
+      {
+        "name": "closeOnOverlayClick",
+        "type": "boolean",
+        "default": "false",
+        "description": "Whether clicking the dim overlay dismisses the tour"
+      }
+    ],
+    "accessibility": [
+      "Uses role=\"dialog\" with aria-modal=\"true\" and aria-live=\"polite\" for dynamic step announcements",
+      "Captures focus on open and returns focus to the initiating element upon dismissal",
+      "Traps Tab navigation strictly within the tour dialog buttons",
+      "Full keyboard shortcuts: Left/Right arrows for steps, Escape to dismiss",
+      "Respects prefers-reduced-motion by bypassing springs and scroll animations"
+    ],
+    "createdAt": "2026-10-13",
+    "usageCode": "import { useState } from \"react\";\nimport { ProductTour, type TourStep } from \"@/components/ui/product-tour\";\n\nexport function Demo() {\n  const [open, setOpen] = useState(false);\n\n  const steps: TourStep[] = [\n    { title: \"Welcome\", body: \"Let's take a quick tour around the interface.\" },\n    { target: \"#search-input\", title: \"Global Search\", body: \"Quickly locate projects and assets.\", placement: \"bottom\" },\n    { target: \"#actions-panel\", title: \"Actions\", body: \"Create or import documents here.\", placement: \"left\" },\n  ];\n\n  return (\n    <div>\n      <button onClick={() => setOpen(true)}>Start Tour</button>\n      <ProductTour open={open} steps={steps} onClose={() => setOpen(false)} />\n    </div>\n  );\n}",
+    "dependencies": [
+      "framer-motion",
+      "lucide-react"
+    ],
+    "files": [
+      {
+        "path": "src/components/ui/ProductTour.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/product-tour.tsx"
       }
     ]
   },
@@ -10708,6 +11021,96 @@ export const EASY_COMPONENTS: EasyComponentMeta[] = [
         "path": "src/lib/motion-tokens.ts",
         "type": "registry:lib",
         "target": "lib/motion-tokens.ts"
+      }
+    ]
+  },
+  {
+    "id": "wallet-balance",
+    "name": "Wallet Balance",
+    "tagline": "Interactive payment cards tucked into a leather pouch with eye-toggle balance obscuring",
+    "description": "An interactive wallet balance component where branded cards tuck neatly into an embossed leather pouch with spring physics. Tap the eye button to reveal or mask balances with smooth blur-crossfade transitions.",
+    "category": "Motion",
+    "badges": [
+      "Wallet",
+      "Spring Physics",
+      "Privacy Eye",
+      "Motion"
+    ],
+    "cliCommand": "npx shadcn@latest add Surajmaurya1/easyui/wallet-balance",
+    "features": [
+      "Interactive eye-toggle button to reveal or mask balances with blur-crossfade and popLayout transitions",
+      "Staggered spring animations for fanning out and tucking cards into the pouch",
+      "Responsive stage scaling with ResizeObserver for crisp rendering on any viewport width",
+      "Customizable accounts array with brand marks, individual balances, and background themes",
+      "Full accessibility support with aria-pressed, live screen reader announcements, and prefers-reduced-motion"
+    ],
+    "props": [
+      {
+        "name": "accounts",
+        "type": "WalletAccount[]",
+        "default": "DEFAULT_ACCOUNTS",
+        "description": "Array of up to 3 accounts displaying logo, balance, and custom colors"
+      },
+      {
+        "name": "visible",
+        "type": "boolean",
+        "default": "undefined",
+        "description": "Controlled visibility state for balances and cards"
+      },
+      {
+        "name": "defaultVisible",
+        "type": "boolean",
+        "default": "true",
+        "description": "Uncontrolled initial visibility state"
+      },
+      {
+        "name": "onVisibleChange",
+        "type": "(visible: boolean) => void",
+        "default": "undefined",
+        "description": "Callback fired when balance visibility is toggled"
+      },
+      {
+        "name": "currency",
+        "type": "string",
+        "default": "'USD'",
+        "description": "ISO currency symbol used for formatted card amounts"
+      },
+      {
+        "name": "locale",
+        "type": "string",
+        "default": "'en-US'",
+        "description": "Locale string for number formatting"
+      },
+      {
+        "name": "totalLabel",
+        "type": "string",
+        "default": "'Total Balance'",
+        "description": "Caption label displayed below the total balance figure"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "default": "''",
+        "description": "Optional CSS class overrides for the outer container"
+      }
+    ],
+    "accessibility": [
+      "Toggle button provides aria-pressed and dynamic aria-label (\"Show balances\" / \"Hide balances\")",
+      "Polite aria-live region announces total balance changes when revealed or hidden",
+      "Card graphics and pocket SVG elements are marked aria-hidden to eliminate screen reader noise",
+      "Full keyboard navigation with visible focus outline on the interactive eye toggle",
+      "Respects prefers-reduced-motion with instant transitions and zero blur effects"
+    ],
+    "createdAt": "2026-10-14",
+    "usageCode": "import { WalletBalance } from \"@/components/ui/wallet-balance\";\n\nexport function Demo() {\n  return (\n    <div className=\"w-full py-12 flex justify-center\">\n      <WalletBalance />\n    </div>\n  );\n}",
+    "dependencies": [
+      "framer-motion"
+    ],
+    "files": [
+      {
+        "path": "src/components/ui/WalletBalance.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/wallet-balance.tsx"
       }
     ]
   },

@@ -99,6 +99,8 @@ export const PreviewSkeleton: React.FC<PreviewSkeletonProps> = ({ componentId })
       case 'reveal-card':
       case 'peek-card':
       case 'wallet-card':
+      case 'wallet-balance':
+      case 'money-card':
       case 'stacked-cards':
       case 'story-card':
       case 'pricing':
