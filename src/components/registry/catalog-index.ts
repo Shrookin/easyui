@@ -1173,6 +1173,22 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
     "createdAt": "2026-08-21"
   },
   {
+    "id": "photo-box",
+    "name": "Photo Box",
+    "tagline": "Frosted paper box with fanning polaroids and tactile zoom inspection",
+    "description": "Tactile Japanese stationery-inspired photo box featuring frosted glass translucency, sliding paper box mechanics, fanning polaroid prints, and full-bleed image zoom.",
+    "category": "Motion",
+    "badges": [
+      "Polaroid",
+      "Stationery",
+      "Glassmorphism",
+      "Motion",
+      "Interactive"
+    ],
+    "cliCommand": "npx shadcn@latest add Surajmaurya1/easyui/photo-box",
+    "createdAt": "2026-10-14"
+  },
+  {
     "id": "pill-navigation",
     "name": "Pill Navigation",
     "tagline": "Minimal shared-pill navigation continuity with fluid submenus",

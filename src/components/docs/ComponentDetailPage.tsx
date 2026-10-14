@@ -185,6 +185,7 @@ const StepPanels = lazyNamed(() => import('../ui/stepper'), 'StepPanels');
 const MorphingMegaMenu = lazyNamed(() => import('../ui/MorphingMegaMenu'), 'MorphingMegaMenu');
 const InteractiveAreaChart = lazyNamed(() => import('../ui/InteractiveAreaChart'), 'InteractiveAreaChart');
 const ProductTour = lazyNamed(() => import('../ui/ProductTour'), 'ProductTour');
+const PhotoBox = lazyNamed(() => import('../ui/PhotoBox'), 'PhotoBox');
 const AIResponseLiveShowcase = lazyNamed(() => import('./sections/NewComponentsShowcase'), 'AIResponseLiveShowcase');
 const AdvancedDataTableLiveShowcase = lazyNamed(() => import('./sections/NewComponentsShowcase'), 'AdvancedDataTableLiveShowcase');
 const ChatLiveShowcase = lazyNamed(() => import('./sections/NewComponentsShowcase'), 'ChatLiveShowcase');
@@ -321,6 +322,7 @@ const DEMO_PRELOADERS: Record<string, () => Promise<any>> = {
   'morphing-mega-menu': () => MorphingMegaMenu.preload(),
   'interactive-area-chart': () => InteractiveAreaChart.preload(),
   'product-tour': () => ProductTour.preload(),
+  'photo-box': () => PhotoBox.preload(),
 };
 
 /**
@@ -1873,6 +1875,19 @@ const ProductTourDemoShowcase: React.FC = () => {
       </p>
 
       <ProductTour open={open} steps={steps} onClose={() => setOpen(false)} />
+    </div>
+  );
+};
+
+const PhotoBoxDemo: React.FC = () => {
+  return (
+    <div className="flex flex-col items-center justify-center gap-4 sm:gap-6 p-2 sm:p-6 w-full max-w-2xl">
+      <div className="w-full flex items-center justify-center">
+        <PhotoBox />
+      </div>
+      <p className="text-xs text-[var(--text-muted)] text-center px-2">
+        Hover to open the box · Click any print to view it large · Click anywhere to return
+      </p>
     </div>
   );
 };
@@ -3861,6 +3876,8 @@ const completion = await client.completions.create({
         return <InteractiveAreaChartDemo key={demoKey} />;
       case 'product-tour':
         return <ProductTourDemoShowcase key={demoKey} />;
+      case 'photo-box':
+        return <PhotoBoxDemo key={demoKey} />;
       default:
         return (
           <div className="py-12 text-center text-xs text-[#808080]">

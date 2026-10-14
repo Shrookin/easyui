@@ -13,7 +13,7 @@
 
 ## Components Directory
 
-- [All Components Catalog](https://easyui.site/components): Browse the full catalog of 123 animated React components.
+- [All Components Catalog](https://easyui.site/components): Browse the full catalog of 124 animated React components.
 
 ### Component Index
 
@@ -96,6 +96,7 @@
 - [Payment Receipt Printer](https://easyui.site/components/payment-receipt-printer): An animated payment and order receipt printer component for React featuring realistic thermal paper extrusion, chassis micro-vibration, customizable receipt itemization, and replay controls.
 - [Payment Status](https://easyui.site/components/payment-status): A calm, Apple-grade payment confirmation card with animated SVG path checkmark drawing, staged verification lifecycle transitions, receipt inspection, and failure recovery.
 - [Peek Card](https://easyui.site/components/peek-card): An origin-anchored contextual preview popover that emerges directly from target triggers on hover or tap with smart collision edge detection and rich metadata summaries.
+- [Photo Box](https://easyui.site/components/photo-box): Tactile Japanese stationery-inspired photo box featuring frosted glass translucency, sliding paper box mechanics, fanning polaroid prints, and full-bleed image zoom.
 - [Pill Navigation](https://easyui.site/components/pill-navigation): A restrained segmented navigation control with shared pill layout morphing and nested submenu dropdown support.
 - [PressButton](https://easyui.site/components/press-button): A button that compresses slightly on press and settles with a tiny natural overshoot for a tactile, physical feel.
 - [Pricing](https://easyui.site/components/pricing): A minimal two-tier pricing component for EasyUI. Native to the existing design system, fully theme-aware, with a quiet Free tier and a slightly more attractive Pro tier — without resorting to SaaS marketing tropes.

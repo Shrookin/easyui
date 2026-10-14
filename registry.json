@@ -1921,6 +1921,22 @@
       ]
     },
     {
+      "name": "photo-box",
+      "type": "registry:ui",
+      "title": "Photo Box",
+      "description": "Tactile Japanese stationery-inspired photo box featuring frosted glass translucency, sliding paper box mechanics, fanning polaroid prints, and full-bleed image zoom.",
+      "dependencies": [
+        "framer-motion"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/PhotoBox.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/photo-box.tsx"
+        }
+      ]
+    },
+    {
       "name": "pill-navigation",
       "type": "registry:ui",
       "title": "Pill Navigation",

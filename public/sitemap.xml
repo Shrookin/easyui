@@ -583,6 +583,12 @@
     <priority>0.85</priority>
   </url>
   <url>
+    <loc>https://easyui.site/components/photo-box</loc>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
     <loc>https://easyui.site/components/pill-navigation</loc>
     <lastmod>2026-10-14</lastmod>
     <changefreq>weekly</changefreq>
