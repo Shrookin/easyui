@@ -1814,6 +1814,22 @@
       ]
     },
     {
+      "name": "package-box",
+      "type": "registry:ui",
+      "title": "Package Box",
+      "description": "A pure CSS 3D cardboard package box featuring interactive tape-splitting physics, flap-folding choreography, and an animated packing slip that rises out and turns to face the viewer.",
+      "dependencies": [
+        "framer-motion"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/PackageBox.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/package-box.tsx"
+        }
+      ]
+    },
+    {
       "name": "particle-delete",
       "type": "registry:ui",
       "title": "Particle Delete",

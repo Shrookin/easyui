@@ -13,7 +13,7 @@
 
 ## Components Directory
 
-- [All Components Catalog](https://easyui.site/components): Browse the full catalog of 124 animated React components.
+- [All Components Catalog](https://easyui.site/components): Browse the full catalog of 125 animated React components.
 
 ### Component Index
 
@@ -92,6 +92,7 @@
 - [Orbital Loading Ring](https://easyui.site/components/orbital-loading-ring): A lightweight loading indicator with layered rings and orbiting particles that communicate active processing.
 - [OriginDropdown](https://easyui.site/components/origin-dropdown): A dropdown with origin-aware expansion — the menu materializes from the chosen side with a slight scale and an inward translation, so its perceived origin is the trigger edge closest to the menu.
 - [OTP Input](https://easyui.site/components/otp-input): An accessible one-time-passcode input made of auto-advancing digit boxes, each with a spring-driven pop animation on entry, built with Framer Motion and Tailwind CSS.
+- [Package Box](https://easyui.site/components/package-box): A pure CSS 3D cardboard package box featuring interactive tape-splitting physics, flap-folding choreography, and an animated packing slip that rises out and turns to face the viewer.
 - [Particle Delete](https://easyui.site/components/particle-delete): Premium physics-driven particle dissolution delete animation that rasterizes components into thousands of authentic tiny pixels and disperses them smoothly before state removal.
 - [Payment Receipt Printer](https://easyui.site/components/payment-receipt-printer): An animated payment and order receipt printer component for React featuring realistic thermal paper extrusion, chassis micro-vibration, customizable receipt itemization, and replay controls.
 - [Payment Status](https://easyui.site/components/payment-status): A calm, Apple-grade payment confirmation card with animated SVG path checkmark drawing, staged verification lifecycle transitions, receipt inspection, and failure recovery.

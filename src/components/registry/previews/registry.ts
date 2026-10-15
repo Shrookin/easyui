@@ -769,6 +769,13 @@ export const PREVIEW_REGISTRY: Record<string, ComponentPreviewDefinition> = {
     metadata: { type: 'interactive' },
     aliases: ['photobox', 'photo-boxes'],
   },
+  'package-box': {
+    id: 'package-box',
+    componentId: 'package-box',
+    load: () => import('./items/package-box'),
+    metadata: { type: 'interactive' },
+    aliases: ['packagebox', 'package-boxes'],
+  },
 };
 
 // Fast lookup map supporting both primary slugs and aliases
