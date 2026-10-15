@@ -1819,23 +1819,13 @@
       "title": "Particle Delete",
       "description": "Premium physics-driven particle dissolution delete animation that rasterizes components into thousands of authentic tiny pixels and disperses them smoothly before state removal.",
       "dependencies": [
-        "lucide-react"
+        "framer-motion"
       ],
       "files": [
         {
           "path": "src/components/ui/ParticleDelete.tsx",
           "type": "registry:ui",
           "target": "components/ui/particle-delete.tsx"
-        },
-        {
-          "path": "src/lib/utils.ts",
-          "type": "registry:lib",
-          "target": "lib/utils.ts"
-        },
-        {
-          "path": "src/lib/particle-delete.ts",
-          "type": "registry:lib",
-          "target": "lib/particle-delete.ts"
         }
       ]
     },

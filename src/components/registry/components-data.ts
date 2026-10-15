@@ -6743,23 +6743,13 @@ export const EASY_COMPONENTS: EasyComponentMeta[] = [
     "createdAt": "2026-08-21",
     "usageCode": "import { ParticleDeleteContainer, useParticleDelete, particleDelete } from \"@/components/ui/particle-delete\";\nimport { Trash2 } from \"lucide-react\";\n\nexport function Demo() {\n  const [items, setItems] = useState([\n    { id: '1', name: 'Database Snapshot #409' },\n    { id: '2', name: 'Redis Cache Layer' }\n  ]);\n\n  const handleDelete = (id: string) => {\n    setItems((prev) => prev.filter((i) => i.id !== id));\n  };\n\n  return (\n    <div className=\"space-y-3\">\n      {items.map((item) => (\n        <ParticleDeleteContainer\n          key={item.id}\n          onDelete={() => handleDelete(item.id)}\n          className=\"p-4 rounded-xl bg-[#0D0D0D] border border-[#222222] flex items-center justify-between\"\n        >\n          {({ isDeleting, handleDelete: triggerDelete }) => (\n            <>\n              <span className=\"text-sm font-medium text-white\">{item.name}</span>\n              <button\n                type=\"button\"\n                onClick={triggerDelete}\n                disabled={isDeleting}\n                className=\"p-2 rounded-lg bg-[#141414] hover:bg-rose-950/40 text-[#888888] hover:text-rose-400 border border-[#262626] transition-colors\"\n              >\n                <Trash2 className=\"w-4 h-4\" />\n              </button>\n            </>\n          )}\n        </ParticleDeleteContainer>\n      ))}\n    </div>\n  );\n}",
     "dependencies": [
-      "lucide-react"
+      "framer-motion"
     ],
     "files": [
       {
         "path": "src/components/ui/ParticleDelete.tsx",
         "type": "registry:ui",
         "target": "components/ui/particle-delete.tsx"
-      },
-      {
-        "path": "src/lib/utils.ts",
-        "type": "registry:lib",
-        "target": "lib/utils.ts"
-      },
-      {
-        "path": "src/lib/particle-delete.ts",
-        "type": "registry:lib",
-        "target": "lib/particle-delete.ts"
       }
     ]
   },

@@ -39,35 +39,6 @@ const DEFAULT_PARTICLE_COLORS = ["#8a8a8e", "#71717a", "#9ca3af", "#6b7280", "#7
 
 const clamp01 = (v: number) => Math.min(1, Math.max(0, v));
 
-const isTransparent = (c: string) =>
-  !c || c === "transparent" || /(?:rgba?|hsla?|oklch|oklab|lab|lch|color)\([^)]*[,/]\s*0(?:\.0+)?%?\s*\)/.test(c);
-
-// Sample real colors from the element's subtree, weighted by how much of the
-// card each one covers, so the dust looks like it came from that exact card.
-function samplePalette(root: Element) {
-  const entries: { c: string; w: number }[] = [];
-  const add = (c: string, w: number) => {
-    if (w > 0 && !isTransparent(c)) entries.push({ c, w });
-  };
-  let seen = 0;
-  const walk = (node: Element) => {
-    if (seen++ > 80) return;
-    const cs = getComputedStyle(node);
-    const r = node.getBoundingClientRect();
-    add(cs.backgroundColor, r.width * r.height);
-    if (parseFloat(cs.borderTopWidth) > 0) add(cs.borderTopColor, (r.width + r.height) * 3);
-    let text = 0;
-    node.childNodes.forEach((n) => {
-      if (n.nodeType === 3) text += (n.textContent ?? "").trim().length;
-    });
-    if (text) add(cs.color, text * 38);
-    if (node instanceof SVGElement && node.tagName.toLowerCase() === "svg") add(cs.color, 260);
-    Array.from(node.children).forEach(walk);
-  };
-  walk(root);
-  return entries.length ? entries : DEFAULT_PARTICLE_COLORS.map((c) => ({ c, w: 1 }));
-}
-
 export function restoreParticleDelete(el: HTMLElement) {
   el.style.maskImage = "";
   el.style.webkitMaskImage = "";
