@@ -377,19 +377,13 @@ export const EASY_COMPONENTS: EasyComponentMeta[] = [
     "createdAt": "2026-09-21",
     "usageCode": "import { AIResponse, AIResponseHeader, AIResponseContent, AIResponseSources, AIResponseActions } from \"@/components/ui/ai-response\";\n\nexport function Demo() {\n  return (\n    <AIResponse\n      status=\"complete\"\n      modelName=\"Claude 3.7 Sonnet\"\n      content=\"Here is a verified solution using **EasyUI** motion tokens:\\n\\n```typescript\\nimport { motionTransitions } from '@/lib/motion-tokens';\\n\\nexport const config = motionTransitions.springSnappy;\\n```\"\n      sources={[\n        { id: 1, title: \"EasyUI Motion Tokens\", url: \"https://easyui.pro/docs\" },\n        { id: 2, title: \"Framer Motion Spring Spec\", url: \"https://www.framer.com/motion/\" }\n      ]}\n      onRegenerate={() => console.log('Regenerating...')}\n    />\n  );\n}",
     "dependencies": [
-      "framer-motion",
-      "lucide-react"
+      "framer-motion"
     ],
     "files": [
       {
         "path": "src/components/ui/AIResponse.tsx",
         "type": "registry:ui",
         "target": "components/ui/ai-response.tsx"
-      },
-      {
-        "path": "src/lib/utils.ts",
-        "type": "registry:lib",
-        "target": "lib/utils.ts"
       }
     ]
   },
@@ -6258,29 +6252,13 @@ export const EASY_COMPONENTS: EasyComponentMeta[] = [
     "createdAt": "2026-09-23",
     "usageCode": "import { NotFound } from \"@/components/ui/not-found\";\n\nexport default function NotFoundPage() {\n  return (\n    <div className=\"min-h-screen flex items-center justify-center p-6 bg-[#111113]\">\n      <NotFound\n        title=\"This page took a wrong turn.\"\n        description=\"The requested page doesn't exist or may have moved.\"\n        actionLabel=\"Go back home\"\n        onAction={() => window.location.href = \"/\"}\n      />\n    </div>\n  );\n}",
     "dependencies": [
-      "framer-motion",
-      "lucide-react"
+      "framer-motion"
     ],
     "files": [
       {
         "path": "src/components/ui/NotFound.tsx",
         "type": "registry:ui",
         "target": "components/ui/not-found.tsx"
-      },
-      {
-        "path": "src/lib/utils.ts",
-        "type": "registry:lib",
-        "target": "lib/utils.ts"
-      },
-      {
-        "path": "src/lib/motion-tokens.ts",
-        "type": "registry:lib",
-        "target": "lib/motion-tokens.ts"
-      },
-      {
-        "path": "src/components/ui/Button.tsx",
-        "type": "registry:ui",
-        "target": "components/ui/button.tsx"
       }
     ],
     "featured": true
