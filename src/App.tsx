@@ -36,12 +36,10 @@ export interface RouteState {
 }
 
 const DOC_TOPIC_ALIASES: Record<string, string> = {
-  'motion-system': 'motion',
-  'motion-tokens': 'motion',
   contributing: 'collaboration',
 };
 
-const DOC_TOPIC_IDS = new Set(['introduction', 'quick-start', 'architecture', 'motion', 'collaboration', 'seo']);
+const DOC_TOPIC_IDS = new Set(['introduction', 'quick-start', 'architecture', 'collaboration', 'seo']);
 
 /**
  * Pure route parser — extracts the initial and active route state synchronously

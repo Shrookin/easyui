@@ -1,5 +1,5 @@
 import { DEMO_COMPONENTS } from './demo-components';
-import { DEMO_ALIASES, DEMO_ROUTE_MODULES } from './demo-route-registry';
+import { DEMO_ALIASES, DEMO_ROUTES, DEMO_ROUTE_MODULES } from './demo-route-registry';
 
 export { DEMO_COMPONENTS, DEMO_ALIASES, DEMO_ROUTE_MODULES };
 
@@ -24,11 +24,11 @@ export function getDemoLoader(idOrAlias: string): (() => Promise<void>) | undefi
 
 /** Preload a detail demo during prerender so its Suspense boundary is resolved. */
 export async function preloadComponentDemo(componentId: string): Promise<void> {
-  const load = getDemoLoader(componentId);
-  if (!load) return;
+  const demo = DEMO_ROUTES[resolveDemoId(componentId) as keyof typeof DEMO_ROUTES];
+  if (!demo) return;
 
   try {
-    await load();
+    await demo.preload();
   } catch {
     // Demo preload failures are non-fatal during prerender.
   }

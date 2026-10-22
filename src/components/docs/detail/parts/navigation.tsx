@@ -203,12 +203,6 @@ isDesktopSidebarOpen && (
                     <span>Quick Start</span>
                   </button>
                   <button
-                    onClick={() => onNavigateDocs('motion')}
-                    className="w-full flex items-center px-2.5 py-1.5 rounded-lg text-[13px] sm:text-sm text-text-secondary hover:text-text-primary hover:bg-[#F1F1F2] dark:hover:bg-[#18181B] transition-colors text-left cursor-pointer"
-                  >
-                    <span>Motion Tokens</span>
-                  </button>
-                  <button
                     onClick={() => onNavigateDocs('architecture')}
                     className="w-full flex items-center px-2.5 py-1.5 rounded-lg text-[13px] sm:text-sm text-text-secondary hover:text-text-primary hover:bg-[#F1F1F2] dark:hover:bg-[#18181B] transition-colors text-left cursor-pointer"
                   >

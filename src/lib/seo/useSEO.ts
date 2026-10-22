@@ -4,7 +4,6 @@ import {
   getCanonicalUrl,
   getComponentSEO,
   getDocTopicSEO,
-  normalizeDocTopicId,
   type PageSEOMeta,
 } from './helpers';
 import {
@@ -67,7 +66,7 @@ export function useSEO({
     if (activeView === 'docs') {
       const docSEO = getDocTopicSEO(activeDocTopic);
       const structuredData = generateDocArticleSchema({
-        id: normalizeDocTopicId(activeDocTopic),
+        id: activeDocTopic,
         title: docSEO.title,
         description: docSEO.description,
       });

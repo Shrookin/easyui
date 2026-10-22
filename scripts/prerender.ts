@@ -215,39 +215,65 @@ export async function prerenderAllRoutes(): Promise<void> {
     element: catalogElement,
   });
 
+  // Keep the legacy catalog URL available on hard loads and refreshes.
+  routes.push({
+    path: '/all-components',
+    outputPath: path.join(DIST_DIR, 'all-components', 'index.html'),
+    title: 'All React Components — EasyUI',
+    description:
+      'Explore EasyUI complete collection of production-ready, beautifully animated React components built with Tailwind CSS and Framer Motion.',
+    canonical: componentsCanonical,
+    structuredData: catalogSchema,
+    element: makePrerenderElement('/all-components'),
+  });
+  routes.push({
+    path: '/components/page/1',
+    outputPath: path.join(DIST_DIR, 'components', 'page', '1', 'index.html'),
+    title: 'All React Components — EasyUI',
+    description:
+      'Explore EasyUI complete collection of production-ready, beautifully animated React components built with Tailwind CSS and Framer Motion.',
+    canonical: componentsCanonical,
+    structuredData: catalogSchema,
+    element: makePrerenderElement('/components/page/1'),
+  });
+
     // 3. Documentation Topics
-    const docTopicIds = ['introduction', 'quick-start', 'architecture', 'motion-system', 'collaboration', 'seo'];
+    const docTopicIds = ['introduction', 'quick-start', 'architecture', 'collaboration', 'seo'];
     const docsCanonical = getCanonicalUrl('docs');
     const docsElement = makePrerenderElement('/docs/introduction');
     routes.push({
       path: '/docs',
       outputPath: path.join(DIST_DIR, 'docs', 'index.html'),
       title: 'Documentation — EasyUI',
-      description: 'Comprehensive documentation and guides for EasyUI components, motion systems, and architecture.',
+      description: 'Comprehensive documentation and guides for EasyUI components, architecture, and SEO.',
       canonical: docsCanonical,
       structuredData: generateDocArticleSchema({ id: 'introduction', title: 'Documentation — EasyUI', description: 'Comprehensive documentation and guides for EasyUI.' }),
       element: docsElement,
     });
-    for (const topicId of docTopicIds) {
+    const docPaths = [
+      ...docTopicIds.flatMap((topicId) => [
+        { path: `/docs/${topicId}`, topicId },
+        { path: `/doc/${topicId}`, topicId },
+      ]),
+      { path: '/docs/contributing', topicId: 'collaboration' },
+      { path: '/doc', topicId: 'introduction' },
+      { path: '/doc/contributing', topicId: 'collaboration' },
+    ];
+    for (const { path: routePath, topicId } of docPaths) {
       const docSEO = getDocTopicSEO(topicId);
-      const docSchema = generateDocArticleSchema({
-        id: topicId,
-        title: docSEO.title,
-        description: docSEO.description,
-      });
-      const docElement = makePrerenderElement(`/docs/${topicId}`);
-
-      // Directory format: /docs/:topic/index.html
       routes.push({
-        path: `/docs/${topicId}`,
-        outputPath: path.join(DIST_DIR, 'docs', topicId, 'index.html'),
+        path: routePath,
+        outputPath: path.join(DIST_DIR, ...routePath.split('/').filter(Boolean), 'index.html'),
         title: docSEO.title,
         description: docSEO.description,
         canonical: docSEO.canonical,
-        structuredData: docSchema,
-        element: docElement,
+        structuredData: generateDocArticleSchema({
+          id: topicId,
+          title: docSEO.title,
+          description: docSEO.description,
+        }),
+        element: makePrerenderElement(routePath),
       });
-
     }
 
     // Each catalog page gets one canonical directory output. Keeping the
@@ -297,6 +323,25 @@ export async function prerenderAllRoutes(): Promise<void> {
     fs.mkdirSync(dir, { recursive: true });
     fs.writeFileSync(r.outputPath, finalHtml, 'utf-8');
   }));
+
+  // Fail the build instead of publishing broken demos or local source paths.
+  const componentRoutes = routes.filter(
+    ({ path: routePath }) => routePath.startsWith('/components/') && !routePath.startsWith('/components/page/')
+  );
+  const loadingPreviewPattern = /Loading preview(?:…|\.\.\.)?/i;
+  const localPathPattern = /(?:[A-Z]:[\\/]|\/(?:Users|home|workspace|tmp)\/[^\s"'<>]+)/i;
+  const invalidComponentPages: string[] = [];
+  for (const route of componentRoutes) {
+    const html = fs.readFileSync(route.outputPath, 'utf-8');
+    if (loadingPreviewPattern.test(html) || localPathPattern.test(html) || html.includes('data-cstck=')) {
+      invalidComponentPages.push(route.path);
+    }
+  }
+  if (invalidComponentPages.length > 0) {
+    throw new Error(
+      `Component prerender validation failed for ${invalidComponentPages.length} page(s): ${invalidComponentPages.slice(0, 10).join(', ')}`
+    );
+  }
   const successCount = routes.length;
 
   console.log(`\n Successfully pre-rendered ${successCount} routes with complete static HTML:`);
