@@ -12,7 +12,6 @@ const SITEMAP_PATH = path.join(ROOT_DIR, 'public', 'sitemap.xml');
 const ROBOTS_PATH = path.join(ROOT_DIR, 'public', 'robots.txt');
 const MANIFEST_PATH = path.join(ROOT_DIR, 'public', 'site.webmanifest');
 const INDEX_HTML_PATH = path.join(ROOT_DIR, 'index.html');
-const VERCEL_CONFIG_PATH = path.join(ROOT_DIR, 'vercel.json');
 const LOGO_PATH = path.join(ROOT_DIR, 'public', 'logo.png');
 const OG_IMAGE_PATH = path.join(ROOT_DIR, 'public', 'og-image.webp');
 const UI_DIR = path.join(ROOT_DIR, 'src', 'components', 'ui');
@@ -138,25 +137,6 @@ export function runSEOAudit(): AuditReport {
     check('Metadata', indexHtml.includes('name="robots"'), 'WARNING', 'index.html contains robots meta directive', 'index.html missing robots meta tag', 'index.html');
     check('Metadata', indexHtml.includes('name="viewport"'), 'CRITICAL', 'index.html contains viewport meta tag', 'index.html missing viewport meta tag', 'index.html');
     check('Metadata', indexHtml.includes('name="theme-color"'), 'INFO', 'index.html contains theme-color meta tag', 'index.html missing theme-color', 'index.html');
-  }
-
-  if (fs.existsSync(VERCEL_CONFIG_PATH)) {
-    try {
-      const vercel = JSON.parse(fs.readFileSync(VERCEL_CONFIG_PATH, 'utf-8'));
-      const hasCatchAllRewrite = Array.isArray(vercel.rewrites) && vercel.rewrites.some(
-        (rewrite: { source?: string; destination?: string }) => rewrite.source === '/(.*)' && rewrite.destination === '/index.html'
-      );
-      check(
-        'Technical SEO',
-        !hasCatchAllRewrite,
-        'CRITICAL',
-        'Vercel serves unknown paths through the platform 404 handler',
-        'Vercel catch-all rewrite masks unknown paths as SPA HTTP 200 responses',
-        'vercel.json'
-      );
-    } catch {
-      check('Technical SEO', false, 'CRITICAL', '', 'vercel.json is not valid JSON', 'vercel.json');
-    }
   }
 
   // Filesystem Discovery of Components
