@@ -329,7 +329,7 @@ export async function prerenderAllRoutes(): Promise<void> {
     ({ path: routePath }) => routePath.startsWith('/components/') && !routePath.startsWith('/components/page/')
   );
   const loadingPreviewPattern = /Loading preview(?:…|\.\.\.)?/i;
-  const localPathPattern = /(?:[A-Z]:[\\/]|\/(?:Users|home|workspace|tmp)\/[^\s"'<>]+)/i;
+  const localPathPattern = /(?:\b[A-Za-z]:[\\/]|\/(?:Users|home|workspace|tmp)\/[^\s"'<>]+)/;
   const invalidComponentPages: string[] = [];
   for (const route of componentRoutes) {
     const html = fs.readFileSync(route.outputPath, 'utf-8');
