@@ -4,6 +4,7 @@ import type { DemoProps } from './demo-types';
 
 export const DEMO_ROUTE_MODULES = {
   'activity-feed': { aliases: [], load: () => import('./demos/items/activity-feed.demo') },
+  'activity-heatmap': { aliases: [], load: () => import('./demos/items/activity-heatmap.demo') },
   'advanced-data-table': { aliases: [], load: () => import('./demos/items/advanced-data-table.demo') },
   'ai-agent-activity': { aliases: [], load: () => import('./demos/items/ai-agent-activity.demo') },
   'ai-response': { aliases: [], load: () => import('./demos/items/ai-response.demo') },
@@ -14,6 +15,7 @@ export const DEMO_ROUTE_MODULES = {
   'animated-tabs': { aliases: [], load: () => import('./demos/items/animated-tabs.demo') },
   'avatar-stack': { aliases: ['avatar-stacks', 'avatarstack'], load: () => import('./demos/items/avatar-stack.demo') },
   'badge': { aliases: [], load: () => import('./demos/items/badge.demo') },
+  'bar-chart': { aliases: [], load: () => import('./demos/items/bar-chart.demo') },
   'batch-gesture-tray': { aliases: [], load: () => import('./demos/items/batch-gesture-tray.demo') },
   'book-call-button': { aliases: [], load: () => import('./demos/items/book-call-button.demo') },
   'branching-submenu': { aliases: [], load: () => import('./demos/items/branching-submenu.demo') },
@@ -32,6 +34,7 @@ export const DEMO_ROUTE_MODULES = {
   'dependency-trace': { aliases: [], load: () => import('./demos/items/dependency-trace.demo') },
   'depth-corridor': { aliases: [], load: () => import('./demos/items/depth-corridor.demo') },
   'directional-tooltip': { aliases: [], load: () => import('./demos/items/directional-tooltip.demo') },
+  'donut-chart': { aliases: [], load: () => import('./demos/items/donut-chart.demo') },
   'dot-field': { aliases: [], load: () => import('./demos/items/dot-field.demo') },
   'dot-shader': { aliases: ['dotshader', 'dot-matrix-shader'], load: () => import('./demos/items/dot-shader.demo') },
   'drag-to-confirm': { aliases: [], load: () => import('./demos/items/drag-to-confirm.demo') },

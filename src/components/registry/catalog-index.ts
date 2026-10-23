@@ -21,6 +21,22 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
     "createdAt": "2026-08-19"
   },
   {
+    "id": "activity-heatmap",
+    "name": "Activity Heatmap",
+    "tagline": "Responsive contribution calendar and weekday-by-hour activity grid",
+    "description": "A GitHub-style contribution calendar and weekday-by-hour activity grid with automatic column fitting, quarterly color levels, hover tooltips, and keyboard navigation.",
+    "category": "Feedback",
+    "badges": [
+      "SVG",
+      "Heatmap",
+      "Data Visualization",
+      "Calendar",
+      "Interactive"
+    ],
+    "cliCommand": "npx shadcn@latest add Surajmaurya1/easyui/activity-heatmap",
+    "createdAt": "2026-10-23"
+  },
+  {
     "id": "advanced-data-table",
     "name": "Advanced Data Table",
     "tagline": "Enterprise-grade data table with sorting, filtering, selection, and expandable rows",
@@ -164,6 +180,21 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
     ],
     "cliCommand": "npx shadcn@latest add Surajmaurya1/easyui/badge",
     "createdAt": "2026-10-11"
+  },
+  {
+    "id": "bar-chart",
+    "name": "Bar Chart",
+    "tagline": "Animated grouped and stacked SVG bar chart with legend filtering",
+    "description": "A hand-written, dependency-free SVG bar chart with grouped and stacked layouts, morphing bar transitions, interactive legend toggles, and accessible hover and keyboard tooltips.",
+    "category": "Feedback",
+    "badges": [
+      "SVG",
+      "Bar Chart",
+      "Data Visualization",
+      "Interactive"
+    ],
+    "cliCommand": "npx shadcn@latest add Surajmaurya1/easyui/bar-chart",
+    "createdAt": "2026-10-23"
   },
   {
     "id": "batch-gesture-tray",
@@ -431,6 +462,22 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
     ],
     "cliCommand": "npx shadcn@latest add Surajmaurya1/easyui/directional-tooltip",
     "createdAt": "2026-09-03"
+  },
+  {
+    "id": "donut-chart",
+    "name": "Donut Chart",
+    "tagline": "Animated SVG donut and gauge chart with a live center value",
+    "description": "A hand-written SVG donut and half-ring gauge with animated arcs, a live center readout, hover highlighting, and a legend that filters slices without collapsing the ring.",
+    "category": "Feedback",
+    "badges": [
+      "SVG",
+      "Donut Chart",
+      "Gauge",
+      "Data Visualization",
+      "Interactive"
+    ],
+    "cliCommand": "npx shadcn@latest add Surajmaurya1/easyui/donut-chart",
+    "createdAt": "2026-10-23"
   },
   {
     "id": "dot-field",

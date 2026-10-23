@@ -12,11 +12,12 @@
 
 ## Components Directory
 
-- [All Components Catalog](https://easyui.site/components): Browse the full catalog of 125 animated React components.
+- [All Components Catalog](https://easyui.site/components): Browse the full catalog of 128 animated React components.
 
 ### Component Index
 
 - [Activity Feed](https://easyui.site/components/activity-feed): A developer telemetry and audit log stream featuring category filtering, live real-time event simulation with Framer Motion slide insertions, and expandable JSON payloads.
+- [Activity Heatmap](https://easyui.site/components/activity-heatmap): A GitHub-style contribution calendar and weekday-by-hour activity grid with automatic column fitting, quarterly color levels, hover tooltips, and keyboard navigation.
 - [Advanced Data Table](https://easyui.site/components/advanced-data-table): A powerful, accessible data table component with multi-column sorting, faceted filters, global search, row selection, bulk actions, expandable sub-rows, and pagination.
 - [AI Agent Activity](https://easyui.site/components/ai-agent-activity): A timeline component for tracking AI agent reasoning, tool calls, API queries, database fetches, and execution states with inspectable parameters and results.
 - [AI Response](https://easyui.site/components/ai-response): A production-ready, accessible AI response component supporting streaming markdown, syntax-styled code blocks, citations, feedback actions, and tool execution status.
@@ -27,6 +28,7 @@
 - [Animated Tabs](https://easyui.site/components/animated-tabs): A tabbed switcher with physical pill indicator sliding smoothly between active items with content cross-fades.
 - [Avatar Stack](https://easyui.site/components/avatar-stack): An interactive, stacked facepile of overlapping avatars that smoothly elevates and scales the hovered avatar to the front with spring physics, revealing the full image and name tooltip.
 - [Badge](https://easyui.site/components/badge): An animated status badge where numbers and strings roll on value change, with live status pulse dot, removable chip actions, and rich tone variants.
+- [Bar Chart](https://easyui.site/components/bar-chart): A hand-written, dependency-free SVG bar chart with grouped and stacked layouts, morphing bar transitions, interactive legend toggles, and accessible hover and keyboard tooltips.
 - [Batch Gesture Tray](https://easyui.site/components/batch-gesture-tray): A touch-ready contextual tray that slides into view upon item selection, presenting bulk actions and real-time count telemetry.
 - [Book Call Button](https://easyui.site/components/book-call-button): A premium "Book a call" pill with a green expanding capsule. At rest, a 36% accent capsule holds a dotted arrow + label; on hover, the capsule fills the pill, the label slides out, and a phone icon with ringing lines fades in centered.
 - [Branching Submenu](https://easyui.site/components/branching-submenu): A spatial submenu that connects parent options to child actions with staged branch motion.
@@ -45,6 +47,7 @@
 - [Dependency Trace](https://easyui.site/components/dependency-trace): An interactive SVG node graph that maps and dynamically traces relationship connections with directional bezier curves.
 - [Depth Corridor](https://easyui.site/components/depth-corridor): A 3D spatial layer stack with receding perspective depth, progressive focal blurs, and pointer parallax motion.
 - [DirectionalTooltip](https://easyui.site/components/directional-tooltip): A tooltip that appears from the direction it originates — it starts a small distance outside the trigger in its preferred direction and springs inward, so it feels like it materializes from the trigger.
+- [Donut Chart](https://easyui.site/components/donut-chart): A hand-written SVG donut and half-ring gauge with animated arcs, a live center readout, hover highlighting, and a legend that filters slices without collapsing the ring.
 - [Dot Field](https://easyui.site/components/dot-field): High-performance lightweight static Canvas dot matrix background with dynamic gradient coloring and responsive density scaling.
 - [Dot Shader](https://easyui.site/components/dot-shader): A GPU-accelerated interactive dot matrix background shader with magnetic cursor repulsion, proximity illumination glow, dynamic lens scaling, and ambient wave motion.
 - [Drag to Confirm](https://easyui.site/components/drag-to-confirm): A minimalist physical drag-to-confirm slider for high-stakes and destructive actions, equipped with progressive track fill physics, spring snapback resistance, full light/dark theme adaptation, and accessible keyboard controls.
