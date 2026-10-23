@@ -3,8 +3,8 @@ import type { ComponentPreviewProps } from '../types';
 
 export default function Preview({ isHovered = false }: ComponentPreviewProps) {
   return (
-    <div className="w-full h-full min-h-[220px] flex flex-col items-center justify-center p-3 select-none overflow-hidden">
-      <div className="scale-[0.52] sm:scale-[0.58] origin-center shrink-0 -my-12 sm:-my-10 flex items-center justify-center pointer-events-none">
+    <div className="w-full min-h-[260px] flex flex-col items-center justify-center gap-1 p-3 select-none overflow-hidden">
+      <div className="w-full max-w-[280px] shrink-0 pointer-events-none">
         <Illustration parallax={isHovered} />
       </div>
 
