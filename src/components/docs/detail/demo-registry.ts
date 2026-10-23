@@ -26,15 +26,6 @@ export function hasDemo(idOrAlias: string): boolean {
   return Object.prototype.hasOwnProperty.call(DEMO_ROUTE_MODULES, resolveDemoId(idOrAlias));
 }
 
-export function getDemoLoader(idOrAlias: string): (() => Promise<void>) | undefined {
-  const route = DEMO_ROUTE_MODULES[resolveDemoId(idOrAlias) as keyof typeof DEMO_ROUTE_MODULES];
-  if (!route) return undefined;
-  return async () => {
-    const module = await route.load();
-    await module.preload();
-  };
-}
-
 /** Preload a detail demo during prerender so its Suspense boundary is resolved. */
 export async function preloadComponentDemo(componentId: string): Promise<void> {
   const demoId = resolveDemoId(componentId);

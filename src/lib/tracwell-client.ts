@@ -31,3 +31,11 @@ export function trackTracwellEvent(
     console.warn('[Tracwell] Could not send analytics event.', error)
   }
 }
+
+export async function flushTracwellEvents(): Promise<void> {
+  try {
+    await analytics?.flush()
+  } catch (error) {
+    console.warn('[Tracwell] Could not flush analytics events.', error)
+  }
+}

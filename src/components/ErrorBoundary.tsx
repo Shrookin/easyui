@@ -1,5 +1,6 @@
 import { Component, type ErrorInfo, type ReactNode } from 'react';
 import { reportClientError } from '../lib/error-reporting';
+import { flushTracwellEvents } from '../lib/tracwell-client';
 
 interface Props {
   children: ReactNode;
@@ -36,7 +37,8 @@ export class ErrorBoundary extends Component<Props, State> {
         const lastReloadAt = Number(window.sessionStorage.getItem(CHUNK_RELOAD_KEY));
         if (!lastReloadAt || Date.now() - lastReloadAt > 60_000) {
           window.sessionStorage.setItem(CHUNK_RELOAD_KEY, String(Date.now()));
-          window.location.reload();
+          const flushTimeout = new Promise<void>((resolve) => window.setTimeout(resolve, 1_000));
+          void Promise.race([flushTracwellEvents(), flushTimeout]).finally(() => window.location.reload());
         }
       } catch {
         // Storage may be unavailable; leave the recovery action to the user.
