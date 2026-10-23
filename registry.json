@@ -1056,6 +1056,32 @@
       ]
     },
     {
+      "name": "funnel-chart",
+      "type": "registry:ui",
+      "title": "Funnel Chart",
+      "description": "A conversion funnel with per-stage widths, curved drop-off bridges, and a loss chip between every stage. An optional summary line reports overall conversion and the single biggest drop-off, all in hand-written SVG.",
+      "dependencies": [
+        "framer-motion"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/FunnelChart.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/funnel-chart.tsx"
+        },
+        {
+          "path": "src/lib/chart-primitives.tsx",
+          "type": "registry:lib",
+          "target": "lib/chart-primitives.tsx"
+        },
+        {
+          "path": "src/lib/dashboard-chart-utils.ts",
+          "type": "registry:lib",
+          "target": "lib/dashboard-chart-utils.ts"
+        }
+      ]
+    },
+    {
       "name": "glass-navbar",
       "type": "registry:ui",
       "title": "Glass Navbar",
@@ -1336,6 +1362,32 @@
           "path": "src/lib/theme/useTheme.tsx",
           "type": "registry:lib",
           "target": "lib/theme/useTheme.tsx"
+        }
+      ]
+    },
+    {
+      "name": "live-line-chart",
+      "type": "registry:ui",
+      "title": "Live Line Chart",
+      "description": "A real-time line chart that scrolls right-to-left, with a large current-value readout, a live delta, and a pause control. Hover or touch the chart to freeze the stream and scrub it with a crosshair tooltip.",
+      "dependencies": [
+        "framer-motion"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/LiveLineChart.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/live-line-chart.tsx"
+        },
+        {
+          "path": "src/lib/chart-primitives.tsx",
+          "type": "registry:lib",
+          "target": "lib/chart-primitives.tsx"
+        },
+        {
+          "path": "src/lib/dashboard-chart-utils.ts",
+          "type": "registry:lib",
+          "target": "lib/dashboard-chart-utils.ts"
         }
       ]
     },
@@ -2736,6 +2788,32 @@
           "path": "src/lib/utils.ts",
           "type": "registry:lib",
           "target": "lib/utils.ts"
+        }
+      ]
+    },
+    {
+      "name": "stat-card",
+      "type": "registry:ui",
+      "title": "Stat Card",
+      "description": "A KPI tile with a count-up headline number, a direction-aware delta pill, and a scrubable sparkline. Pair several with StatGrid for a responsive metrics row that works from phones to wide dashboards.",
+      "dependencies": [
+        "framer-motion"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/StatCard.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/stat-card.tsx"
+        },
+        {
+          "path": "src/lib/chart-primitives.tsx",
+          "type": "registry:lib",
+          "target": "lib/chart-primitives.tsx"
+        },
+        {
+          "path": "src/lib/dashboard-chart-utils.ts",
+          "type": "registry:lib",
+          "target": "lib/dashboard-chart-utils.ts"
         }
       ]
     },

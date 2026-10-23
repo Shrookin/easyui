@@ -4060,6 +4060,98 @@ export const EASY_COMPONENTS: EasyComponentMeta[] = [
     "featured": true
   },
   {
+    "id": "funnel-chart",
+    "name": "Funnel Chart",
+    "tagline": "Conversion funnel with per-stage drop-off and a loss summary",
+    "description": "A conversion funnel with per-stage widths, curved drop-off bridges, and a loss chip between every stage. An optional summary line reports overall conversion and the single biggest drop-off, all in hand-written SVG.",
+    "category": "Feedback",
+    "badges": [
+      "SVG",
+      "Funnel Chart",
+      "Data Visualization",
+      "Conversion",
+      "Interactive"
+    ],
+    "cliCommand": "npx shadcn@latest add Surajmaurya1/easyui/funnel-chart",
+    "features": [
+      "Proportional stage bars with rounded ends and a color ramp from first to last stage",
+      "Curved bridges show the users lost between each pair of stages",
+      "Drop-off chips sit between stages and highlight the hovered step",
+      "Summary line reports overall conversion and the biggest single drop-off",
+      "Floating tooltip shows users, percentage of the top stage, and the next loss",
+      "Container-aware sizing keeps labels and values readable on mobile",
+      "Keyboard navigation with ArrowUp, ArrowDown, and Escape",
+      "Screen-reader table mirrors every stage value and percentage",
+      "prefers-reduced-motion disables bridge and bar entrance animations"
+    ],
+    "props": [
+      {
+        "name": "stages",
+        "type": "FunnelStage[]",
+        "description": "Ordered stages with a label, value, and optional color"
+      },
+      {
+        "name": "formatValue",
+        "type": "(n: number) => string",
+        "default": "Intl.NumberFormat",
+        "description": "Formats stage values in the chart, tooltip, and data table"
+      },
+      {
+        "name": "showSummary",
+        "type": "boolean",
+        "default": "true",
+        "description": "Shows overall conversion and the biggest drop-off above the funnel"
+      },
+      {
+        "name": "animated",
+        "type": "boolean",
+        "default": "true",
+        "description": "Enables bridge, bar, and chip entrance animations"
+      },
+      {
+        "name": "ariaLabel",
+        "type": "string",
+        "default": "auto-generated",
+        "description": "Accessible chart description and data table caption"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "default": "\"\"",
+        "description": "Additional CSS classes for the funnel wrapper"
+      }
+    ],
+    "accessibility": [
+      "The SVG exposes role=\"img\" with a descriptive aria-label listing the first and last stages",
+      "ArrowUp and ArrowDown move between stages and Escape dismisses the tooltip",
+      "A visually hidden data table mirrors every stage, value, and percentage of the top stage",
+      "Drop-off chips combine the percentage with the stage labels they sit between",
+      "prefers-reduced-motion disables the bridge, bar, and chip entrance animations"
+    ],
+    "createdAt": "2026-10-23",
+    "usageCode": "import { FunnelChart } from \"@/components/ui/funnel-chart\";\n\nconst stages = [\n  { label: \"Visited site\", value: 48200 },\n  { label: \"Signed up\", value: 15840 },\n  { label: \"Created project\", value: 9120 },\n  { label: \"Started paid plan\", value: 1380 },\n];\n\nexport function Demo() {\n  return (\n    <div className=\"w-full max-w-lg rounded-2xl bg-white p-5 dark:bg-neutral-950\">\n      <FunnelChart stages={stages} />\n    </div>\n  );\n}",
+    "dependencies": [
+      "framer-motion"
+    ],
+    "files": [
+      {
+        "path": "src/components/ui/FunnelChart.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/funnel-chart.tsx"
+      },
+      {
+        "path": "src/lib/chart-primitives.tsx",
+        "type": "registry:lib",
+        "target": "lib/chart-primitives.tsx"
+      },
+      {
+        "path": "src/lib/dashboard-chart-utils.ts",
+        "type": "registry:lib",
+        "target": "lib/dashboard-chart-utils.ts"
+      }
+    ]
+  },
+  {
     "id": "glass-navbar",
     "name": "Glass Navbar",
     "tagline": "Refined glass navigation with spring physics",
@@ -5136,6 +5228,132 @@ export const EASY_COMPONENTS: EasyComponentMeta[] = [
       }
     ],
     "featured": true
+  },
+  {
+    "id": "live-line-chart",
+    "name": "Live Line Chart",
+    "tagline": "Scrolling real-time line chart with pause, scrub, and live readout",
+    "description": "A real-time line chart that scrolls right-to-left, with a large current-value readout, a live delta, and a pause control. Hover or touch the chart to freeze the stream and scrub it with a crosshair tooltip.",
+    "category": "Feedback",
+    "badges": [
+      "SVG",
+      "Live Data",
+      "Line Chart",
+      "Data Visualization",
+      "Interactive"
+    ],
+    "cliCommand": "npx shadcn@latest add Surajmaurya1/easyui/live-line-chart",
+    "features": [
+      "Subscribes to any push-based source such as a WebSocket, SSE stream, or interval",
+      "Draws directly into the DOM at 60fps without React re-renders on every frame",
+      "Auto-scaling y-range that eases smoothly as the visible window changes",
+      "Hovering or touching pauses the stream and freezes the frame for inspection",
+      "Crosshair tooltip shows the sampled value and how many seconds ago it arrived",
+      "Large readout with a live delta and a pause/resume button",
+      "Optional fixed y-domain, custom units, formatters, and colors",
+      "Pauses rendering when off-screen or when the tab is hidden",
+      "Container-aware sizing and prefers-reduced-motion support"
+    ],
+    "props": [
+      {
+        "name": "source",
+        "type": "(push) => void | (() => void)",
+        "description": "Data feed subscription; call push(value) for each new reading and return a cleanup"
+      },
+      {
+        "name": "initial",
+        "type": "number[]",
+        "description": "Known values, oldest to newest, spaced intervalMs apart and ending now"
+      },
+      {
+        "name": "intervalMs",
+        "type": "number",
+        "default": "1000",
+        "description": "Approximate arrival interval and the smoothing delay"
+      },
+      {
+        "name": "windowSeconds",
+        "type": "number",
+        "default": "60",
+        "description": "Seconds visible in the scrolling window"
+      },
+      {
+        "name": "height",
+        "type": "number",
+        "default": "220",
+        "description": "Chart height in pixels"
+      },
+      {
+        "name": "color",
+        "type": "string",
+        "default": "CHART_COLORS[0]",
+        "description": "Line stroke and area gradient color"
+      },
+      {
+        "name": "unit",
+        "type": "string",
+        "default": "\"\"",
+        "description": "Unit shown beside the readout and tooltip values"
+      },
+      {
+        "name": "formatValue",
+        "type": "(n: number) => string",
+        "default": "Intl.NumberFormat",
+        "description": "Formats the current value, tooltip, and aria text"
+      },
+      {
+        "name": "domain",
+        "type": "[number, number]",
+        "description": "Fixed y-range instead of auto-scaling to the visible window"
+      },
+      {
+        "name": "showReadout",
+        "type": "boolean",
+        "default": "true",
+        "description": "Shows the large current value, delta, and pause button"
+      },
+      {
+        "name": "ariaLabel",
+        "type": "string",
+        "default": "auto-generated",
+        "description": "Accessible description for the chart image role"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "default": "\"\"",
+        "description": "Additional CSS classes for the chart wrapper"
+      }
+    ],
+    "accessibility": [
+      "The SVG exposes role=\"img\" with an aria-label that includes the window and current value",
+      "The pause button uses aria-pressed and a descriptive resume or pause label",
+      "Live updates pause on hover, touch, or pointer dismissal so touch users can inspect the frame",
+      "Paused state is announced through an aria-live status region",
+      "prefers-reduced-motion disables the head pulse and easing motion"
+    ],
+    "createdAt": "2026-10-23",
+    "usageCode": "import { LiveLineChart } from \"@/components/ui/live-line-chart\";\n\nexport function Demo() {\n  return (\n    <div className=\"w-full max-w-2xl rounded-2xl bg-white p-5 dark:bg-neutral-950\">\n      <LiveLineChart\n        initial={[1240, 1280, 1235, 1310, 1290]}\n        unit=\"req/s\"\n        height={220}\n        source={(push) => {\n          const id = setInterval(() => push(1200 + Math.random() * 300), 1000);\n          return () => clearInterval(id);\n        }}\n      />\n    </div>\n  );\n}",
+    "dependencies": [
+      "framer-motion"
+    ],
+    "files": [
+      {
+        "path": "src/components/ui/LiveLineChart.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/live-line-chart.tsx"
+      },
+      {
+        "path": "src/lib/chart-primitives.tsx",
+        "type": "registry:lib",
+        "target": "lib/chart-primitives.tsx"
+      },
+      {
+        "path": "src/lib/dashboard-chart-utils.ts",
+        "type": "registry:lib",
+        "target": "lib/dashboard-chart-utils.ts"
+      }
+    ]
   },
   {
     "id": "loader",
@@ -10560,6 +10778,139 @@ export const EASY_COMPONENTS: EasyComponentMeta[] = [
         "path": "src/lib/utils.ts",
         "type": "registry:lib",
         "target": "lib/utils.ts"
+      }
+    ]
+  },
+  {
+    "id": "stat-card",
+    "name": "Stat Card",
+    "tagline": "KPI tile with count-up, delta pill, and scrubable sparkline",
+    "description": "A KPI tile with a count-up headline number, a direction-aware delta pill, and a scrubable sparkline. Pair several with StatGrid for a responsive metrics row that works from phones to wide dashboards.",
+    "category": "Feedback",
+    "badges": [
+      "KPI",
+      "Sparkline",
+      "Data Visualization",
+      "Interactive",
+      "SVG"
+    ],
+    "cliCommand": "npx shadcn@latest add Surajmaurya1/easyui/stat-card",
+    "features": [
+      "Count-up headline number on mount that follows the sparkline while scrubbing",
+      "Delta pill computes change from a previous value or accepts an explicit percentage",
+      "Direction-aware coloring with goodWhen=\"down\" for churn, latency, and costs",
+      "Hand-written SVG sparkline with a smooth monotone curve and gradient fill",
+      "Pointer and touch scrubbing with a spring cursor and per-point labels",
+      "Keyboard support with ArrowLeft, ArrowRight, and Escape",
+      "StatGrid auto-fits tiles from a single mobile column to full-width rows",
+      "Light and dark themes plus prefers-reduced-motion support"
+    ],
+    "props": [
+      {
+        "name": "label",
+        "type": "string",
+        "description": "Metric name shown above the headline number"
+      },
+      {
+        "name": "value",
+        "type": "number",
+        "description": "Headline number; usually the latest point of trend"
+      },
+      {
+        "name": "trend",
+        "type": "number[]",
+        "description": "Sparkline points ordered oldest to newest"
+      },
+      {
+        "name": "trendLabels",
+        "type": "string[]",
+        "description": "Names for each trend point, shown while scrubbing"
+      },
+      {
+        "name": "previous",
+        "type": "number",
+        "description": "Previous-period value used to compute the delta pill"
+      },
+      {
+        "name": "delta",
+        "type": "number",
+        "description": "Explicit delta percentage, overriding the computed value"
+      },
+      {
+        "name": "goodWhen",
+        "type": "\"up\" | \"down\"",
+        "default": "\"up\"",
+        "description": "Which direction counts as positive news"
+      },
+      {
+        "name": "period",
+        "type": "string",
+        "default": "\"vs previous period\"",
+        "description": "Caption under the number when not scrubbing"
+      },
+      {
+        "name": "format",
+        "type": "(n: number) => string",
+        "default": "Intl.NumberFormat",
+        "description": "Formats the headline, labels, and aria text"
+      },
+      {
+        "name": "color",
+        "type": "string",
+        "default": "CHART_COLORS[0]",
+        "description": "Sparkline stroke and gradient color"
+      },
+      {
+        "name": "animated",
+        "type": "boolean",
+        "default": "true",
+        "description": "Counts up on mount and animates the line (disabled for reduced motion)"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "default": "\"\"",
+        "description": "Additional CSS classes for the card"
+      },
+      {
+        "name": "StatGrid.children",
+        "type": "ReactNode",
+        "description": "StatCard tiles to arrange responsively"
+      },
+      {
+        "name": "StatGrid.className",
+        "type": "string",
+        "default": "\"\"",
+        "description": "Additional CSS classes for the grid"
+      }
+    ],
+    "accessibility": [
+      "The card is a focusable group with an aria-label announcing the value and delta direction",
+      "ArrowLeft and ArrowRight scrub the sparkline and Escape clears the active point",
+      "The active point is mirrored in an aria-live status region",
+      "Decorative SVG pieces are aria-hidden while the sparkline exposes a trend description",
+      "prefers-reduced-motion disables the count-up, line draw, and pulse animations"
+    ],
+    "createdAt": "2026-10-23",
+    "usageCode": "import { StatCard, StatGrid } from \"@/components/ui/stat-card\";\n\nconst revenue = [41200, 42100, 41800, 43600, 44200, 45800, 47100];\n\nexport function Demo() {\n  return (\n    <StatGrid>\n      <StatCard\n        label=\"Revenue\"\n        value={revenue[revenue.length - 1]}\n        previous={revenue[0]}\n        trend={revenue}\n        period=\"Last 7 days\"\n      />\n      <StatCard\n        label=\"Churn\"\n        value={2.4}\n        previous={2.9}\n        trend={[2.9, 2.8, 2.7, 2.6, 2.5, 2.4]}\n        goodWhen=\"down\"\n        format={(n) => `${n.toFixed(1)}%`}\n        period=\"Last 6 weeks\"\n        color=\"#ff6b8b\"\n      />\n    </StatGrid>\n  );\n}",
+    "dependencies": [
+      "framer-motion"
+    ],
+    "files": [
+      {
+        "path": "src/components/ui/StatCard.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/stat-card.tsx"
+      },
+      {
+        "path": "src/lib/chart-primitives.tsx",
+        "type": "registry:lib",
+        "target": "lib/chart-primitives.tsx"
+      },
+      {
+        "path": "src/lib/dashboard-chart-utils.ts",
+        "type": "registry:lib",
+        "target": "lib/dashboard-chart-utils.ts"
       }
     ]
   },

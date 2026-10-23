@@ -658,6 +658,22 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
     "featured": true
   },
   {
+    "id": "funnel-chart",
+    "name": "Funnel Chart",
+    "tagline": "Conversion funnel with per-stage drop-off and a loss summary",
+    "description": "A conversion funnel with per-stage widths, curved drop-off bridges, and a loss chip between every stage. An optional summary line reports overall conversion and the single biggest drop-off, all in hand-written SVG.",
+    "category": "Feedback",
+    "badges": [
+      "SVG",
+      "Funnel Chart",
+      "Data Visualization",
+      "Conversion",
+      "Interactive"
+    ],
+    "cliCommand": "npx shadcn@latest add Surajmaurya1/easyui/funnel-chart",
+    "createdAt": "2026-10-23"
+  },
+  {
     "id": "glass-navbar",
     "name": "Glass Navbar",
     "tagline": "Refined glass navigation with spring physics",
@@ -836,6 +852,22 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
     "cliCommand": "npx shadcn@latest add Surajmaurya1/easyui/liquid-toggle",
     "createdAt": "2026-09-02",
     "featured": true
+  },
+  {
+    "id": "live-line-chart",
+    "name": "Live Line Chart",
+    "tagline": "Scrolling real-time line chart with pause, scrub, and live readout",
+    "description": "A real-time line chart that scrolls right-to-left, with a large current-value readout, a live delta, and a pause control. Hover or touch the chart to freeze the stream and scrub it with a crosshair tooltip.",
+    "category": "Feedback",
+    "badges": [
+      "SVG",
+      "Live Data",
+      "Line Chart",
+      "Data Visualization",
+      "Interactive"
+    ],
+    "cliCommand": "npx shadcn@latest add Surajmaurya1/easyui/live-line-chart",
+    "createdAt": "2026-10-23"
   },
   {
     "id": "loader",
@@ -1709,6 +1741,22 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
     ],
     "cliCommand": "npx shadcn@latest add Surajmaurya1/easyui/stacked-cards",
     "createdAt": "2026-09-12T11:29:47.829Z"
+  },
+  {
+    "id": "stat-card",
+    "name": "Stat Card",
+    "tagline": "KPI tile with count-up, delta pill, and scrubable sparkline",
+    "description": "A KPI tile with a count-up headline number, a direction-aware delta pill, and a scrubable sparkline. Pair several with StatGrid for a responsive metrics row that works from phones to wide dashboards.",
+    "category": "Feedback",
+    "badges": [
+      "KPI",
+      "Sparkline",
+      "Data Visualization",
+      "Interactive",
+      "SVG"
+    ],
+    "cliCommand": "npx shadcn@latest add Surajmaurya1/easyui/stat-card",
+    "createdAt": "2026-10-23"
   },
   {
     "id": "stepper",
