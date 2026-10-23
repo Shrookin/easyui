@@ -97,6 +97,132 @@ export const EASY_COMPONENTS: EasyComponentMeta[] = [
     ]
   },
   {
+    "id": "activity-heatmap",
+    "name": "Activity Heatmap",
+    "tagline": "Responsive contribution calendar and weekday-by-hour activity grid",
+    "description": "A GitHub-style contribution calendar and weekday-by-hour activity grid with automatic column fitting, quarterly color levels, hover tooltips, and keyboard navigation.",
+    "category": "Feedback",
+    "badges": [
+      "SVG",
+      "Heatmap",
+      "Data Visualization",
+      "Calendar",
+      "Interactive"
+    ],
+    "cliCommand": "npx shadcn@latest add Surajmaurya1/easyui/activity-heatmap",
+    "features": [
+      "Calendar mode renders one cell per day in a GitHub-style contribution grid",
+      "Hours mode renders a 7 × 24 weekday-by-hour matrix with crosshair bands",
+      "Automatically drops columns on narrow screens so cells never fall below the minimum size",
+      "Quartile-based color levels adapt to the actual data distribution",
+      "Month and weekday labels collapse intelligently as the container narrows",
+      "Summary line reports total activity and the peak day or cell",
+      "Tooltip follows the active cell with a spring-tracked position and live region updates",
+      "Honors prefers-reduced-motion by removing the staggered cell entrance animation"
+    ],
+    "props": [
+      {
+        "name": "mode",
+        "type": "\"calendar\" | \"hours\"",
+        "default": "\"calendar\"",
+        "description": "One cell per day or a weekday-by-hour grid"
+      },
+      {
+        "name": "data",
+        "type": "HeatDay[]",
+        "description": "Calendar data as { date: \"YYYY-MM-DD\" | Date, value: number } entries"
+      },
+      {
+        "name": "matrix",
+        "type": "number[][]",
+        "description": "Hours-mode matrix with 7 rows (weekdays) and 24 columns (hours)"
+      },
+      {
+        "name": "rowLabels",
+        "type": "string[]",
+        "default": "[\"Mon\", … , \"Sun\"]",
+        "description": "Row names used in hours mode"
+      },
+      {
+        "name": "weeks",
+        "type": "number",
+        "default": "53",
+        "description": "Maximum number of weeks to show in calendar mode"
+      },
+      {
+        "name": "endDate",
+        "type": "string | Date",
+        "description": "Last day displayed; defaults to the latest date in the data"
+      },
+      {
+        "name": "weekStart",
+        "type": "0 | 1",
+        "default": "0",
+        "description": "First day of the week: 0 for Sunday, 1 for Monday"
+      },
+      {
+        "name": "color",
+        "type": "string",
+        "default": "\"#34d399\"",
+        "description": "Base color mixed into the activity levels"
+      },
+      {
+        "name": "unit",
+        "type": "string",
+        "default": "\"contributions\"",
+        "description": "Plural noun used in the summary and tooltip"
+      },
+      {
+        "name": "minCell",
+        "type": "number",
+        "default": "11",
+        "description": "Smallest cell size before calendar columns are dropped"
+      },
+      {
+        "name": "animated",
+        "type": "boolean",
+        "default": "true",
+        "description": "Enables the staggered cell entrance animation"
+      },
+      {
+        "name": "ariaLabel",
+        "type": "string",
+        "default": "auto-generated",
+        "description": "Accessible description for the heatmap image role"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "default": "\"\"",
+        "description": "Additional CSS classes for the heatmap wrapper"
+      }
+    ],
+    "accessibility": [
+      "The SVG exposes role=\"img\" with an aria-label that includes the total activity summary",
+      "Arrow keys move the active cell, and Escape dismisses the tooltip",
+      "A polite live region announces the active cell date and value for screen readers",
+      "Every cell carries a descriptive date title used by the floating tooltip",
+      "Reduced-motion users skip the staggered cell entrance animation"
+    ],
+    "createdAt": "2026-10-23",
+    "usageCode": "import { ActivityHeatmap } from \"@/components/ui/activity-heatmap\";\n\nconst data = [\n  { date: \"2026-10-18\", value: 3 },\n  { date: \"2026-10-19\", value: 9 },\n  { date: \"2026-10-20\", value: 5 },\n  { date: \"2026-10-21\", value: 12 },\n];\n\nexport function Demo() {\n  return (\n    <div className=\"w-full max-w-3xl rounded-2xl bg-white p-5 dark:bg-neutral-950\">\n      <ActivityHeatmap data={data} weekStart={1} unit=\"contributions\" />\n    </div>\n  );\n}",
+    "dependencies": [
+      "framer-motion"
+    ],
+    "files": [
+      {
+        "path": "src/components/ui/ActivityHeatmap.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/activity-heatmap.tsx"
+      },
+      {
+        "path": "src/lib/chart-primitives.tsx",
+        "type": "registry:lib",
+        "target": "lib/chart-primitives.tsx"
+      }
+    ]
+  },
+  {
     "id": "advanced-data-table",
     "name": "Advanced Data Table",
     "tagline": "Enterprise-grade data table with sorting, filtering, selection, and expandable rows",
@@ -995,6 +1121,114 @@ export const EASY_COMPONENTS: EasyComponentMeta[] = [
         "path": "src/lib/utils.ts",
         "type": "registry:lib",
         "target": "lib/utils.ts"
+      }
+    ]
+  },
+  {
+    "id": "bar-chart",
+    "name": "Bar Chart",
+    "tagline": "Animated grouped and stacked SVG bar chart with legend filtering",
+    "description": "A hand-written, dependency-free SVG bar chart with grouped and stacked layouts, morphing bar transitions, interactive legend toggles, and accessible hover and keyboard tooltips.",
+    "category": "Feedback",
+    "badges": [
+      "SVG",
+      "Bar Chart",
+      "Data Visualization",
+      "Interactive"
+    ],
+    "cliCommand": "npx shadcn@latest add Surajmaurya1/easyui/bar-chart",
+    "features": [
+      "Grouped and stacked layouts with interruptible, morphing bar transitions",
+      "Zero charting library dependencies — every bar is generated with hand-written SVG paths",
+      "Interactive legend that toggles series on and off while keeping at least one visible",
+      "Floating tooltip tracks the hovered category and shows per-series values and totals",
+      "Container-aware sizing with a ResizeObserver so the chart fits cards on mobile",
+      "Screen-reader table and keyboard navigation with arrow keys, Home, End, and Escape",
+      "Honors prefers-reduced-motion by disabling entrance and layout animations"
+    ],
+    "props": [
+      {
+        "name": "data",
+        "type": "BarDatum[]",
+        "description": "Categories to render; each row needs a label plus one numeric key per series"
+      },
+      {
+        "name": "series",
+        "type": "BarSeries[]",
+        "description": "Series definitions with a data key, display label, and optional color"
+      },
+      {
+        "name": "variant",
+        "type": "\"grouped\" | \"stacked\"",
+        "default": "\"grouped\"",
+        "description": "Places bars side by side or stacks them on top of each other"
+      },
+      {
+        "name": "height",
+        "type": "number",
+        "default": "260",
+        "description": "Height of the chart area in pixels"
+      },
+      {
+        "name": "formatValue",
+        "type": "(n: number) => string",
+        "default": "Intl.NumberFormat",
+        "description": "Formats values shown in tooltips and the accessible data table"
+      },
+      {
+        "name": "formatTick",
+        "type": "(n: number) => string",
+        "default": "compact Intl.NumberFormat",
+        "description": "Formats the y-axis tick labels"
+      },
+      {
+        "name": "showLegend",
+        "type": "boolean",
+        "default": "true",
+        "description": "Shows the interactive series legend when more than one series exists"
+      },
+      {
+        "name": "animated",
+        "type": "boolean",
+        "default": "true",
+        "description": "Enables entrance and bar morph animations (disabled for reduced motion)"
+      },
+      {
+        "name": "ariaLabel",
+        "type": "string",
+        "default": "auto-generated",
+        "description": "Accessible description for the chart image role"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "default": "\"\"",
+        "description": "Additional CSS classes for the chart wrapper"
+      }
+    ],
+    "accessibility": [
+      "The SVG exposes role=\"img\" with a descriptive aria-label derived from the series and category count",
+      "ArrowLeft and ArrowRight move the active category, Home and End jump to the first or last, and Escape dismisses the tooltip",
+      "A visually hidden data table mirrors every category and series value for screen readers",
+      "Legend buttons use aria-pressed to communicate the visible state of each series",
+      "Tooltips are aria-hidden because the same information is available through the data table and focus interactions",
+      "prefers-reduced-motion disables entrance, morph, and hover-band transitions"
+    ],
+    "createdAt": "2026-10-23",
+    "usageCode": "import { BarChart } from \"@/components/ui/bar-chart\";\n\nconst data = [\n  { label: \"Jan\", web: 2400, mobile: 1700 },\n  { label: \"Feb\", web: 2800, mobile: 1950 },\n  { label: \"Mar\", web: 3150, mobile: 2120 },\n];\n\nconst series = [\n  { key: \"web\", label: \"Web\" },\n  { key: \"mobile\", label: \"Mobile\" },\n];\n\nexport function Demo() {\n  return (\n    <div className=\"w-full max-w-2xl rounded-2xl bg-white p-5 dark:bg-neutral-950\">\n      <BarChart data={data} series={series} variant=\"grouped\" height={260} />\n    </div>\n  );\n}",
+    "dependencies": [
+      "framer-motion"
+    ],
+    "files": [
+      {
+        "path": "src/components/ui/BarChart.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/bar-chart.tsx"
+      },
+      {
+        "path": "src/lib/chart-primitives.tsx",
+        "type": "registry:lib",
+        "target": "lib/chart-primitives.tsx"
       }
     ]
   },
@@ -2610,6 +2844,115 @@ export const EASY_COMPONENTS: EasyComponentMeta[] = [
         "path": "src/lib/motion-tokens.ts",
         "type": "registry:lib",
         "target": "lib/motion-tokens.ts"
+      }
+    ]
+  },
+  {
+    "id": "donut-chart",
+    "name": "Donut Chart",
+    "tagline": "Animated SVG donut and gauge chart with a live center value",
+    "description": "A hand-written SVG donut and half-ring gauge with animated arcs, a live center readout, hover highlighting, and a legend that filters slices without collapsing the ring.",
+    "category": "Feedback",
+    "badges": [
+      "SVG",
+      "Donut Chart",
+      "Gauge",
+      "Data Visualization",
+      "Interactive"
+    ],
+    "cliCommand": "npx shadcn@latest add Surajmaurya1/easyui/donut-chart",
+    "features": [
+      "Full donut and semi-circle gauge variants from the same component",
+      "Spring-animated arcs that grow in on mount and stretch on hover or focus",
+      "Animated center number that counts up to the total and switches to the hovered slice",
+      "Interactive legend toggles slices while keeping at least one visible",
+      "Automatically holds the legend beside the ring on wide containers and below it on mobile",
+      "Zero charting library dependencies with a fully responsive SVG",
+      "Honors prefers-reduced-motion for arcs, center number, and readout transitions"
+    ],
+    "props": [
+      {
+        "name": "data",
+        "type": "DonutDatum[]",
+        "description": "Slices with a label, numeric value, and optional color"
+      },
+      {
+        "name": "variant",
+        "type": "\"donut\" | \"semi\"",
+        "default": "\"donut\"",
+        "description": "Renders a full ring or a half-ring gauge"
+      },
+      {
+        "name": "size",
+        "type": "number",
+        "default": "240",
+        "description": "Largest diameter in pixels; the chart shrinks to fit narrow containers"
+      },
+      {
+        "name": "thickness",
+        "type": "number",
+        "default": "16",
+        "description": "Stroke width of the ring in pixels"
+      },
+      {
+        "name": "centerLabel",
+        "type": "string",
+        "default": "\"Total\"",
+        "description": "Caption shown above the total in the center"
+      },
+      {
+        "name": "formatValue",
+        "type": "(n: number) => string",
+        "default": "Intl.NumberFormat",
+        "description": "Formats center values, slice values, and tooltips"
+      },
+      {
+        "name": "showLegend",
+        "type": "boolean",
+        "default": "true",
+        "description": "Shows the interactive slice legend"
+      },
+      {
+        "name": "animated",
+        "type": "boolean",
+        "default": "true",
+        "description": "Enables intro and value animations (disabled for reduced motion)"
+      },
+      {
+        "name": "ariaLabel",
+        "type": "string",
+        "default": "auto-generated",
+        "description": "Accessible description for the chart image role"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "default": "\"\"",
+        "description": "Additional CSS classes for the chart wrapper"
+      }
+    ],
+    "accessibility": [
+      "The SVG exposes role=\"img\" with a descriptive aria-label that includes the chart type and total",
+      "Legend buttons use aria-pressed to communicate whether a slice is visible",
+      "Slices respond to pointer hover and keyboard focus on their legend rows",
+      "The center readout announces the active slice label, value, and percentage visually",
+      "prefers-reduced-motion disables arc growth, number counting, and readout transitions"
+    ],
+    "createdAt": "2026-10-23",
+    "usageCode": "import { DonutChart } from \"@/components/ui/donut-chart\";\n\nconst data = [\n  { label: \"Compute\", value: 5240 },\n  { label: \"Storage\", value: 3180 },\n  { label: \"Bandwidth\", value: 2260 },\n  { label: \"Databases\", value: 1610 },\n];\n\nexport function Demo() {\n  return (\n    <div className=\"w-full max-w-md rounded-2xl bg-white p-5 dark:bg-neutral-950\">\n      <DonutChart\n        data={data}\n        centerLabel=\"Total spend\"\n        formatValue={(value) => `$${value.toLocaleString()}`}\n      />\n    </div>\n  );\n}",
+    "dependencies": [
+      "framer-motion"
+    ],
+    "files": [
+      {
+        "path": "src/components/ui/DonutChart.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/donut-chart.tsx"
+      },
+      {
+        "path": "src/lib/chart-primitives.tsx",
+        "type": "registry:lib",
+        "target": "lib/chart-primitives.tsx"
       }
     ]
   },

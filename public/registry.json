@@ -31,6 +31,27 @@
       ]
     },
     {
+      "name": "activity-heatmap",
+      "type": "registry:ui",
+      "title": "Activity Heatmap",
+      "description": "A GitHub-style contribution calendar and weekday-by-hour activity grid with automatic column fitting, quarterly color levels, hover tooltips, and keyboard navigation.",
+      "dependencies": [
+        "framer-motion"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/ActivityHeatmap.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/activity-heatmap.tsx"
+        },
+        {
+          "path": "src/lib/chart-primitives.tsx",
+          "type": "registry:lib",
+          "target": "lib/chart-primitives.tsx"
+        }
+      ]
+    },
+    {
       "name": "advanced-data-table",
       "type": "registry:ui",
       "title": "Advanced Data Table",
@@ -247,6 +268,27 @@
           "path": "src/lib/utils.ts",
           "type": "registry:lib",
           "target": "lib/utils.ts"
+        }
+      ]
+    },
+    {
+      "name": "bar-chart",
+      "type": "registry:ui",
+      "title": "Bar Chart",
+      "description": "A hand-written, dependency-free SVG bar chart with grouped and stacked layouts, morphing bar transitions, interactive legend toggles, and accessible hover and keyboard tooltips.",
+      "dependencies": [
+        "framer-motion"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/BarChart.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/bar-chart.tsx"
+        },
+        {
+          "path": "src/lib/chart-primitives.tsx",
+          "type": "registry:lib",
+          "target": "lib/chart-primitives.tsx"
         }
       ]
     },
@@ -696,6 +738,27 @@
           "path": "src/lib/motion-tokens.ts",
           "type": "registry:lib",
           "target": "lib/motion-tokens.ts"
+        }
+      ]
+    },
+    {
+      "name": "donut-chart",
+      "type": "registry:ui",
+      "title": "Donut Chart",
+      "description": "A hand-written SVG donut and half-ring gauge with animated arcs, a live center readout, hover highlighting, and a legend that filters slices without collapsing the ring.",
+      "dependencies": [
+        "framer-motion"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/DonutChart.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/donut-chart.tsx"
+        },
+        {
+          "path": "src/lib/chart-primitives.tsx",
+          "type": "registry:lib",
+          "target": "lib/chart-primitives.tsx"
         }
       ]
     },

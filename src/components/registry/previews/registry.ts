@@ -742,6 +742,24 @@ export const PREVIEW_REGISTRY: Record<string, ComponentPreviewDefinition> = {
     load: () => import('./items/interactive-area-chart'),
     metadata: { type: 'interactive' },
   },
+  'bar-chart': {
+    id: 'bar-chart',
+    componentId: 'bar-chart',
+    load: () => import('./items/bar-chart'),
+    metadata: { type: 'interactive' },
+  },
+  'donut-chart': {
+    id: 'donut-chart',
+    componentId: 'donut-chart',
+    load: () => import('./items/donut-chart'),
+    metadata: { type: 'interactive' },
+  },
+  'activity-heatmap': {
+    id: 'activity-heatmap',
+    componentId: 'activity-heatmap',
+    load: () => import('./items/activity-heatmap'),
+    metadata: { type: 'interactive' },
+  },
   'product-tour': {
     id: 'product-tour',
     componentId: 'product-tour',
