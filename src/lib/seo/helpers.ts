@@ -74,11 +74,6 @@ export const DOC_TOPICS_SEO: Record<string, { title: string; description: string
     description: 'Deep dive into EasyUI design system architecture, monochrome color tokens, typography scales, elevation surfaces, and spring physics tokens.',
     keywords: ['Design tokens', 'EasyUI architecture', 'Spring physics', 'Monochrome design system', 'UI token specification'],
   },
-  'motion-system': {
-    title: 'Motion System & Animation Tokens — EasyUI',
-    description: 'Master EasyUI spring physics, hardware acceleration, layout animations, and accessible prefers-reduced-motion patterns.',
-    keywords: ['Motion tokens', 'Framer Motion', 'Spring animation', 'Reduced motion', 'Micro-interactions'],
-  },
   collaboration: {
     title: 'Collaboration & Contribution Guide — EasyUI',
     description: 'Learn how to build, test, document, and contribute new components to EasyUI using automated registry generation and design tokens.',
@@ -91,17 +86,12 @@ export const DOC_TOPICS_SEO: Record<string, { title: string; description: string
   },
 };
 
-export function normalizeDocTopicId(topicId = 'introduction'): string {
-  return topicId === 'motion' || topicId === 'motion-tokens' ? 'motion-system' : topicId;
-}
-
 /**
  * Generates SEO metadata for any documentation topic.
  */
 export function getDocTopicSEO(topicId = 'introduction'): PageSEOMeta {
-  const normalizedTopicId = normalizeDocTopicId(topicId);
-  const topic = DOC_TOPICS_SEO[normalizedTopicId] || DOC_TOPICS_SEO.introduction;
-  const canonical = getCanonicalUrl(`docs/${normalizedTopicId}`);
+  const topic = DOC_TOPICS_SEO[topicId] || DOC_TOPICS_SEO.introduction;
+  const canonical = getCanonicalUrl(`docs/${topicId}`);
 
   return {
     title: topic.title,

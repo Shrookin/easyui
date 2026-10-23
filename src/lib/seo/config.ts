@@ -48,7 +48,6 @@ export const SEO_CONFIG = {
     docsIntro: '/docs/introduction',
     docsQuickStart: '/docs/quick-start',
     docsArchitecture: '/docs/architecture',
-    docsMotion: '/docs/motion-system',
     docsCollaboration: '/docs/collaboration',
     docsSEO: '/docs/seo',
   }

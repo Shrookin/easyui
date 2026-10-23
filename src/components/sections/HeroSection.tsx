@@ -14,7 +14,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExplore }) => {
         <div className="relative flex flex-col items-center text-center max-w-3xl mx-auto">
           {/* ONE strong headline — comma + period punctuation for typographic drama */}
           <motion.h1
-            initial={{ opacity: 0, y: 14 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, delay: 0.05, ease: [0.16, 1, 0.3, 1] }}
             className="mt-2 sm:mt-3 text-[36px] sm:text-[56px] lg:text-[72px] font-medium tracking-[-0.035em] text-text-primary leading-[1.02]"
@@ -26,7 +26,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExplore }) => {
 
           {/* ONE short description */}
           <motion.p
-            initial={{ opacity: 0, y: 14 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.14, ease: [0.16, 1, 0.3, 1] }}
             className="mt-3 sm:mt-4 text-[14px] sm:text-[15px] text-text-secondary max-w-md leading-relaxed"
@@ -36,7 +36,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExplore }) => {
 
           {/* Browse components CTA */}
           <motion.div
-            initial={{ opacity: 0, y: 14 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.22, ease: [0.16, 1, 0.3, 1] }}
             className="mt-5 sm:mt-6"

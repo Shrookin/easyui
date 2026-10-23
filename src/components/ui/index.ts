@@ -527,3 +527,9 @@ export type { WalletBalanceProps, WalletAccount } from './WalletBalance';
 export { MoneyCard, MoneyCardDemo } from './MoneyCard';
 export type { MoneyCardProps, Contact, Transaction, TransferRequest } from './MoneyCard';
 
+export { PhotoBox, PhotoBoxDemo, DEFAULT_PRINTS } from './PhotoBox';
+export type { PhotoBoxProps, PhotoPrint } from './PhotoBox';
+
+export { PackageBox, PackageBoxDemo } from './PackageBox';
+export type { PackageBoxProps, PackageSlip, PackageBoxColors } from './PackageBox';
+

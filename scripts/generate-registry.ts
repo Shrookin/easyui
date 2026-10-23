@@ -10,6 +10,7 @@ const __dirname = path.dirname(__filename);
 const ROOT_DIR = path.resolve(__dirname, '..');
 const UI_DIR = path.join(ROOT_DIR, 'src', 'components', 'ui');
 const REGISTRY_PATH = path.join(ROOT_DIR, 'registry.json');
+const PUBLIC_REGISTRY_PATH = path.join(ROOT_DIR, 'public', 'registry.json');
 const COMPONENTS_DATA_PATH = path.join(ROOT_DIR, 'src', 'components', 'registry', 'components-data.ts');
 const CATALOG_INDEX_PATH = path.join(ROOT_DIR, 'src', 'components', 'registry', 'catalog-index.ts');
 const SOURCE_DIR = path.join(ROOT_DIR, 'public', 'source');
@@ -347,7 +348,9 @@ function generateRegistryJson(components: DiscoveredComponent[]): void {
     items,
   };
 
-  fs.writeFileSync(REGISTRY_PATH, JSON.stringify(registry, null, 2) + '\n', 'utf-8');
+  const registryJson = JSON.stringify(registry, null, 2) + '\n';
+  fs.writeFileSync(REGISTRY_PATH, registryJson, 'utf-8');
+  fs.writeFileSync(PUBLIC_REGISTRY_PATH, registryJson, 'utf-8');
   console.log(`✓ Generated ${normalizeRelativePath(path.relative(ROOT_DIR, REGISTRY_PATH))} (${items.length} items)`);
 }
 

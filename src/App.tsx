@@ -4,7 +4,6 @@ import { Footer } from './components/layout/Footer';
 import { ComponentDirectory } from './components/sections/ComponentDirectory';
 import { CATALOG_INDEX } from './components/registry/catalog-index';
 import type { ComponentCatalogIndex } from './types/component';
-import { SpeedInsights } from '@vercel/speed-insights/react';
 import { useAnalyticsTracker } from './lib/analytics';
 import { useSEO } from './lib/seo';
 import { scrollToTop } from './lib/utils';
@@ -36,12 +35,10 @@ export interface RouteState {
 }
 
 const DOC_TOPIC_ALIASES: Record<string, string> = {
-  'motion-system': 'motion',
-  'motion-tokens': 'motion',
   contributing: 'collaboration',
 };
 
-const DOC_TOPIC_IDS = new Set(['introduction', 'quick-start', 'architecture', 'motion', 'collaboration', 'seo']);
+const DOC_TOPIC_IDS = new Set(['introduction', 'quick-start', 'architecture', 'collaboration', 'seo']);
 
 /**
  * Pure route parser — extracts the initial and active route state synchronously
@@ -190,12 +187,6 @@ export function App({ initialPath }: AppProps = {}) {
     return parseRouteFromUrl(initialPath);
   });
   const { activeView, selectedComponent, invalidComponentSlug, invalidRoutePath, activeDocTopic, componentPage } = routeState;
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
   // Initialize analytics & track page/view changes across the SPA
   useAnalyticsTracker({ activeView, componentPage, activeDocTopic });
 
@@ -316,16 +307,6 @@ export function App({ initialPath }: AppProps = {}) {
 
   return (
     <div className="min-h-screen bg-background text-text-primary font-sans selection:bg-accent/25 selection:text-text-primary">
-      {/* Vercel Speed Insights (active on production deployment after hydration) */}
-      {mounted &&
-        typeof window !== 'undefined' &&
-        !window.location.hostname.includes('localhost') &&
-        !window.location.hostname.includes('127.0.0.1') && (
-          <>
-            <SpeedInsights />
-          </>
-        )}
-
       {/* Navigation */}
       <Navbar
         onOpenSearch={handleOpenSearch}

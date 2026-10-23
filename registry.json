@@ -80,19 +80,13 @@
       "title": "AI Response",
       "description": "A production-ready, accessible AI response component supporting streaming markdown, syntax-styled code blocks, citations, feedback actions, and tool execution status.",
       "dependencies": [
-        "framer-motion",
-        "lucide-react"
+        "framer-motion"
       ],
       "files": [
         {
           "path": "src/components/ui/AIResponse.tsx",
           "type": "registry:ui",
           "target": "components/ui/ai-response.tsx"
-        },
-        {
-          "path": "src/lib/utils.ts",
-          "type": "registry:lib",
-          "target": "lib/utils.ts"
         }
       ]
     },
@@ -1667,29 +1661,13 @@
       "title": "Not Found",
       "description": "A minimal, production-ready 404 / route error component featuring floating spring-physics proximity displacement on individual glyphs, clear typography hierarchy, and accessible recovery actions.",
       "dependencies": [
-        "framer-motion",
-        "lucide-react"
+        "framer-motion"
       ],
       "files": [
         {
           "path": "src/components/ui/NotFound.tsx",
           "type": "registry:ui",
           "target": "components/ui/not-found.tsx"
-        },
-        {
-          "path": "src/lib/utils.ts",
-          "type": "registry:lib",
-          "target": "lib/utils.ts"
-        },
-        {
-          "path": "src/lib/motion-tokens.ts",
-          "type": "registry:lib",
-          "target": "lib/motion-tokens.ts"
-        },
-        {
-          "path": "src/components/ui/Button.tsx",
-          "type": "registry:ui",
-          "target": "components/ui/button.tsx"
         }
       ]
     },
@@ -1814,28 +1792,34 @@
       ]
     },
     {
+      "name": "package-box",
+      "type": "registry:ui",
+      "title": "Package Box",
+      "description": "A pure CSS 3D cardboard package box featuring interactive tape-splitting physics, flap-folding choreography, and an animated packing slip that rises out and turns to face the viewer.",
+      "dependencies": [
+        "framer-motion"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/PackageBox.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/package-box.tsx"
+        }
+      ]
+    },
+    {
       "name": "particle-delete",
       "type": "registry:ui",
       "title": "Particle Delete",
       "description": "Premium physics-driven particle dissolution delete animation that rasterizes components into thousands of authentic tiny pixels and disperses them smoothly before state removal.",
       "dependencies": [
-        "lucide-react"
+        "framer-motion"
       ],
       "files": [
         {
           "path": "src/components/ui/ParticleDelete.tsx",
           "type": "registry:ui",
           "target": "components/ui/particle-delete.tsx"
-        },
-        {
-          "path": "src/lib/utils.ts",
-          "type": "registry:lib",
-          "target": "lib/utils.ts"
-        },
-        {
-          "path": "src/lib/particle-delete.ts",
-          "type": "registry:lib",
-          "target": "lib/particle-delete.ts"
         }
       ]
     },
@@ -1917,6 +1901,22 @@
           "path": "src/lib/motion-tokens.ts",
           "type": "registry:lib",
           "target": "lib/motion-tokens.ts"
+        }
+      ]
+    },
+    {
+      "name": "photo-box",
+      "type": "registry:ui",
+      "title": "Photo Box",
+      "description": "Tactile Japanese stationery-inspired photo box featuring frosted glass translucency, sliding paper box mechanics, fanning polaroid prints, and full-bleed image zoom.",
+      "dependencies": [
+        "framer-motion"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/PhotoBox.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/photo-box.tsx"
         }
       ]
     },

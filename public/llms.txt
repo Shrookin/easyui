@@ -7,13 +7,12 @@
 - [Introduction](https://easyui.site/docs/introduction): Core architecture, design philosophy, and component model.
 - [Quick Start](https://easyui.site/docs/quick-start): Installation, dependencies setup, and shadcn CLI integration.
 - [Registry Architecture](https://easyui.site/docs/architecture): Design tokens, monochrome color system, elevation surfaces, and registry sync engine.
-- [Motion System](https://easyui.site/docs/motion-system): Spring physics parameters, transition tokens, and reduced-motion accessibility guidelines.
 - [Contributing Guide](https://easyui.site/docs/collaboration): Building, validating, documenting, and publishing new components.
 - [Automated SEO System](https://easyui.site/docs/seo): Single source of truth metadata, dynamic sitemaps, JSON-LD schemas, and health audit engine.
 
 ## Components Directory
 
-- [All Components Catalog](https://easyui.site/components): Browse the full catalog of 123 animated React components.
+- [All Components Catalog](https://easyui.site/components): Browse the full catalog of 125 animated React components.
 
 ### Component Index
 
@@ -92,10 +91,12 @@
 - [Orbital Loading Ring](https://easyui.site/components/orbital-loading-ring): A lightweight loading indicator with layered rings and orbiting particles that communicate active processing.
 - [OriginDropdown](https://easyui.site/components/origin-dropdown): A dropdown with origin-aware expansion — the menu materializes from the chosen side with a slight scale and an inward translation, so its perceived origin is the trigger edge closest to the menu.
 - [OTP Input](https://easyui.site/components/otp-input): An accessible one-time-passcode input made of auto-advancing digit boxes, each with a spring-driven pop animation on entry, built with Framer Motion and Tailwind CSS.
+- [Package Box](https://easyui.site/components/package-box): A pure CSS 3D cardboard package box featuring interactive tape-splitting physics, flap-folding choreography, and an animated packing slip that rises out and turns to face the viewer.
 - [Particle Delete](https://easyui.site/components/particle-delete): Premium physics-driven particle dissolution delete animation that rasterizes components into thousands of authentic tiny pixels and disperses them smoothly before state removal.
 - [Payment Receipt Printer](https://easyui.site/components/payment-receipt-printer): An animated payment and order receipt printer component for React featuring realistic thermal paper extrusion, chassis micro-vibration, customizable receipt itemization, and replay controls.
 - [Payment Status](https://easyui.site/components/payment-status): A calm, Apple-grade payment confirmation card with animated SVG path checkmark drawing, staged verification lifecycle transitions, receipt inspection, and failure recovery.
 - [Peek Card](https://easyui.site/components/peek-card): An origin-anchored contextual preview popover that emerges directly from target triggers on hover or tap with smart collision edge detection and rich metadata summaries.
+- [Photo Box](https://easyui.site/components/photo-box): Tactile Japanese stationery-inspired photo box featuring frosted glass translucency, sliding paper box mechanics, fanning polaroid prints, and full-bleed image zoom.
 - [Pill Navigation](https://easyui.site/components/pill-navigation): A restrained segmented navigation control with shared pill layout morphing and nested submenu dropdown support.
 - [PressButton](https://easyui.site/components/press-button): A button that compresses slightly on press and settles with a tiny natural overshoot for a tactile, physical feel.
 - [Pricing](https://easyui.site/components/pricing): A minimal two-tier pricing component for EasyUI. Native to the existing design system, fully theme-aware, with a quiet Free tier and a slightly more attractive Pro tier — without resorting to SaaS marketing tropes.

@@ -1116,6 +1116,20 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
     "createdAt": "2026-09-09T12:15:29.957Z"
   },
   {
+    "id": "package-box",
+    "name": "Package Box",
+    "tagline": "Interactive 3D package box with flap folding and rising document motion",
+    "description": "A pure CSS 3D cardboard package box featuring interactive tape-splitting physics, flap-folding choreography, and an animated packing slip that rises out and turns to face the viewer.",
+    "category": "Motion",
+    "badges": [
+      "3D Physics",
+      "Motion",
+      "Interactive"
+    ],
+    "cliCommand": "npx shadcn@latest add Surajmaurya1/easyui/package-box",
+    "createdAt": "2026-10-15"
+  },
+  {
     "id": "particle-delete",
     "name": "Particle Delete",
     "tagline": "Physics-driven pixel particle dissolution delete animation",
@@ -1171,6 +1185,22 @@ export const CATALOG_INDEX: ComponentCatalogIndex[] = [
     ],
     "cliCommand": "npx shadcn@latest add Surajmaurya1/easyui/peek-card",
     "createdAt": "2026-08-21"
+  },
+  {
+    "id": "photo-box",
+    "name": "Photo Box",
+    "tagline": "Frosted paper box with fanning polaroids and tactile zoom inspection",
+    "description": "Tactile Japanese stationery-inspired photo box featuring frosted glass translucency, sliding paper box mechanics, fanning polaroid prints, and full-bleed image zoom.",
+    "category": "Motion",
+    "badges": [
+      "Polaroid",
+      "Stationery",
+      "Glassmorphism",
+      "Motion",
+      "Interactive"
+    ],
+    "cliCommand": "npx shadcn@latest add Surajmaurya1/easyui/photo-box",
+    "createdAt": "2026-10-14"
   },
   {
     "id": "pill-navigation",

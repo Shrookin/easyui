@@ -377,19 +377,13 @@ export const EASY_COMPONENTS: EasyComponentMeta[] = [
     "createdAt": "2026-09-21",
     "usageCode": "import { AIResponse, AIResponseHeader, AIResponseContent, AIResponseSources, AIResponseActions } from \"@/components/ui/ai-response\";\n\nexport function Demo() {\n  return (\n    <AIResponse\n      status=\"complete\"\n      modelName=\"Claude 3.7 Sonnet\"\n      content=\"Here is a verified solution using **EasyUI** motion tokens:\\n\\n```typescript\\nimport { motionTransitions } from '@/lib/motion-tokens';\\n\\nexport const config = motionTransitions.springSnappy;\\n```\"\n      sources={[\n        { id: 1, title: \"EasyUI Motion Tokens\", url: \"https://easyui.pro/docs\" },\n        { id: 2, title: \"Framer Motion Spring Spec\", url: \"https://www.framer.com/motion/\" }\n      ]}\n      onRegenerate={() => console.log('Regenerating...')}\n    />\n  );\n}",
     "dependencies": [
-      "framer-motion",
-      "lucide-react"
+      "framer-motion"
     ],
     "files": [
       {
         "path": "src/components/ui/AIResponse.tsx",
         "type": "registry:ui",
         "target": "components/ui/ai-response.tsx"
-      },
-      {
-        "path": "src/lib/utils.ts",
-        "type": "registry:lib",
-        "target": "lib/utils.ts"
       }
     ]
   },
@@ -6258,29 +6252,13 @@ export const EASY_COMPONENTS: EasyComponentMeta[] = [
     "createdAt": "2026-09-23",
     "usageCode": "import { NotFound } from \"@/components/ui/not-found\";\n\nexport default function NotFoundPage() {\n  return (\n    <div className=\"min-h-screen flex items-center justify-center p-6 bg-[#111113]\">\n      <NotFound\n        title=\"This page took a wrong turn.\"\n        description=\"The requested page doesn't exist or may have moved.\"\n        actionLabel=\"Go back home\"\n        onAction={() => window.location.href = \"/\"}\n      />\n    </div>\n  );\n}",
     "dependencies": [
-      "framer-motion",
-      "lucide-react"
+      "framer-motion"
     ],
     "files": [
       {
         "path": "src/components/ui/NotFound.tsx",
         "type": "registry:ui",
         "target": "components/ui/not-found.tsx"
-      },
-      {
-        "path": "src/lib/utils.ts",
-        "type": "registry:lib",
-        "target": "lib/utils.ts"
-      },
-      {
-        "path": "src/lib/motion-tokens.ts",
-        "type": "registry:lib",
-        "target": "lib/motion-tokens.ts"
-      },
-      {
-        "path": "src/components/ui/Button.tsx",
-        "type": "registry:ui",
-        "target": "components/ui/button.tsx"
       }
     ],
     "featured": true
@@ -6679,6 +6657,143 @@ export const EASY_COMPONENTS: EasyComponentMeta[] = [
     ]
   },
   {
+    "id": "package-box",
+    "name": "Package Box",
+    "tagline": "Interactive 3D package box with flap folding and rising document motion",
+    "description": "A pure CSS 3D cardboard package box featuring interactive tape-splitting physics, flap-folding choreography, and an animated packing slip that rises out and turns to face the viewer.",
+    "category": "Motion",
+    "badges": [
+      "3D Physics",
+      "Motion",
+      "Interactive"
+    ],
+    "cliCommand": "npx shadcn@latest add Surajmaurya1/easyui/package-box",
+    "features": [
+      "Pure CSS 3D cardboard box geometry with authentic grain texture and lighting gradients",
+      "Choreographed master timeline: seam tape cut, sequential flap folding, and smooth paper rise",
+      "Responsive stage scaling that fluidly adapts to any container width via ResizeObserver",
+      "Customizable packing slip with itemization, totals, shipping info, and tactile rubber stamp",
+      "Configurable color tokens for cardboard, tape, paper, typography, and stamp accent",
+      "Full accessibility support with aria-controls, Esc dismiss, and prefers-reduced-motion adaptation"
+    ],
+    "props": [
+      {
+        "name": "open",
+        "type": "boolean",
+        "default": "undefined",
+        "description": "Controlled open state of the package box"
+      },
+      {
+        "name": "defaultOpen",
+        "type": "boolean",
+        "default": "false",
+        "description": "Initial open state for uncontrolled usage"
+      },
+      {
+        "name": "onOpenChange",
+        "type": "(open: boolean) => void",
+        "default": "undefined",
+        "description": "Callback triggered when open state changes"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "default": "undefined",
+        "description": "Custom React elements to render inside the rising document paper"
+      },
+      {
+        "name": "slip",
+        "type": "PackageSlip",
+        "default": "DEFAULT_SLIP",
+        "description": "Structured metadata for the default shipping invoice / packing slip"
+      },
+      {
+        "name": "maxWidth",
+        "type": "number",
+        "default": "460",
+        "description": "Maximum width in px; the 3D scene scales down responsively"
+      },
+      {
+        "name": "colors",
+        "type": "PackageBoxColors",
+        "default": "undefined",
+        "description": "Color overrides for box cardboard, tape, paper, ink, and accent stamp"
+      },
+      {
+        "name": "label",
+        "type": "ReactNode | false",
+        "default": "undefined",
+        "description": "Custom shipping label or false to hide"
+      },
+      {
+        "name": "symbols",
+        "type": "ReactNode | false",
+        "default": "undefined",
+        "description": "Custom fragile/handling symbols or false to hide"
+      },
+      {
+        "name": "tape",
+        "type": "boolean",
+        "default": "true",
+        "description": "Whether packing tape across top and seam is rendered"
+      },
+      {
+        "name": "hint",
+        "type": "boolean",
+        "default": "true",
+        "description": "Whether to show the accessible toggle button below the box"
+      },
+      {
+        "name": "openLabel",
+        "type": "string",
+        "default": "'Click to open'",
+        "description": "Accessible label when closed"
+      },
+      {
+        "name": "closeLabel",
+        "type": "string",
+        "default": "'Close'",
+        "description": "Accessible label when open"
+      },
+      {
+        "name": "reserveSpace",
+        "type": "boolean",
+        "default": "false",
+        "description": "Whether to preserve full open height while closed to avoid layout shifts"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "default": "''",
+        "description": "Optional CSS class names for outer wrapper"
+      },
+      {
+        "name": "paperClassName",
+        "type": "string",
+        "default": "''",
+        "description": "Optional CSS class names for the document paper"
+      }
+    ],
+    "accessibility": [
+      "Accessible button controller with aria-expanded and aria-controls bindings",
+      "Document element labeled with role=\"document\" and inert attribute while sealed inside",
+      "Keyboard support with Escape key listener to close active package",
+      "Respects prefers-reduced-motion by skipping animation durations and instant state resolution"
+    ],
+    "createdAt": "2026-10-15",
+    "usageCode": "import { PackageBox } from \"@/components/ui/package-box\";\n\nexport function Demo() {\n  return (\n    <PackageBox\n      colors={{ box: \"#b07b4a\", tape: \"#d3c3aa\" }}\n      slip={{\n        title: \"Thank you, Ana.\",\n        subtitle: \"Your order is packed and on its way.\",\n        recipient: \"Ana Rivera\",\n        items: [\n          { name: \"Oak desk lamp\", qty: 1, price: \"$89.00\" },\n          { name: \"Linen pouch\", qty: 2, price: \"$36.00\" },\n        ],\n        total: \"$125.00\",\n        stamp: \"Packed\",\n      }}\n    />\n  );\n}",
+    "dependencies": [
+      "framer-motion"
+    ],
+    "files": [
+      {
+        "path": "src/components/ui/PackageBox.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/package-box.tsx"
+      }
+    ]
+  },
+  {
     "id": "particle-delete",
     "name": "Particle Delete",
     "tagline": "Physics-driven pixel particle dissolution delete animation",
@@ -6743,23 +6858,13 @@ export const EASY_COMPONENTS: EasyComponentMeta[] = [
     "createdAt": "2026-08-21",
     "usageCode": "import { ParticleDeleteContainer, useParticleDelete, particleDelete } from \"@/components/ui/particle-delete\";\nimport { Trash2 } from \"lucide-react\";\n\nexport function Demo() {\n  const [items, setItems] = useState([\n    { id: '1', name: 'Database Snapshot #409' },\n    { id: '2', name: 'Redis Cache Layer' }\n  ]);\n\n  const handleDelete = (id: string) => {\n    setItems((prev) => prev.filter((i) => i.id !== id));\n  };\n\n  return (\n    <div className=\"space-y-3\">\n      {items.map((item) => (\n        <ParticleDeleteContainer\n          key={item.id}\n          onDelete={() => handleDelete(item.id)}\n          className=\"p-4 rounded-xl bg-[#0D0D0D] border border-[#222222] flex items-center justify-between\"\n        >\n          {({ isDeleting, handleDelete: triggerDelete }) => (\n            <>\n              <span className=\"text-sm font-medium text-white\">{item.name}</span>\n              <button\n                type=\"button\"\n                onClick={triggerDelete}\n                disabled={isDeleting}\n                className=\"p-2 rounded-lg bg-[#141414] hover:bg-rose-950/40 text-[#888888] hover:text-rose-400 border border-[#262626] transition-colors\"\n              >\n                <Trash2 className=\"w-4 h-4\" />\n              </button>\n            </>\n          )}\n        </ParticleDeleteContainer>\n      ))}\n    </div>\n  );\n}",
     "dependencies": [
-      "lucide-react"
+      "framer-motion"
     ],
     "files": [
       {
         "path": "src/components/ui/ParticleDelete.tsx",
         "type": "registry:ui",
         "target": "components/ui/particle-delete.tsx"
-      },
-      {
-        "path": "src/lib/utils.ts",
-        "type": "registry:lib",
-        "target": "lib/utils.ts"
-      },
-      {
-        "path": "src/lib/particle-delete.ts",
-        "type": "registry:lib",
-        "target": "lib/particle-delete.ts"
       }
     ]
   },
@@ -7178,6 +7283,91 @@ export const EASY_COMPONENTS: EasyComponentMeta[] = [
         "path": "src/lib/motion-tokens.ts",
         "type": "registry:lib",
         "target": "lib/motion-tokens.ts"
+      }
+    ]
+  },
+  {
+    "id": "photo-box",
+    "name": "Photo Box",
+    "tagline": "Frosted paper box with fanning polaroids and tactile zoom inspection",
+    "description": "Tactile Japanese stationery-inspired photo box featuring frosted glass translucency, sliding paper box mechanics, fanning polaroid prints, and full-bleed image zoom.",
+    "category": "Motion",
+    "badges": [
+      "Polaroid",
+      "Stationery",
+      "Glassmorphism",
+      "Motion",
+      "Interactive"
+    ],
+    "cliCommand": "npx shadcn@latest add Surajmaurya1/easyui/photo-box",
+    "features": [
+      "Translucent frosted glass cover with realistic backdrop-blur and warm gradient sheen",
+      "Sliding paper box drawer physics with spring-tuned easing and offset lip reveal",
+      "Tri-slot polaroid fanning layout that expands on hover, tap, or focus",
+      "Click-to-zoom polaroid inspection view with high-res framing and title captions",
+      "Accessible keyboard navigation (Tab through prints, Enter to expand, Esc to dismiss)",
+      "Responsive auto-scaling stage with ResizeObserver keeping pixel-perfect geometry down to mobile screens"
+    ],
+    "props": [
+      {
+        "name": "prints",
+        "type": "PhotoPrint[]",
+        "default": "DEFAULT_PRINTS",
+        "description": "Up to 3 photo prints to display inside the box slots (title, caption, src or art)"
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "default": "'写真箱'",
+        "description": "Headline kanji or text displayed on the frosted cover"
+      },
+      {
+        "name": "subtitle",
+        "type": "string",
+        "default": "'Photo Box · 3 prints'",
+        "description": "Subtext printed beneath the headline title"
+      },
+      {
+        "name": "open",
+        "type": "boolean",
+        "default": "undefined",
+        "description": "Optional controlled open state for external hover or trigger controls"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "default": "''",
+        "description": "Optional CSS class overrides applied to the outer stage container"
+      },
+      {
+        "name": "onOpenChange",
+        "type": "(open: boolean) => void",
+        "default": "undefined",
+        "description": "Callback invoked whenever the box opens or closes"
+      },
+      {
+        "name": "onSelect",
+        "type": "(id: string | null) => void",
+        "default": "undefined",
+        "description": "Callback invoked when an individual polaroid print is inspected or closed"
+      }
+    ],
+    "accessibility": [
+      "Full keyboard navigation allowing Tab selection and Enter activation of unboxed polaroid prints",
+      "Esc key listener to collapse enlarged polaroids and pinned touch drawers",
+      "ARIA attributes including role=\"dialog\", aria-modal=\"true\", and aria-expanded",
+      "Automatic prefers-reduced-motion detection with instantaneous transitions"
+    ],
+    "createdAt": "2026-10-14",
+    "usageCode": "import { PhotoBox } from \"@/components/ui/photo-box\";\n\nexport function Demo() {\n  return (\n    <div className=\"w-full py-12 flex justify-center\">\n      <PhotoBox />\n    </div>\n  );\n}",
+    "dependencies": [
+      "framer-motion"
+    ],
+    "files": [
+      {
+        "path": "src/components/ui/PhotoBox.tsx",
+        "type": "registry:ui",
+        "target": "components/ui/photo-box.tsx"
       }
     ]
   },
@@ -10299,7 +10489,7 @@ export const EASY_COMPONENTS: EasyComponentMeta[] = [
       "Maintains visible focus states for interactive elements"
     ],
     "createdAt": "2026-09-12T10:03:04.539Z",
-    "usageCode": "import { StoryCards } from \"@/components/ui/StoryCard\";\n\nexport function Demo() {\n  return (\n    <StoryCards\n      cards={[\n        {\n          id: 1,\n          title: \"Annual letter 2025\",\n          description:\n            \"We survived another year of meetings, deadlines, bugs, and pretending everything was part of the plan.\",\n          image:\n            \"https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1600&q=85\",\n          imageAlt: \"Modern office interior\",\n          href: \"/annual-letter\",\n          ctaLabel: \"Read the damage\",\n        },\n        {\n          id: 2,\n          title: \"Building for the future\",\n          description:\n            \"A deep dive into how we build things nobody asked for, then spend three weeks fixing them.\",\n          image:\n            \"https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=85\",\n          imageAlt: \"Team collaborating in an office\",\n          href: \"/stories/future\",\n          ctaLabel: \"See the chaos\",\n        },\n        {\n          id: 3,\n          title: \"Inside the journey\",\n          description:\n            \"One person's inspiring journey from 'this should be easy' to 47 browser tabs and a Stack Overflow account.\",\n          image:\n            \"https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=85\",\n          imageAlt: \"Person exploring a landscape\",\n          href: \"/stories/journey\",\n          ctaLabel: \"Join the adventure\",\n        },\n        {\n          id: 4,\n          title: \"The internet economy\",\n          description:\n            \"An extremely serious investigation into why everything costs money, including things that used to be free.\",\n          image:\n            \"https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=85\",\n          imageAlt: \"Technology infrastructure\",\n          href: \"/stories/economy\",\n          ctaLabel: \"Understand capitalism\",\n        }\n        }\n    />\n  );\n}",
+    "usageCode": "import { StoryCards } from \"@/components/ui/StoryCard\";\n\nexport function Demo() {\n  return (\n    <StoryCards\n      cards={[\n        {\n          id: 1,\n          title: \"Annual letter 2025\",\n          description:\n            \"We survived another year of meetings, deadlines, bugs, and pretending everything was part of the plan.\",\n          image:\n            \"https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1600&q=85\",\n          imageAlt: \"Modern office interior\",\n          ctaLabel: \"Read the damage\",\n        },\n        {\n          id: 2,\n          title: \"Building for the future\",\n          description:\n            \"A deep dive into how we build things nobody asked for, then spend three weeks fixing them.\",\n          image:\n            \"https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=85\",\n          imageAlt: \"Team collaborating in an office\",\n          ctaLabel: \"See the chaos\",\n        },\n        {\n          id: 3,\n          title: \"Inside the journey\",\n          description:\n            \"One person's inspiring journey from 'this should be easy' to 47 browser tabs and a Stack Overflow account.\",\n          image:\n            \"https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=85\",\n          imageAlt: \"Person exploring a landscape\",\n          ctaLabel: \"Join the adventure\",\n        },\n        {\n          id: 4,\n          title: \"The internet economy\",\n          description:\n            \"An extremely serious investigation into why everything costs money, including things that used to be free.\",\n          image:\n            \"https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=85\",\n          imageAlt: \"Technology infrastructure\",\n          ctaLabel: \"Understand capitalism\",\n        }\n        }\n    />\n  );\n}",
     "dependencies": [
       "framer-motion"
     ],
