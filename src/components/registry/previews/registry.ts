@@ -754,6 +754,24 @@ export const PREVIEW_REGISTRY: Record<string, ComponentPreviewDefinition> = {
     load: () => import('./items/donut-chart'),
     metadata: { type: 'interactive' },
   },
+  'stat-card': {
+    id: 'stat-card',
+    componentId: 'stat-card',
+    load: () => import('./items/stat-card'),
+    metadata: { type: 'interactive' },
+  },
+  'funnel-chart': {
+    id: 'funnel-chart',
+    componentId: 'funnel-chart',
+    load: () => import('./items/funnel-chart'),
+    metadata: { type: 'interactive' },
+  },
+  'live-line-chart': {
+    id: 'live-line-chart',
+    componentId: 'live-line-chart',
+    load: () => import('./items/live-line-chart'),
+    metadata: { type: 'interactive' },
+  },
   'activity-heatmap': {
     id: 'activity-heatmap',
     componentId: 'activity-heatmap',

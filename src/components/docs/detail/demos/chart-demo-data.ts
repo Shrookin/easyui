@@ -1,6 +1,7 @@
 import type { BarDatum, BarSeries } from '../../../ui/BarChart';
 import type { DonutDatum } from '../../../ui/DonutChart';
 import type { HeatDay } from '../../../ui/ActivityHeatmap';
+import type { FunnelStage } from '../../../ui/FunnelChart';
 
 function rng(seed: number) {
   return () => {
@@ -61,4 +62,47 @@ export const CHART_MATRIX = (() => {
       return Math.round(r() * 8 + work * peak * 38);
     }),
   );
+})();
+
+/* ------------------------------ Dashboard data ----------------------------- */
+
+const clamp = (v: number, min: number, max: number) => Math.min(Math.max(v, min), max);
+
+const walk = (seed: number, n: number, start: number, drift: number, vol: number) => {
+  const r = rng(seed);
+  let v = start;
+  return Array.from({ length: n }, () => (v = Math.max(1, v + drift + (r() - 0.5) * vol)));
+};
+
+export const DASHBOARD_DAYS = Array.from({ length: 14 }, (_, i) => `Oct ${i + 8}`);
+export const DASHBOARD_REVENUE = walk(3, 14, 41000, 700, 3200);
+export const DASHBOARD_USERS = walk(5, 14, 8200, 120, 380);
+export const DASHBOARD_CONVERSION = walk(8, 14, 3.1, 0.03, 0.22);
+export const DASHBOARD_CHURN = walk(13, 14, 2.6, -0.02, 0.18);
+
+export const DASHBOARD_FUNNEL: FunnelStage[] = [
+  { label: 'Visited site', value: 48200 },
+  { label: 'Signed up', value: 15840 },
+  { label: 'Created project', value: 9120 },
+  { label: 'Invited a teammate', value: 4210 },
+  { label: 'Started paid plan', value: 1380 },
+];
+
+/** A pretend websocket: a random walk with a daily wobble, one reading per second */
+export const DASHBOARD_LIVE_SOURCE = (push: (value: number, time?: number) => void) => {
+  const r = rng(99);
+  let v = 1240;
+  const id = setInterval(() => {
+    v = clamp(v + (r() - 0.5) * 110 + Math.sin(Date.now() / 6000) * 22, 700, 1900);
+    push(Math.round(v));
+  }, 1000);
+  return () => clearInterval(id);
+};
+
+export const DASHBOARD_LIVE_INITIAL = (() => {
+  const r = rng(77);
+  let v = 1200;
+  return Array.from({ length: 60 }, (_, i) =>
+    (v = clamp(v + (r() - 0.5) * 90 + Math.sin(i / 7) * 18, 700, 1900)),
+  ).map(Math.round);
 })();

@@ -72,6 +72,7 @@
       }
 
       h1 {
+        max-width: 100%;
         margin: 12px 0 0;
         background: linear-gradient(180deg, #fff 10%, #a7a7b2 100%);
         background-clip: text;
@@ -80,6 +81,7 @@
         font-weight: 650;
         letter-spacing: -.04em;
         line-height: 1.08;
+        text-wrap: balance;
       }
 
       .description {
@@ -139,7 +141,7 @@
 
       @media (max-width: 480px) {
         body { padding: 36px 20px; }
-        .art { width: min(112vw, 400px); }
+        .art { width: 100%; }
         .description { font-size: 14px; }
         .actions { width: 100%; flex-direction: column; }
         .action { width: 100%; }
